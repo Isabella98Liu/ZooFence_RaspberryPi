@@ -29,3 +29,6 @@ SOURCES += \
 
 HEADERS += \
         welcomepage.h
+
+RESOURCES += \
+    resources.qrc
