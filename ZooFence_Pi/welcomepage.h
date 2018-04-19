@@ -2,26 +2,24 @@
 #define WELCOMEPAGE_H
 
 #include <QWidget>
-#include <QGraphicsScene>
-#include <QGraphicsView>
-#include <QImage>
-#include <QPixmap>
+#include <QMovie>
+
+namespace Ui {
+class welcomePage;
+}
 
 class welcomePage : public QWidget
 {
     Q_OBJECT
 
 public:
-    welcomePage(QWidget *parent = 0);
+    explicit welcomePage(QWidget *parent = 0);
     ~welcomePage();
-    void loadPic();
+    void loadGif();
 
 private:
-    QGraphicsScene *scene;
-    QGraphicsView *view;
-    QPixmap pix_Pic;
-    QImage Pic;
-
+    Ui::welcomePage *ui;
+    QMovie *loading;
 };
 
 #endif // WELCOMEPAGE_H

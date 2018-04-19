@@ -15,7 +15,7 @@ CXX           = /Library/Developer/CommandLineTools/usr/bin/clang++
 DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=10.10 -Wall -W -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=10.10 -Wall -W -fPIC $(DEFINES)
-INCPATH       = -I../ZooFence_Pi -I. -I../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers -I../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers -I../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AGL.framework/Headers -I../../../Qt/5.10.1/clang_64/mkspecs/macx-clang -F/Users/Isabella/Qt/5.10.1/clang_64/lib
+INCPATH       = -I../ZooFence_Pi -I. -I../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers -I../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers -I../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I../../../Qt/5.10.1/clang_64/mkspecs/macx-clang -F/Users/Isabella/Qt/5.10.1/clang_64/lib
 QMAKE         = /Users/Isabella/Qt/5.10.1/clang_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -51,9 +51,15 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../ZooFence_Pi/main.cpp \
-		../ZooFence_Pi/welcomepage.cpp moc_welcomepage.cpp
+		../ZooFence_Pi/introduce.cpp \
+		../ZooFence_Pi/welcomepage.cpp qrc_resources.cpp \
+		moc_introduce.cpp \
+		moc_welcomepage.cpp
 OBJECTS       = main.o \
+		introduce.o \
 		welcomepage.o \
+		qrc_resources.o \
+		moc_introduce.o \
 		moc_welcomepage.o
 DIST          = ../../../Qt/5.10.1/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/qdevice.pri \
@@ -213,6 +219,7 @@ DIST          = ../../../Qt/5.10.1/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/spec_post.prf \
+		../ZooFence_Pi/.qmake.stash \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/toolchain.prf \
@@ -240,7 +247,9 @@ DIST          = ../../../Qt/5.10.1/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/exceptions.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/lex.prf \
-		../ZooFence_Pi/ZooFence_Pi.pro ../ZooFence_Pi/welcomepage.h ../ZooFence_Pi/main.cpp \
+		../ZooFence_Pi/ZooFence_Pi.pro ../ZooFence_Pi/introduce.h \
+		../ZooFence_Pi/welcomepage.h ../ZooFence_Pi/main.cpp \
+		../ZooFence_Pi/introduce.cpp \
 		../ZooFence_Pi/welcomepage.cpp
 QMAKE_TARGET  = ZooFence_Pi
 DESTDIR       = 
@@ -255,7 +264,7 @@ EXPORT_ARCH_ARGS = $(foreach arch, $(if $(EXPORT_ACTIVE_ARCHS), $(EXPORT_ACTIVE_
 first: all
 ####### Build rules
 
-$(TARGET):  $(OBJECTS)  
+$(TARGET): ui_introduce.h ui_welcomepage.h $(OBJECTS)  
 	@test -d ZooFence_Pi.app/Contents/MacOS/ || mkdir -p ZooFence_Pi.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -417,6 +426,7 @@ Makefile: ../ZooFence_Pi/ZooFence_Pi.pro ../../../Qt/5.10.1/clang_64/mkspecs/mac
 		../../../Qt/5.10.1/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/toolchain.prf \
@@ -445,6 +455,7 @@ Makefile: ../ZooFence_Pi/ZooFence_Pi.pro ../../../Qt/5.10.1/clang_64/mkspecs/mac
 		../../../Qt/5.10.1/clang_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/lex.prf \
 		../ZooFence_Pi/ZooFence_Pi.pro \
+		../ZooFence_Pi/resources.qrc \
 		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/QtWidgets.prl \
 		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/QtGui.prl \
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/QtCore.prl
@@ -607,6 +618,7 @@ Makefile: ../ZooFence_Pi/ZooFence_Pi.pro ../../../Qt/5.10.1/clang_64/mkspecs/mac
 ../../../Qt/5.10.1/clang_64/mkspecs/features/qt_config.prf:
 ../../../Qt/5.10.1/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../Qt/5.10.1/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../Qt/5.10.1/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/5.10.1/clang_64/mkspecs/features/mac/sdk.prf:
 ../../../Qt/5.10.1/clang_64/mkspecs/features/toolchain.prf:
@@ -635,6 +647,7 @@ Makefile: ../ZooFence_Pi/ZooFence_Pi.pro ../../../Qt/5.10.1/clang_64/mkspecs/mac
 ../../../Qt/5.10.1/clang_64/mkspecs/features/yacc.prf:
 ../../../Qt/5.10.1/clang_64/mkspecs/features/lex.prf:
 ../ZooFence_Pi/ZooFence_Pi.pro:
+../ZooFence_Pi/resources.qrc:
 ../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/QtWidgets.prl:
 ../../../Qt/5.10.1/clang_64/lib/QtGui.framework/QtGui.prl:
 ../../../Qt/5.10.1/clang_64/lib/QtCore.framework/QtCore.prl:
@@ -667,9 +680,11 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
+	$(COPY_FILE) --parents ../ZooFence_Pi/resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/5.10.1/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../ZooFence_Pi/welcomepage.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../ZooFence_Pi/main.cpp ../ZooFence_Pi/welcomepage.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../ZooFence_Pi/introduce.h ../ZooFence_Pi/welcomepage.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../ZooFence_Pi/main.cpp ../ZooFence_Pi/introduce.cpp ../ZooFence_Pi/welcomepage.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../ZooFence_Pi/introduce.ui ../ZooFence_Pi/welcomepage.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -693,17 +708,31 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all:
+compiler_rcc_make_all: qrc_resources.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) qrc_resources.cpp
+qrc_resources.cpp: ../ZooFence_Pi/resources.qrc \
+		../../../Qt/5.10.1/clang_64/bin/rcc \
+		../ZooFence_Pi/Resources/001/welcomePage.png \
+		../ZooFence_Pi/Resources/001/loading.gif
+	/Users/Isabella/Qt/5.10.1/clang_64/bin/rcc -name resources ../ZooFence_Pi/resources.qrc -o qrc_resources.cpp
+
 compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: ../../../Qt/5.10.1/clang_64/mkspecs/features/data/dummy.cpp
 	/Library/Developer/CommandLineTools/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=10.10 -Wall -W -dM -E -o moc_predefs.h ../../../Qt/5.10.1/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_welcomepage.cpp
+compiler_moc_header_make_all: moc_introduce.cpp moc_welcomepage.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_welcomepage.cpp
+	-$(DEL_FILE) moc_introduce.cpp moc_welcomepage.cpp
+moc_introduce.cpp: ../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../ZooFence_Pi/introduce.h \
+		moc_predefs.h \
+		../../../Qt/5.10.1/clang_64/bin/moc
+	/Users/Isabella/Qt/5.10.1/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt/5.10.1/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt/5.10.1/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt/5.10.1/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt/5.10.1/clang_64/lib ../ZooFence_Pi/introduce.h -o moc_introduce.cpp
+
 moc_welcomepage.cpp: ../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		../ZooFence_Pi/welcomepage.h \
@@ -715,8 +744,17 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all:
+compiler_uic_make_all: ui_introduce.h ui_welcomepage.h
 compiler_uic_clean:
+	-$(DEL_FILE) ui_introduce.h ui_welcomepage.h
+ui_introduce.h: ../ZooFence_Pi/introduce.ui \
+		../../../Qt/5.10.1/clang_64/bin/uic
+	/Users/Isabella/Qt/5.10.1/clang_64/bin/uic ../ZooFence_Pi/introduce.ui -o ui_introduce.h
+
+ui_welcomepage.h: ../ZooFence_Pi/welcomepage.ui \
+		../../../Qt/5.10.1/clang_64/bin/uic
+	/Users/Isabella/Qt/5.10.1/clang_64/bin/uic ../ZooFence_Pi/welcomepage.ui -o ui_welcomepage.h
+
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
 compiler_yacc_decl_make_all:
@@ -725,21 +763,39 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
 
-main.o: ../ZooFence_Pi/main.cpp ../ZooFence_Pi/welcomepage.h \
+main.o: ../ZooFence_Pi/main.cpp ../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QImage \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QGraphicsScene \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QGraphicsView \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qgraphicsview.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../ZooFence_Pi/main.cpp
+
+introduce.o: ../ZooFence_Pi/introduce.cpp ../ZooFence_Pi/introduce.h \
 		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QApplication \
-		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../ZooFence_Pi/main.cpp
+		ui_introduce.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o introduce.o ../ZooFence_Pi/introduce.cpp
 
 welcomepage.o: ../ZooFence_Pi/welcomepage.cpp ../ZooFence_Pi/welcomepage.h \
 		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qwidget.h
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		ui_welcomepage.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o welcomepage.o ../ZooFence_Pi/welcomepage.cpp
+
+qrc_resources.o: qrc_resources.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
+
+moc_introduce.o: moc_introduce.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_introduce.o moc_introduce.cpp
 
 moc_welcomepage.o: moc_welcomepage.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_welcomepage.o moc_welcomepage.cpp

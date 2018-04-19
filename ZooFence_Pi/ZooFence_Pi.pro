@@ -25,10 +25,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        welcomepage.cpp
+    introduce.cpp \
+    welcomepage.cpp
 
 HEADERS += \
-        welcomepage.h
+    introduce.h \
+    welcomepage.h
 
 RESOURCES += \
     resources.qrc
+
+FORMS += \
+    introduce.ui \
+    welcomepage.ui

@@ -1,21 +1,22 @@
 #include "welcomepage.h"
-#include <QPixmap>
+#include "ui_welcomepage.h"
 
-welcomePage::welcomePage(QWidget *parent)
-    : QWidget(parent)
+welcomePage::welcomePage(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::welcomePage)
 {
-
+    ui->setupUi(this);
 }
 
 welcomePage::~welcomePage()
 {
+    delete ui;
 }
 
-void welcomePage::loadPic()
+void welcomePage::loadGif()
 {
-    Pic.load(":/.001/Resources/001/welcomePage.png");
-    pix_Pic.convertFromImage(Pic);
-    scene->addPixmap(pix_Pic);
-    view->setScene(scene);
-    view->show();
+    loading = new QMovie(":/.001/Resources/001/loading.gif");
+    loading->setScaledSize(QSize(100,100));
+    ui->label_2->setMovie(loading);
+    loading->start();
 }
