@@ -212,6 +212,7 @@ Makefile: ../ZooFence_Pi/ZooFence_Pi.pro ../../../software/Qt/Qt5.10.1/5.10.1/mi
 		../../../software/Qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/qt_config.prf \
 		../../../software/Qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/win32-g++/qmake.conf \
 		../../../software/Qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../software/Qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/exclusive_builds.prf \
 		../../../software/Qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/toolchain.prf \
 		../../../software/Qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/default_pre.prf \
@@ -391,6 +392,7 @@ Makefile: ../ZooFence_Pi/ZooFence_Pi.pro ../../../software/Qt/Qt5.10.1/5.10.1/mi
 ../../../software/Qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/qt_config.prf:
 ../../../software/Qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/win32-g++/qmake.conf:
 ../../../software/Qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../software/Qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/exclusive_builds.prf:
 ../../../software/Qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/toolchain.prf:
 ../../../software/Qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/features/default_pre.prf:
