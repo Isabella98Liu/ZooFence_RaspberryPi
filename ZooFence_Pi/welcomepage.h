@@ -7,6 +7,7 @@
 #include <QTimer>
 #include <QString>
 
+
 namespace Ui {
 class welcomePage;
 }
@@ -30,6 +31,9 @@ private:
     QMovie *loading;
     QLabel *Text;
     QTimer *timer1;
+
+signals:
+    void switch_index_1_2();
 
 private slots:
     void textUpdate();

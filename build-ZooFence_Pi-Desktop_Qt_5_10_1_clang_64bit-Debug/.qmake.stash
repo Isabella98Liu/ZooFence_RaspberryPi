@@ -1,4 +1,4 @@
-QMAKE_LICHECK_TIMESTAMP = "Thu Apr 19"
+QMAKE_LICHECK_TIMESTAMP = "Sat Apr 21"
 QMAKE_MAC_SDK.macosx.--show-sdk-path = /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
 QMAKE_MAC_SDK.macosx.--show-sdk-version = 10.13
 QMAKE_MAC_SDK.macx-clang.macosx.QMAKE_CC = /Library/Developer/CommandLineTools/usr/bin/clang
@@ -38,4 +38,3 @@ QMAKE_CXX.COMPILER_MACROS = \
     QMAKE_GCC_MINOR_VERSION \
     QMAKE_GCC_PATCH_VERSION
 QMAKE_XCODE_DEVELOPER_PATH = /Library/Developer/CommandLineTools
-QMAKE_LICHECK_TIMESTAMP = "Fri Apr 20"

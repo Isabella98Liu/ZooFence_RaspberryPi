@@ -24,18 +24,24 @@ class Ui_welcomePage
 public:
     QLabel *label;
     QLabel *label_2;
+    QLabel *label_3;
 
     void setupUi(QWidget *welcomePage)
     {
         if (welcomePage->objectName().isEmpty())
             welcomePage->setObjectName(QStringLiteral("welcomePage"));
+        welcomePage->setEnabled(true);
         welcomePage->resize(589, 445);
         label = new QLabel(welcomePage);
         label->setObjectName(QStringLiteral("label"));
+        label->setEnabled(true);
         label->setGeometry(QRect(150, 20, 301, 291));
         label_2 = new QLabel(welcomePage);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(240, 310, 151, 81));
+        label_2->setGeometry(QRect(250, 320, 151, 81));
+        label_3 = new QLabel(welcomePage);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setGeometry(QRect(250, 400, 121, 20));
 
         retranslateUi(welcomePage);
 
@@ -46,7 +52,8 @@ public:
     {
         welcomePage->setWindowTitle(QApplication::translate("welcomePage", "Form", nullptr));
         label->setText(QApplication::translate("welcomePage", "<html><head/><body><p><img src=\":/.001/Resources/001/welcomePage.png\" height=\"280\" width=\"280\"/></p></body></html>", nullptr));
-        label_2->setText(QApplication::translate("welcomePage", "<html><head/><body><p><img src=\":/.001/Resources/001/loading.gif\" width=\"120\" height=\"120\"/></p></body></html>", nullptr));
+        label_2->setText(QApplication::translate("welcomePage", "<html><head/><body><p><br/></p></body></html>", nullptr));
+        label_3->setText(QApplication::translate("welcomePage", "<html><head/><body><p><br/></p></body></html>", nullptr));
     } // retranslateUi
 
 };

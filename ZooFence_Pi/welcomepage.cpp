@@ -1,5 +1,9 @@
 #include "welcomepage.h"
 #include "ui_welcomepage.h"
+#include "introduce.h"
+#include "pageindex.h"
+
+#include <QDebug>
 
 welcomePage::welcomePage(QWidget *parent) :
     QWidget(parent),
@@ -52,8 +56,10 @@ void welcomePage::textUpdate()
     if(textIndex == textNum)  // if the last text content was displayed, hide everything
     {
         timer1->stop();
-        switch_index = true;
-        welcomePage::destroy(true, true);
+        emit switch_index_1_2();
+//        emit page.switch_index_1_2();   //emit the signals of switching page
+//        welcomePage::destroy(true, true);  //do no destroy the page
+        welcomePage::setVisible(false);
     }
     textIndex++;
 }

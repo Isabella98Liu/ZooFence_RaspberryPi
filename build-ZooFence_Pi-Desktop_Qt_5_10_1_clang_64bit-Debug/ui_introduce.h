@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -21,12 +22,16 @@ QT_BEGIN_NAMESPACE
 class Ui_introduce
 {
 public:
+    QPushButton *pushButton;
 
     void setupUi(QWidget *introduce)
     {
         if (introduce->objectName().isEmpty())
             introduce->setObjectName(QStringLiteral("introduce"));
-        introduce->resize(400, 300);
+        introduce->resize(1010, 660);
+        pushButton = new QPushButton(introduce);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(410, 200, 80, 24));
 
         retranslateUi(introduce);
 
@@ -36,6 +41,7 @@ public:
     void retranslateUi(QWidget *introduce)
     {
         introduce->setWindowTitle(QApplication::translate("introduce", "Form", nullptr));
+        pushButton->setText(QApplication::translate("introduce", "PushButton", nullptr));
     } // retranslateUi
 
 };
