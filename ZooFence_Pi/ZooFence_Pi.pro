@@ -32,7 +32,8 @@ SOURCES += \
 HEADERS += \
     introduce.h \
     welcomepage.h \
-    pageindex.h
+    pageindex.h \
+    qss.h
 
 RESOURCES += \
     resources.qrc

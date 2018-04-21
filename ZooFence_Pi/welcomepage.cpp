@@ -57,7 +57,6 @@ void welcomePage::textUpdate()
     {
         timer1->stop();
         emit switch_index_1_2();
-//        emit page.switch_index_1_2();   //emit the signals of switching page
 //        welcomePage::destroy(true, true);  //do no destroy the page
         welcomePage::setVisible(false);
     }

@@ -2,5 +2,10 @@
     <qresource prefix="/.001">
         <file>Resources/001/welcomePage.png</file>
         <file>Resources/001/loading.gif</file>
+        <file>Resources/002/login.png</file>
+        <file>Resources/002/book.png</file>
+    </qresource>
+    <qresource prefix="/qss">
+        <file>QSS/page2.qss</file>
     </qresource>
 </RCC>

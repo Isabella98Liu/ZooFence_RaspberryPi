@@ -223,6 +223,7 @@ DIST          = ../../../Qt/5.10.1/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/spec_post.prf \
+		../ZooFence_Pi/.qmake.stash \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/toolchain.prf \
@@ -252,7 +253,8 @@ DIST          = ../../../Qt/5.10.1/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/lex.prf \
 		../ZooFence_Pi/ZooFence_Pi.pro ../ZooFence_Pi/introduce.h \
 		../ZooFence_Pi/welcomepage.h \
-		../ZooFence_Pi/pageindex.h ../ZooFence_Pi/main.cpp \
+		../ZooFence_Pi/pageindex.h \
+		../ZooFence_Pi/qss.h ../ZooFence_Pi/main.cpp \
 		../ZooFence_Pi/introduce.cpp \
 		../ZooFence_Pi/welcomepage.cpp \
 		../ZooFence_Pi/pageindex.cpp
@@ -431,6 +433,7 @@ Makefile: ../ZooFence_Pi/ZooFence_Pi.pro ../../../Qt/5.10.1/clang_64/mkspecs/mac
 		../../../Qt/5.10.1/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../Qt/5.10.1/clang_64/mkspecs/features/toolchain.prf \
@@ -622,6 +625,7 @@ Makefile: ../ZooFence_Pi/ZooFence_Pi.pro ../../../Qt/5.10.1/clang_64/mkspecs/mac
 ../../../Qt/5.10.1/clang_64/mkspecs/features/qt_config.prf:
 ../../../Qt/5.10.1/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../Qt/5.10.1/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../Qt/5.10.1/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/5.10.1/clang_64/mkspecs/features/mac/sdk.prf:
 ../../../Qt/5.10.1/clang_64/mkspecs/features/toolchain.prf:
@@ -685,7 +689,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../ZooFence_Pi/resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/5.10.1/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../ZooFence_Pi/introduce.h ../ZooFence_Pi/welcomepage.h ../ZooFence_Pi/pageindex.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../ZooFence_Pi/introduce.h ../ZooFence_Pi/welcomepage.h ../ZooFence_Pi/pageindex.h ../ZooFence_Pi/qss.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../ZooFence_Pi/main.cpp ../ZooFence_Pi/introduce.cpp ../ZooFence_Pi/welcomepage.cpp ../ZooFence_Pi/pageindex.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../ZooFence_Pi/introduce.ui ../ZooFence_Pi/welcomepage.ui $(DISTDIR)/
 
@@ -716,8 +720,11 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_resources.cpp
 qrc_resources.cpp: ../ZooFence_Pi/resources.qrc \
 		../../../Qt/5.10.1/clang_64/bin/rcc \
+		../ZooFence_Pi/Resources/002/login.png \
+		../ZooFence_Pi/Resources/002/book.png \
 		../ZooFence_Pi/Resources/001/welcomePage.png \
-		../ZooFence_Pi/Resources/001/loading.gif
+		../ZooFence_Pi/Resources/001/loading.gif \
+		../ZooFence_Pi/QSS/page2.qss
 	/Users/Isabella/Qt/5.10.1/clang_64/bin/rcc -name resources ../ZooFence_Pi/resources.qrc -o qrc_resources.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
@@ -731,9 +738,14 @@ compiler_moc_header_clean:
 	-$(DEL_FILE) moc_introduce.cpp moc_welcomepage.cpp moc_pageindex.cpp
 moc_introduce.cpp: ../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		../ZooFence_Pi/pageindex.h \
-		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/QObject \
-		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QImage \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QIcon \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qicon.h \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		../ZooFence_Pi/introduce.h \
 		moc_predefs.h \
 		../../../Qt/5.10.1/clang_64/bin/moc
@@ -749,9 +761,6 @@ moc_welcomepage.cpp: ../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/QString \
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
-		../ZooFence_Pi/pageindex.h \
-		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/QObject \
-		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		../ZooFence_Pi/welcomepage.h \
 		moc_predefs.h \
 		../../../Qt/5.10.1/clang_64/bin/moc
@@ -759,6 +768,26 @@ moc_welcomepage.cpp: ../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers
 
 moc_pageindex.cpp: ../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../ZooFence_Pi/welcomepage.h \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QMovie \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qmovie.h \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QLabel \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/QTimer \
+		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../ZooFence_Pi/introduce.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QImage \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QIcon \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qicon.h \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		../ZooFence_Pi/pageindex.h \
 		moc_predefs.h \
 		../../../Qt/5.10.1/clang_64/bin/moc
@@ -791,7 +820,12 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 ####### Compile
 
-main.o: ../ZooFence_Pi/main.cpp ../ZooFence_Pi/pageindex.h \
+main.o: ../ZooFence_Pi/main.cpp ../ZooFence_Pi/qss.h \
+		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		../ZooFence_Pi/pageindex.h \
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		../ZooFence_Pi/welcomepage.h \
@@ -806,8 +840,14 @@ main.o: ../ZooFence_Pi/main.cpp ../ZooFence_Pi/pageindex.h \
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/QString \
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../ZooFence_Pi/introduce.h \
-		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QApplication \
-		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QImage \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QIcon \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qicon.h \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qdebug.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../ZooFence_Pi/main.cpp
@@ -815,9 +855,14 @@ main.o: ../ZooFence_Pi/main.cpp ../ZooFence_Pi/pageindex.h \
 introduce.o: ../ZooFence_Pi/introduce.cpp ../ZooFence_Pi/introduce.h \
 		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		../ZooFence_Pi/pageindex.h \
-		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/QObject \
-		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QImage \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QIcon \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qicon.h \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		ui_introduce.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o introduce.o ../ZooFence_Pi/introduce.cpp
 
@@ -832,18 +877,46 @@ welcomepage.o: ../ZooFence_Pi/welcomepage.cpp ../ZooFence_Pi/welcomepage.h \
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/QString \
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		ui_welcomepage.h \
+		../ZooFence_Pi/introduce.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QImage \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QIcon \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qicon.h \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		../ZooFence_Pi/pageindex.h \
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qobject.h \
-		ui_welcomepage.h \
-		../ZooFence_Pi/introduce.h \
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qdebug.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o welcomepage.o ../ZooFence_Pi/welcomepage.cpp
 
 pageindex.o: ../ZooFence_Pi/pageindex.cpp ../ZooFence_Pi/pageindex.h \
 		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/QObject \
-		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qobject.h
+		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../ZooFence_Pi/welcomepage.h \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QMovie \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qmovie.h \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QLabel \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/QTimer \
+		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt/5.10.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../ZooFence_Pi/introduce.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QImage \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/QIcon \
+		../../../Qt/5.10.1/clang_64/lib/QtGui.framework/Headers/qicon.h \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt/5.10.1/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pageindex.o ../ZooFence_Pi/pageindex.cpp
 
 qrc_resources.o: qrc_resources.cpp 

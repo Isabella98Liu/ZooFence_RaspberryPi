@@ -1,0 +1,28 @@
+
+QPushButton:pressed{
+    background-color : LightGray
+}
+
+QPushButton:hover{
+/*    width: 100px; */
+/*    height: 250px */
+    background-color : LightGray
+}
+
+/* ---------------QSS Style Sheet for the page 2----------------*/
+
+QPushButton#login{
+    border: 2px solid #8f8f91;
+    border-radius: 6px;
+/*    transition: width 1.5s; */
+/*    transition: height 1.5s */
+}
+
+QPushButton#user{
+    border: 2px solid #8f8f91;
+    border-radius: 6px;
+/*    transition: width 1.5s; */
+/*    transition: height 1.5s */
+}
+
+
