@@ -3,7 +3,7 @@
 
 #include <QObject>
 
-#include "welcomepage.h";
+#include "welcomepage.h"
 #include "introduce.h"
 
 class pageIndex: public QObject

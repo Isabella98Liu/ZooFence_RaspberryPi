@@ -73,6 +73,16 @@
     <string>用户手册</string>
    </property>
   </widget>
+  <widget class="QTextBrowser" name="textBrowser">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>50</y>
+     <width>251</width>
+     <height>391</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
