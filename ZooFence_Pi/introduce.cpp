@@ -11,7 +11,6 @@ introduce::introduce(QWidget *parent) :
     textLabel = ui->label_2;
     button1->setObjectName("login");
     button2->setObjectName("user");
-    textLabel->setObjectName("introduction");
     loadResource();
 }
 
@@ -36,4 +35,10 @@ void introduce::on_pushButton_clicked()
 {
     this->setVisible(false);
     emit switch_index_2_4();
+}
+
+void introduce::on_pushButton_2_clicked()
+{
+    this->setVisible(false);
+    emit switch_index_2_3();
 }

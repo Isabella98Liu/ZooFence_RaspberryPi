@@ -7,6 +7,7 @@
         <file>Resources/004/login.png</file>
         <file>Resources/004/name.png</file>
         <file>Resources/004/key.png</file>
+        <file>Resources/004/return.png</file>
     </qresource>
     <qresource prefix="/qss">
         <file>QSS/page2.qss</file>

@@ -28,14 +28,18 @@ SOURCES += \
     introduce.cpp \
     welcomepage.cpp \
     pageindex.cpp \
-    login.cpp
+    login.cpp \
+    userbook.cpp \
+    alertpage9.cpp
 
 HEADERS += \
     introduce.h \
     welcomepage.h \
     pageindex.h \
     qss.h \
-    login.h
+    login.h \
+    userbook.h \
+    alertpage9.h
 
 RESOURCES += \
     resources.qrc
@@ -43,4 +47,6 @@ RESOURCES += \
 FORMS += \
     introduce.ui \
     welcomepage.ui \
-    login.ui
+    login.ui \
+    userbook.ui \
+    alertpage9.ui

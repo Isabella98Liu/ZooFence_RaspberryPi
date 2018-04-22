@@ -29,11 +29,12 @@ private:
     void loadResource();    //load button imgs from resources
 
 signals:
-//    void switch_index_2_3();  //switch page from [introduce] to [userbook]
+    void switch_index_2_3();  //switch page from [introduce] to [userbook]
     void switch_index_2_4();  //switch page from [introduce] to [login]
 
 private slots:
     void on_pushButton_clicked();
+    void on_pushButton_2_clicked();
 };
 
 #endif // INTRODUCE_H

@@ -5,6 +5,7 @@
 
 #include "welcomepage.h"
 #include "introduce.h"
+#include "userbook.h"
 #include "login.h"
 
 class pageIndex: public QObject
@@ -19,6 +20,7 @@ public:
     //page index resources
     welcomePage *p1;
     introduce *p2;
+    userBook *p3;
     login *p4;
 
 signals:
@@ -28,6 +30,9 @@ public slots:
     void switch_page_1_2();
     void switch_page_2_3();
     void switch_page_2_4();
+
+    void return_page_3_2();
+    void return_page_4_2();
 
 };
 

@@ -4,8 +4,6 @@ QPushButton:pressed{
 }
 
 QPushButton:hover{
-/*    width: 100px; */
-/*    height: 250px */
     background-color : LightGray
 }
 
@@ -14,20 +12,30 @@ QPushButton:hover{
 QPushButton#login{
     border: 2px solid #8f8f91;
     border-radius: 8px;
-/*    transition: width 1.5s; */
-/*    transition: height 1.5s */
 }
 
 QPushButton#user{
     border: 2px solid #8f8f91;
     border-radius: 8px;
-/*    transition: width 1.5s; */
-/*    transition: height 1.5s */
 }
 
-/*QLabel#introduction{
-    border: 1px solid #8f8f91;
+/* ---------------QSS Style Sheet for the page 3----------------*/
+QPushButton#loginButton{
+    border: 2px solid #8f8f91;
+    border-radius: 8px;
+}
+
+QLabel#returnButton{
+    border: 0px solid #8f8f91;
     border-radius: 6px;
-}*/
+}
+
+QLabel#returnButton:hover{
+    background-color : LightGray
+}
+
+QLabel#returnButton:pressed{
+    background-color : LightGray
+}
 
 

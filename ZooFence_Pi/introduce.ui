@@ -87,6 +87,13 @@
      <height>421</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	border: 0px;
+	border-radius: 6px;
+	background-color : LightGray
+}</string>
+   </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;系统简介：&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;这是一段系统简介&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;这是一段系统简介&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;这是一段系统简介&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;这是一段系统简介&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;这是一段系统简介&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;这是一段系统简介&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;这是一段系统简介&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;这是一段系统简介&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;这是一段系统简介&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;这是一段系统简介&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;这是一段系统简介&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
