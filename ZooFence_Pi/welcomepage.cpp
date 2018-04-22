@@ -56,9 +56,9 @@ void welcomePage::textUpdate()
     if(textIndex == textNum)  // if the last text content was displayed, hide everything
     {
         timer1->stop();
+        this->setVisible(false);
         emit switch_index_1_2();
 //        welcomePage::destroy(true, true);  //do no destroy the page
-        welcomePage::setVisible(false);
     }
     textIndex++;
 }

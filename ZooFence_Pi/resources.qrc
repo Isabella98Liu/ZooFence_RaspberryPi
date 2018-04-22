@@ -4,6 +4,9 @@
         <file>Resources/001/loading.gif</file>
         <file>Resources/002/login.png</file>
         <file>Resources/002/book.png</file>
+        <file>Resources/004/login.png</file>
+        <file>Resources/004/name.png</file>
+        <file>Resources/004/key.png</file>
     </qresource>
     <qresource prefix="/qss">
         <file>QSS/page2.qss</file>

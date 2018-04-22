@@ -27,17 +27,20 @@ SOURCES += \
         main.cpp \
     introduce.cpp \
     welcomepage.cpp \
-    pageindex.cpp
+    pageindex.cpp \
+    login.cpp
 
 HEADERS += \
     introduce.h \
     welcomepage.h \
     pageindex.h \
-    qss.h
+    qss.h \
+    login.h
 
 RESOURCES += \
     resources.qrc
 
 FORMS += \
     introduce.ui \
-    welcomepage.ui
+    welcomepage.ui \
+    login.ui

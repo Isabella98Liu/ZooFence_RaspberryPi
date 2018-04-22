@@ -8,8 +8,10 @@ introduce::introduce(QWidget *parent) :
     ui->setupUi(this);
     button1 = ui->pushButton;
     button2 = ui->pushButton_2;
+    textLabel = ui->label_2;
     button1->setObjectName("login");
     button2->setObjectName("user");
+    textLabel->setObjectName("introduction");
     loadResource();
 }
 
@@ -28,4 +30,10 @@ void introduce::loadResource()
     button1->setIconSize(QSize(40, 40));
     button2->setIcon(button2_icon);
     button2->setIconSize(QSize(40, 40));
+}
+
+void introduce::on_pushButton_clicked()
+{
+    this->setVisible(false);
+    emit switch_index_2_4();
 }

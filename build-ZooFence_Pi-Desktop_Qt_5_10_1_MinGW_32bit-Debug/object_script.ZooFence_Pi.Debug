@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\introduce.o
+./debug\welcomepage.o
+./debug\pageindex.o
+./debug\login.o
+./debug\qrc_resources.o
+./debug\moc_introduce.o
+./debug\moc_welcomepage.o
+./debug\moc_pageindex.o
+./debug\moc_login.o
+);
