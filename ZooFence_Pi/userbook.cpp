@@ -6,7 +6,7 @@ userBook::userBook(QWidget *parent) :
     ui(new Ui::userBook)
 {
     ui->setupUi(this);
-    returnButton = ui->back;
+    returnButton = ui->pushButton;
     returnButton->setObjectName("returnButton");
 }
 
@@ -17,7 +17,7 @@ userBook::~userBook()
 
 //--------------------------------SLOTS-------------------------------------------
 
-void userBook::mousePressEvent(QMouseEvent *event)
+void userBook::on_pushButton_clicked()
 {
     emit return_index_3_2();
 }

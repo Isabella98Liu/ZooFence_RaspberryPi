@@ -10,6 +10,7 @@
 #define UI_LOGIN_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
@@ -30,6 +31,7 @@ public:
     QTextEdit *textEdit_2;
     QPushButton *pushButton;
     QLabel *return_2;
+    QPushButton *returnButton;
 
     void setupUi(QWidget *login)
     {
@@ -86,6 +88,14 @@ public:
         return_2 = new QLabel(login);
         return_2->setObjectName(QStringLiteral("return_2"));
         return_2->setGeometry(QRect(30, 30, 50, 50));
+        returnButton = new QPushButton(login);
+        returnButton->setObjectName(QStringLiteral("returnButton"));
+        returnButton->setGeometry(QRect(20, 20, 30, 30));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/.001/Resources/004/return.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/.001/Resources/004/return.png"), QSize(), QIcon::Normal, QIcon::On);
+        returnButton->setIcon(icon);
+        returnButton->setIconSize(QSize(30, 30));
 
         retranslateUi(login);
 
@@ -101,7 +111,8 @@ public:
         label_4->setText(QApplication::translate("login", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">\345\257\206\347\240\201\357\274\232</span></p></body></html>", nullptr));
         label_5->setText(QApplication::translate("login", "<html><head/><body><p><img src=\":/.001/Resources/004/key.png\" height=\"50\" width=\"50\"/></p></body></html>", nullptr));
         pushButton->setText(QApplication::translate("login", "\347\231\273\345\275\225", nullptr));
-        return_2->setText(QApplication::translate("login", "<html><head/><body><p><img src=\":/.001/Resources/004/return.png\" height=\"50\" width=\"50\"/></p></body></html>", nullptr));
+        return_2->setText(QString());
+        returnButton->setText(QString());
     } // retranslateUi
 
 };

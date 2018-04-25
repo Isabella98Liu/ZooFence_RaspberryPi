@@ -2,6 +2,12 @@
 #include "pageindex.h"
 #include "welcomepage.h"
 #include "introduce.h"
+#include "page5.h"
+#include "page6.h"
+#include "page7.h"
+#include "page8.h"
+#include "alertpage9.h"
+#include "page10.h"
 
 #include <QFont>
 #include <QApplication>
@@ -20,6 +26,9 @@ int main(int argc, char *argv[])
     pageIndex p;
     p.init();
     p.play();
+
+//    page6 w ;
+//    w.show();
 
     return a.exec();
 }

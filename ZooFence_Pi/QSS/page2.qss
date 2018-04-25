@@ -9,33 +9,26 @@ QPushButton:hover{
 
 /* ---------------QSS Style Sheet for the page 2----------------*/
 
-QPushButton#login{
-    border: 2px solid #8f8f91;
-    border-radius: 8px;
-}
-
-QPushButton#user{
+QPushButton{
     border: 2px solid #8f8f91;
     border-radius: 8px;
 }
 
 /* ---------------QSS Style Sheet for the page 3----------------*/
-QPushButton#loginButton{
-    border: 2px solid #8f8f91;
-    border-radius: 8px;
-}
 
-QLabel#returnButton{
+QPushButton#returnButton{
     border: 0px solid #8f8f91;
     border-radius: 6px;
 }
 
-QLabel#returnButton:hover{
+QPushButton#returnButton:hover{
     background-color : LightGray
 }
 
-QLabel#returnButton:pressed{
-    background-color : LightGray
-}
+/* ---------------QSS Style Sheet for the page 5----------------*/
 
+QPushButton#check{
+    border: 2px solid #8f8f91;
+    border-radius: 8px;
+}
 

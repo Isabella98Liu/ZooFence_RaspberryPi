@@ -30,7 +30,13 @@ SOURCES += \
     pageindex.cpp \
     login.cpp \
     userbook.cpp \
-    alertpage9.cpp
+    alertpage9.cpp \
+    page5.cpp \
+    page6.cpp \
+    page7.cpp \
+    page8.cpp \
+    page10.cpp \
+    clickablelabel.cpp
 
 HEADERS += \
     introduce.h \
@@ -39,7 +45,13 @@ HEADERS += \
     qss.h \
     login.h \
     userbook.h \
-    alertpage9.h
+    alertpage9.h \
+    page5.h \
+    page6.h \
+    page7.h \
+    page8.h \
+    page10.h \
+    clickablelabel.h
 
 RESOURCES += \
     resources.qrc
@@ -49,4 +61,9 @@ FORMS += \
     welcomepage.ui \
     login.ui \
     userbook.ui \
-    alertpage9.ui
+    alertpage9.ui \
+    page5.ui \
+    page6.ui \
+    page7.ui \
+    page8.ui \
+    page10.ui

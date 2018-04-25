@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QLabel>
+#include <QPushButton>
 #include <Qt>
 
 namespace Ui {
@@ -19,13 +20,13 @@ public:
 
 private:
     Ui::userBook *ui;
-    QLabel *returnButton;
+    QPushButton *returnButton;
 
 signals:
     void return_index_3_2();
 
-protected:
-    void mousePressEvent(QMouseEvent *event);
+private slots:
+    void on_pushButton_clicked();
 };
 
 #endif // USERBOOK_H

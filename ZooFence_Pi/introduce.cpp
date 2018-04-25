@@ -9,8 +9,6 @@ introduce::introduce(QWidget *parent) :
     button1 = ui->pushButton;
     button2 = ui->pushButton_2;
     textLabel = ui->label_2;
-    button1->setObjectName("login");
-    button2->setObjectName("user");
     loadResource();
 }
 

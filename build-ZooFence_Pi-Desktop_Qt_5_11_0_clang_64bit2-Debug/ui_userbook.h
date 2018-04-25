@@ -10,8 +10,10 @@
 #define UI_USERBOOK_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -19,17 +21,14 @@ QT_BEGIN_NAMESPACE
 class Ui_userBook
 {
 public:
-    QLabel *back;
     QLabel *label;
+    QPushButton *pushButton;
 
     void setupUi(QWidget *userBook)
     {
         if (userBook->objectName().isEmpty())
             userBook->setObjectName(QStringLiteral("userBook"));
         userBook->resize(690, 535);
-        back = new QLabel(userBook);
-        back->setObjectName(QStringLiteral("back"));
-        back->setGeometry(QRect(30, 30, 50, 50));
         label = new QLabel(userBook);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(60, 110, 571, 371));
@@ -38,6 +37,13 @@ public:
 "	border-radius: 6px;\n"
 "	background-color : LightGray\n"
 "}"));
+        pushButton = new QPushButton(userBook);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(20, 20, 30, 30));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/.001/Resources/004/return.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon);
+        pushButton->setIconSize(QSize(30, 30));
 
         retranslateUi(userBook);
 
@@ -47,9 +53,9 @@ public:
     void retranslateUi(QWidget *userBook)
     {
         userBook->setWindowTitle(QApplication::translate("userBook", "Form", nullptr));
-        back->setText(QApplication::translate("userBook", "<html><head/><body><p><img src=\":/.001/Resources/004/return.png\" height=\"50\" width=\"50\"/></p></body></html>", nullptr));
         label->setText(QApplication::translate("userBook", "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214</span></p><p align=\"center\"><span style=\" font-size:24pt;\">\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214</span></p><p align=\"center\"><span style=\" font-size:24pt;\">\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214</span></p><p align=\"center\"><span style=\" font-size:24pt;\">\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214\350\277\231\346\230\257\347\224\250\346\210"
                         "\267\346\211\213\345\206\214\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214</span></p><p align=\"center\"><span style=\" font-size:24pt;\">\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214</span></p><p align=\"center\"><span style=\" font-size:24pt;\">\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214</span></p><p align=\"center\"><span style=\" font-size:24pt;\">\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214\350\277\231\346\230\257\347\224\250\346\210\267\346\211\213\345\206\214<br/></span></p></body></html>", nullptr));
+        pushButton->setText(QString());
     } // retranslateUi
 
 };
