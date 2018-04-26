@@ -43,6 +43,7 @@ public:
     QSlider *verticalSlider_3;
     QLabel *label_11;
     QLabel *label_12;
+    QPushButton *pushButton_4;
 
     void setupUi(QWidget *page5)
     {
@@ -167,6 +168,13 @@ public:
 "	border-radius: 6px;\n"
 "	background-color : LightGray\n"
 "}"));
+        pushButton_4 = new QPushButton(page5);
+        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+        pushButton_4->setGeometry(QRect(20, 20, 30, 30));
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/.001/Resources/004/return.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_4->setIcon(icon3);
+        pushButton_4->setIconSize(QSize(30, 30));
 
         retranslateUi(page5);
 
@@ -194,6 +202,7 @@ public:
         label_15->setText(QString());
         label_11->setText(QString());
         label_12->setText(QString());
+        pushButton_4->setText(QString());
     } // retranslateUi
 
 };

@@ -24,7 +24,6 @@ QT_BEGIN_NAMESPACE
 class Ui_page6
 {
 public:
-    QLabel *returnButton;
     QLabel *label_2;
     QLabel *label_3;
     QLabel *label_4;
@@ -32,17 +31,13 @@ public:
     QPushButton *pushButton;
     QDateEdit *dateEdit;
     QScrollBar *verticalScrollBar;
+    QPushButton *pushButton_2;
 
     void setupUi(QWidget *page6)
     {
         if (page6->objectName().isEmpty())
             page6->setObjectName(QStringLiteral("page6"));
         page6->resize(690, 535);
-        returnButton = new QLabel(page6);
-        returnButton->setObjectName(QStringLiteral("returnButton"));
-        returnButton->setGeometry(QRect(10, 10, 50, 50));
-        returnButton->setPixmap(QPixmap(QString::fromUtf8(":/.001/Resources/004/return.png")));
-        returnButton->setScaledContents(true);
         label_2 = new QLabel(page6);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(70, 20, 601, 71));
@@ -83,6 +78,13 @@ public:
         verticalScrollBar->setObjectName(QStringLiteral("verticalScrollBar"));
         verticalScrollBar->setGeometry(QRect(650, 120, 16, 381));
         verticalScrollBar->setOrientation(Qt::Vertical);
+        pushButton_2 = new QPushButton(page6);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setGeometry(QRect(20, 20, 30, 24));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/.001/Resources/004/return.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon1);
+        pushButton_2->setIconSize(QSize(30, 30));
 
         retranslateUi(page6);
 
@@ -92,7 +94,6 @@ public:
     void retranslateUi(QWidget *page6)
     {
         page6->setWindowTitle(QApplication::translate("page6", "Form", nullptr));
-        returnButton->setText(QString());
         label_2->setText(QString());
         label_3->setText(QApplication::translate("page6", "\346\227\245\346\234\237 \357\274\232", nullptr));
         label_4->setText(QApplication::translate("page6", "\350\247\246\345\217\221\346\272\220 \357\274\232", nullptr));
@@ -103,6 +104,7 @@ public:
         comboBox->setItemText(4, QApplication::translate("page6", "\345\216\213\346\225\217", nullptr));
 
         pushButton->setText(QString());
+        pushButton_2->setText(QString());
     } // retranslateUi
 
 };

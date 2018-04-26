@@ -11,9 +11,11 @@ page5::page5(QWidget *parent) :
     recordButton = ui->pushButton;
     checkButton = ui->pushButton_2;
     vedioButton = ui->pushButton_3;
+    returnButton = ui->pushButton_4;
     recordButton->setObjectName("check");
     checkButton->setObjectName("check");
     vedioButton->setObjectName("check");
+    returnButton->setObjectName("returnButton");
     showdateLabel = ui->label_3;
     showtimeLabel = ui->label_4;
     QTimer *timer = new QTimer(this);
@@ -52,4 +54,14 @@ void page5::raiseLabel()
     ui->verticalSlider->raise();
     ui->verticalSlider_2->raise();
     ui->verticalSlider_3->raise();
+}
+
+void page5::on_pushButton_4_clicked()
+{
+    emit return_index_5_4();
+}
+
+void page5::on_pushButton_clicked()
+{
+    emit switch_index_5_6();
 }

@@ -21,6 +21,7 @@ public:
 
 private:
     Ui::page5 *ui;
+    QPushButton *returnButton;
     QPushButton *recordButton;
     QPushButton *checkButton;
     QPushButton *vedioButton;
@@ -35,6 +36,13 @@ private:
 
   private slots:
         void timerUpdate(void);
+        void on_pushButton_4_clicked();
+
+        void on_pushButton_clicked();
+
+signals:
+        void return_index_5_4();
+        void switch_index_5_6();
 };
 
 
