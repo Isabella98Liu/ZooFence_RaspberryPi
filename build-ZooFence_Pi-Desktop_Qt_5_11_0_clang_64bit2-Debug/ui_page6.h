@@ -80,7 +80,7 @@ public:
         verticalScrollBar->setOrientation(Qt::Vertical);
         pushButton_2 = new QPushButton(page6);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(20, 20, 30, 24));
+        pushButton_2->setGeometry(QRect(20, 20, 30, 30));
         QIcon icon1;
         icon1.addFile(QStringLiteral(":/.001/Resources/004/return.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_2->setIcon(icon1);

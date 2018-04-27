@@ -33,16 +33,20 @@ private:
     QLabel *showtempLabel;
     QLabel *humLabel;
     QLabel *showhumLabel;
+    bool Check_device_status();
 
   private slots:
         void timerUpdate(void);
         void on_pushButton_4_clicked();
-
         void on_pushButton_clicked();
+        void on_pushButton_2_clicked();
+        void on_pushButton_3_clicked();
 
 signals:
         void return_index_5_4();
         void switch_index_5_6();
+        void switch_index_5_10();
+        void switch_index_5_7();
 };
 
 

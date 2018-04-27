@@ -1,5 +1,6 @@
 #include "page5.h"
 #include "ui_page5.h"
+#include "page7.h"
 #include <QTimer>
 #include <qdatetime.h>
 
@@ -23,10 +24,12 @@ page5::page5(QWidget *parent) :
     timer->start(1000);
     raiseLabel();
 }
+
 page5::~page5()
 {
     delete ui;
 }
+
 void page5::timerUpdate(void)
 {
     QDateTime time = QDateTime::currentDateTime();
@@ -56,12 +59,30 @@ void page5::raiseLabel()
     ui->verticalSlider_3->raise();
 }
 
-void page5::on_pushButton_4_clicked()
+void page5::on_pushButton_4_clicked()  // if the return button was pressed
 {
     emit return_index_5_4();
 }
 
-void page5::on_pushButton_clicked()
+void page5::on_pushButton_clicked()  // if the record button was pressed
 {
     emit switch_index_5_6();
+}
+
+void page5::on_pushButton_2_clicked()  // if the check button was pressed
+{
+    if(Check_device_status())  // if the device was in good status
+    {
+        emit switch_index_5_7();
+    }
+}
+
+void page5::on_pushButton_3_clicked()  // if the real time video button was pressed
+{
+    emit switch_index_5_10();
+}
+
+bool page5::Check_device_status()  // check if the all device is in good status
+{
+    return true;
 }

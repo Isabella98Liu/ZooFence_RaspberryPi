@@ -10,6 +10,8 @@ page6::page6(QWidget *parent) :
     dateEdit->setCalendarPopup(true);
     QIcon ico(":/.001/Resources/006/fine.png");
     searchButton = ui->pushButton;
+    returnButton = ui->pushButton_2;
+    returnButton->setObjectName("returnButton");
     searchButton->setObjectName("check");
     searchButton->setIcon(ico);
     searchButton->setIconSize(QSize(45,45));
@@ -19,4 +21,9 @@ page6::page6(QWidget *parent) :
 page6::~page6()
 {
     delete ui;
+}
+
+void page6::on_pushButton_2_clicked()
+{
+    emit return_index_6_5();
 }

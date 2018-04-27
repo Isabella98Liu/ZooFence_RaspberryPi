@@ -1,4 +1,9 @@
 
+QPushButton{
+    border: 2px solid #8f8f91;
+    border-radius: 8px;
+}
+
 QPushButton:pressed{
     background-color : LightGray
 }
@@ -7,12 +12,6 @@ QPushButton:hover{
     background-color : LightGray
 }
 
-/* ---------------QSS Style Sheet for the page 2----------------*/
-
-QPushButton{
-    border: 2px solid #8f8f91;
-    border-radius: 8px;
-}
 
 /* ---------------QSS Style Sheet for the page 3----------------*/
 
@@ -25,10 +24,9 @@ QPushButton#returnButton:hover{
     background-color : LightGray
 }
 
-/* ---------------QSS Style Sheet for the page 5----------------*/
+/* ---------------QSS Style Sheet for the page 8----------------*/
 
-QPushButton#check{
-    border: 2px solid #8f8f91;
-    border-radius: 8px;
+QPushButton#adjustButton{
+    border: 0px solid #8f8f91;
+    border-radius: 6px;
 }
-

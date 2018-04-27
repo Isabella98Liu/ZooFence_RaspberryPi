@@ -8,6 +8,7 @@
 #include "page8.h"
 #include "alertpage9.h"
 #include "page10.h"
+#include "camera.h"
 
 #include <QFont>
 #include <QApplication>
@@ -27,7 +28,7 @@ int main(int argc, char *argv[])
     p.init();
     p.play();
 
-//    page6 w ;
+//    page10 w ;
 //    w.show();
 
     return a.exec();

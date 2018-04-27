@@ -27,10 +27,10 @@ public:
     {
         if (page7->objectName().isEmpty())
             page7->setObjectName(QStringLiteral("page7"));
-        page7->resize(690, 535);
+        page7->resize(556, 407);
         label = new QLabel(page7);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(270, 400, 251, 71));
+        label->setGeometry(QRect(200, 320, 191, 71));
         QFont font;
         font.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
         font.setPointSize(28);
@@ -42,7 +42,7 @@ public:
         label_2->setScaledContents(true);
         label_3 = new QLabel(page7);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(180, 60, 341, 281));
+        label_3->setGeometry(QRect(110, 30, 341, 281));
         label_3->setPixmap(QPixmap(QString::fromUtf8(":/.001/Resources/007/OK.PNG")));
         label_3->setScaledContents(true);
 

@@ -24,10 +24,13 @@ void pageIndex::init( )
     connect(p2, SIGNAL(switch_index_2_4()), this, SLOT(switch_page_2_4()));
     connect(p4, SIGNAL(switch_index_4_5()), this, SLOT(switch_page_4_5()));
     connect(p5, SIGNAL(switch_index_5_6()), this, SLOT(switch_page_5_6()));
+    connect(p5, SIGNAL(switch_index_5_7()),this, SLOT(switch_page_5_7()));
+    connect(p5, SIGNAL(switch_index_5_10()),this, SLOT(switch_page_5_10()));
 
     connect(p3, SIGNAL(return_index_3_2()), this, SLOT(return_page_3_2()));
     connect(p4, SIGNAL(return_index_4_2()), this, SLOT(return_page_4_2()));
     connect(p5, SIGNAL(return_index_5_4()), this, SLOT(return_page_5_4()));
+    connect(p6, SIGNAL(return_index_6_5()), this, SLOT(return_page_6_5()));
 
 }
 
@@ -66,6 +69,18 @@ void pageIndex::switch_page_5_6()
     p6->show();
 }
 
+void pageIndex::switch_page_5_7()
+{
+    page7 *p7 = new page7;
+    p7->show();
+}
+
+void pageIndex::switch_page_5_10()
+{
+    page10 *p10 = new page10;
+    p10->show();
+}
+
 //----------------------------------------------
 
 void pageIndex::return_page_3_2()
@@ -84,6 +99,12 @@ void pageIndex::return_page_5_4()
 {
     p5->setVisible(false);
     p4->setVisible(true);
+}
+
+void pageIndex::return_page_6_5()
+{
+    p6->setVisible(false);
+    p5->setVisible(true);
 }
 
 

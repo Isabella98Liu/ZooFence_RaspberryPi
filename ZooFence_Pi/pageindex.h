@@ -9,6 +9,8 @@
 #include "login.h"
 #include "page5.h"
 #include "page6.h"
+#include "page7.h"
+#include "page10.h"
 
 class pageIndex: public QObject
 {
@@ -36,10 +38,13 @@ public slots:
     void switch_page_2_4();
     void switch_page_4_5();
     void switch_page_5_6();
+    void switch_page_5_7();
+    void switch_page_5_10();
 
     void return_page_3_2();
     void return_page_4_2();
     void return_page_5_4();
+    void return_page_6_5();
 
 };
 
