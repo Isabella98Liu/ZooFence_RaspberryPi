@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>690</width>
-    <height>535</height>
+    <width>608</width>
+    <height>483</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,9 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>20</y>
-     <width>601</width>
+     <x>30</x>
+     <y>10</y>
+     <width>551</width>
      <height>71</height>
     </rect>
    </property>
@@ -36,8 +36,8 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>181</x>
-     <y>30</y>
+     <x>80</x>
+     <y>20</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -55,8 +55,8 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>411</x>
-     <y>30</y>
+     <x>320</x>
+     <y>20</y>
      <width>81</width>
      <height>21</height>
     </rect>
@@ -74,8 +74,8 @@
   <widget class="QComboBox" name="comboBox">
    <property name="geometry">
     <rect>
-     <x>361</x>
-     <y>60</y>
+     <x>321</x>
+     <y>50</y>
      <width>191</width>
      <height>22</height>
     </rect>
@@ -109,48 +109,8 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>591</x>
-     <y>20</y>
-     <width>75</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="icon">
-    <iconset>
-     <normaloff>:/icon/Recource/fine.png</normaloff>:/icon/Recource/fine.png</iconset>
-   </property>
-  </widget>
-  <widget class="QDateEdit" name="dateEdit">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>60</y>
-     <width>181</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QScrollBar" name="verticalScrollBar">
-   <property name="geometry">
-    <rect>
-     <x>650</x>
-     <y>120</y>
-     <width>16</width>
-     <height>381</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Vertical</enum>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_2">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>20</y>
+     <x>530</x>
+     <y>30</y>
      <width>30</width>
      <height>30</height>
     </rect>
@@ -160,14 +120,35 @@
    </property>
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/.001/Resources/004/return.png</normaloff>:/.001/Resources/004/return.png</iconset>
+     <normaloff>:/.001/Resources/006/fine.png</normaloff>:/.001/Resources/006/fine.png</iconset>
    </property>
    <property name="iconSize">
     <size>
-     <width>30</width>
-     <height>30</height>
+     <width>25</width>
+     <height>25</height>
     </size>
    </property>
+  </widget>
+  <widget class="QDateEdit" name="dateEdit">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>50</y>
+     <width>181</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>110</y>
+     <width>551</width>
+     <height>351</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout"/>
   </widget>
  </widget>
  <resources>

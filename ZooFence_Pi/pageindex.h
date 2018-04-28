@@ -27,7 +27,6 @@ public:
     userBook *p3;
     login *p4;
     page5 *p5;
-    page6 *p6;
 
 signals:
 
@@ -44,7 +43,6 @@ public slots:
     void return_page_3_2();
     void return_page_4_2();
     void return_page_5_4();
-    void return_page_6_5();
 
 };
 

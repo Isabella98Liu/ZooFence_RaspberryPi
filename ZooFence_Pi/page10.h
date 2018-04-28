@@ -6,7 +6,9 @@
 #include <QCameraViewfinder>
 #include <QCameraImageCapture>
 #include <QFileDialog>
-
+#include <QDateTime>
+#include <QString>
+#include <QFile>
 
 namespace Ui {
 class page10;
@@ -25,6 +27,7 @@ private:
     QCamera *camera;
     QCameraViewfinder *viewfinder;
     QCameraImageCapture *imageCaputure;
+    QString folderPath;
 
 public slots:
     void captureImage();

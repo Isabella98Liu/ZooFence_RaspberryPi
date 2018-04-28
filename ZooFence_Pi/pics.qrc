@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/CameraShoot">
+        <file>pics/20170724_164848.jpg</file>
+    </qresource>
+</RCC>

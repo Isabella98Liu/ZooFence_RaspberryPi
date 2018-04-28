@@ -1,11 +1,14 @@
 #include "page10.h"
 #include "ui_page10.h"
+#include <QDebug>
 
 page10::page10(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::page10)
 {
     ui->setupUi(this);
+//    folderPath = QString("/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/pics/");
+    folderPath = qApp->applicationDirPath() +  QString("/pics/");
     camera = new QCamera(this);
     viewfinder = new QCameraViewfinder(this);
     imageCaputure = new QCameraImageCapture(camera);
@@ -37,14 +40,15 @@ void page10::displayImage(int, QImage image)
 
 void page10::saveImage()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), QDir::homePath(), tr("jpegfile(*.jpg)"));
-    if(fileName.isEmpty())
-    {
-        return;
-    }
+//    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), QDir::homePath(), tr("jpegfile(*.jpg)"));
+    QDateTime time = QDateTime::currentDateTime();
+    QString fileName = folderPath + time.toString("yyyy_MM_dd_hh_mm_ss");
     const QPixmap* pixmap = ui->label_2->pixmap();
     if(pixmap)
     {
-        pixmap->save(fileName);
+        qDebug() << fileName;
+        QFile file(QString(fileName + ".jpg"));
+        file.open(QIODevice::WriteOnly);
+        pixmap->save(&file, "JPG");
     }
 }

@@ -36,8 +36,7 @@ SOURCES += \
     page7.cpp \
     page8.cpp \
     page10.cpp \
-    clickablelabel.cpp \
-    camera.cpp
+    clickablelabel.cpp
 
 HEADERS += \
     introduce.h \
@@ -52,11 +51,11 @@ HEADERS += \
     page7.h \
     page8.h \
     page10.h \
-    clickablelabel.h \
-    camera.h
+    clickablelabel.h
 
 RESOURCES += \
-    resources.qrc
+    resources.qrc \
+    pics.qrc
 
 FORMS += \
     introduce.ui \
@@ -68,5 +67,4 @@ FORMS += \
     page6.ui \
     page7.ui \
     page8.ui \
-    page10.ui \
-    camera.ui
+    page10.ui

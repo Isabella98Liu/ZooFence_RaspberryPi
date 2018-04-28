@@ -8,10 +8,10 @@
 #include "page8.h"
 #include "alertpage9.h"
 #include "page10.h"
-#include "camera.h"
 
 #include <QFont>
 #include <QApplication>
+#include <QDir>
 #include <QDebug>
 
 int main(int argc, char *argv[])
@@ -21,6 +21,12 @@ int main(int argc, char *argv[])
 //    QFont newFont("Helvetica", 8, QFont::Bold, true);
 //    a.setFont(newFont);
 
+    //check if the picture folder exists
+    if(!QDir("pics").exists())
+        QDir().mkdir("pics");
+
+    qDebug() << qApp->applicationDirPath();
+
     //load qss style sheet
     QssLoad::setStyle(":/qss/QSS/page2.qss");
 
@@ -28,7 +34,7 @@ int main(int argc, char *argv[])
     p.init();
     p.play();
 
-//    page10 w ;
+//    page6 w;
 //    w.show();
 
     return a.exec();

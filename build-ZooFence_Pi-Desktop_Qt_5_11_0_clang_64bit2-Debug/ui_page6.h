@@ -14,9 +14,9 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -30,17 +30,17 @@ public:
     QComboBox *comboBox;
     QPushButton *pushButton;
     QDateEdit *dateEdit;
-    QScrollBar *verticalScrollBar;
-    QPushButton *pushButton_2;
+    QWidget *gridLayoutWidget;
+    QGridLayout *gridLayout;
 
     void setupUi(QWidget *page6)
     {
         if (page6->objectName().isEmpty())
             page6->setObjectName(QStringLiteral("page6"));
-        page6->resize(690, 535);
+        page6->resize(608, 483);
         label_2 = new QLabel(page6);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(70, 20, 601, 71));
+        label_2->setGeometry(QRect(30, 10, 551, 71));
         label_2->setStyleSheet(QLatin1String("QLabel{\n"
 "	border: 0px;\n"
 "	border-radius: 6px;\n"
@@ -48,14 +48,14 @@ public:
 "}"));
         label_3 = new QLabel(page6);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(181, 30, 71, 21));
+        label_3->setGeometry(QRect(80, 20, 71, 21));
         QFont font;
         font.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
         font.setPointSize(14);
         label_3->setFont(font);
         label_4 = new QLabel(page6);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(411, 30, 81, 21));
+        label_4->setGeometry(QRect(320, 20, 81, 21));
         label_4->setFont(font);
         comboBox = new QComboBox(page6);
         comboBox->addItem(QString());
@@ -64,27 +64,23 @@ public:
         comboBox->addItem(QString());
         comboBox->addItem(QString());
         comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setGeometry(QRect(361, 60, 191, 22));
+        comboBox->setGeometry(QRect(321, 50, 191, 22));
         pushButton = new QPushButton(page6);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(591, 20, 75, 71));
+        pushButton->setGeometry(QRect(530, 30, 30, 30));
         QIcon icon;
-        icon.addFile(QStringLiteral(":/icon/Recource/fine.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/.001/Resources/006/fine.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton->setIcon(icon);
+        pushButton->setIconSize(QSize(25, 25));
         dateEdit = new QDateEdit(page6);
         dateEdit->setObjectName(QStringLiteral("dateEdit"));
-        dateEdit->setGeometry(QRect(120, 60, 181, 22));
-        verticalScrollBar = new QScrollBar(page6);
-        verticalScrollBar->setObjectName(QStringLiteral("verticalScrollBar"));
-        verticalScrollBar->setGeometry(QRect(650, 120, 16, 381));
-        verticalScrollBar->setOrientation(Qt::Vertical);
-        pushButton_2 = new QPushButton(page6);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(20, 20, 30, 30));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/.001/Resources/004/return.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_2->setIcon(icon1);
-        pushButton_2->setIconSize(QSize(30, 30));
+        dateEdit->setGeometry(QRect(80, 50, 181, 22));
+        gridLayoutWidget = new QWidget(page6);
+        gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
+        gridLayoutWidget->setGeometry(QRect(30, 110, 551, 351));
+        gridLayout = new QGridLayout(gridLayoutWidget);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setContentsMargins(0, 0, 0, 0);
 
         retranslateUi(page6);
 
@@ -104,7 +100,6 @@ public:
         comboBox->setItemText(4, QApplication::translate("page6", "\345\216\213\346\225\217", nullptr));
 
         pushButton->setText(QString());
-        pushButton_2->setText(QString());
     } // retranslateUi
 
 };

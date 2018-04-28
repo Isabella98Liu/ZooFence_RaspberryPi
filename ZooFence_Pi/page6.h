@@ -8,6 +8,14 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QDateEdit>
+
+#include <QFileDialog>
+#include <QPixmap>
+#include <QListWidget>
+#include <QString>
+#include <QDir>
+#include <QSize>
+
 namespace Ui {
 class page6;
 }
@@ -23,13 +31,9 @@ public:
 private:
     Ui::page6 *ui;
     QPushButton *searchButton;
-    QPushButton *returnButton;
     QDateEdit *dateEdit;
-
-signals:
-    void return_index_6_5();
-private slots:
-    void on_pushButton_2_clicked();
+    QString folderPath;
+    void showImageList();
 };
 
 #endif // PAGE6_H

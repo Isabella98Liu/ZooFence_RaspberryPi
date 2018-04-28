@@ -32,10 +32,10 @@ public:
     {
         if (page10->objectName().isEmpty())
             page10->setObjectName(QStringLiteral("page10"));
-        page10->resize(587, 447);
+        page10->resize(600, 480);
         pushButton = new QPushButton(page10);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(70, 380, 131, 51));
+        pushButton->setGeometry(QRect(50, 400, 131, 51));
         QFont font;
         font.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
         font.setPointSize(16);
@@ -51,7 +51,7 @@ public:
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         pushButton_2 = new QPushButton(page10);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(230, 380, 131, 51));
+        pushButton_2->setGeometry(QRect(230, 400, 131, 51));
         label_2 = new QLabel(page10);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(420, 30, 161, 121));

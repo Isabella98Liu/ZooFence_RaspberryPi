@@ -24,6 +24,17 @@ QPushButton#returnButton:hover{
     background-color : LightGray
 }
 
+/* ---------------QSS Style Sheet for the page 6----------------*/
+
+QPushButton#searchButton{
+    border: 2px solid #8f8f91;
+    border-radius: 6px;
+}
+
+QPushButton#searchButton:pressed{
+    background-color : Gray
+}
+
 /* ---------------QSS Style Sheet for the page 8----------------*/
 
 QPushButton#adjustButton{

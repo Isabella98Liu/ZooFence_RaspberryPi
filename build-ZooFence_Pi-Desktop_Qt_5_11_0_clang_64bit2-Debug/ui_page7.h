@@ -22,6 +22,7 @@ public:
     QLabel *label;
     QLabel *label_2;
     QLabel *label_3;
+    QLabel *label_4;
 
     void setupUi(QWidget *page7)
     {
@@ -45,6 +46,9 @@ public:
         label_3->setGeometry(QRect(110, 30, 341, 281));
         label_3->setPixmap(QPixmap(QString::fromUtf8(":/.001/Resources/007/OK.PNG")));
         label_3->setScaledContents(true);
+        label_4 = new QLabel(page7);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setGeometry(QRect(160, 20, 261, 281));
 
         retranslateUi(page7);
 
@@ -57,6 +61,7 @@ public:
         label->setText(QApplication::translate("page7", "<html><head/><body><p>\350\256\276\345\244\207\350\277\220\350\241\214\350\211\257\345\245\275\357\274\201</p></body></html>", nullptr));
         label_2->setText(QString());
         label_3->setText(QString());
+        label_4->setText(QApplication::translate("page7", "<html><head/><body><p><img src=\":/.001/Resources/007/check.png\" hieght=\"250\" width=\"250\"/></p></body></html>", nullptr));
     } // retranslateUi
 
 };

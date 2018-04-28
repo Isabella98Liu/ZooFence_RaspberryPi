@@ -1,21 +1,18 @@
 #include "page6.h"
 #include "ui_page6.h"
+#include <QDebug>
 
 page6::page6(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::page6)
 {
     ui->setupUi(this);
+    folderPath = qApp->applicationDirPath() +  QString("/pics");
     dateEdit = ui->dateEdit;
     dateEdit->setCalendarPopup(true);
-    QIcon ico(":/.001/Resources/006/fine.png");
     searchButton = ui->pushButton;
-    returnButton = ui->pushButton_2;
-    returnButton->setObjectName("returnButton");
-    searchButton->setObjectName("check");
-    searchButton->setIcon(ico);
-    searchButton->setIconSize(QSize(45,45));
-    searchButton->setFlat(true);
+    searchButton->setObjectName("searchButton");
+    showImageList();
 }
 
 page6::~page6()
@@ -23,7 +20,30 @@ page6::~page6()
     delete ui;
 }
 
-void page6::on_pushButton_2_clicked()
+
+void page6::showImageList()
 {
-    emit return_index_6_5();
+    QListWidget *imageList = new QListWidget;   // create a qlistwidget to show the image list
+//------------------------------------------------------------------------------
+    imageList->resize(500, 500);
+    imageList->setViewMode(QListView::IconMode);
+    imageList->setIconSize(QSize(120, 120));
+    imageList->setSpacing(5);
+    imageList->setResizeMode(QListWidget::Adjust);
+    imageList->setMovement(QListWidget::Static);
+//------------------------------------------------------------------------------
+    QDir dir(folderPath);  // get the directory of the folder
+    QStringList images = dir.entryList(QStringList() << "*.jpg" << "*.JPG",QDir::Files);
+    foreach(QString tmp, images)
+    {
+//        qDebug() << tmp;
+        QString img = (folderPath + "/") + tmp;  // get the file path of the picture
+//        qDebug() << img;
+        QListWidgetItem *imageItem = new QListWidgetItem;
+        imageItem->setIcon(QIcon(img));
+        imageItem->setSizeHint(QSize(120, 120));
+        imageList->addItem(imageItem);
+    }
+    ui->gridLayout->addWidget(imageList);
+//    imageList->show();
 }
