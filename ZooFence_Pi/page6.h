@@ -2,6 +2,7 @@
 #define PAGE6_H
 
 #include <QWidget>
+#include <QObject>
 #include <QIcon>
 #include <QPixmap>
 #include <QImage>
@@ -12,9 +13,12 @@
 #include <QFileDialog>
 #include <QPixmap>
 #include <QListWidget>
+#include <QListWidgetItem>
 #include <QString>
 #include <QDir>
 #include <QSize>
+
+#include "page8.h"
 
 namespace Ui {
 class page6;
@@ -33,7 +37,11 @@ private:
     QPushButton *searchButton;
     QDateEdit *dateEdit;
     QString folderPath;
+    QListWidget *imageList;
     void showImageList();
+
+private slots:
+    void imageDetail(QListWidgetItem*);
 };
 
 #endif // PAGE6_H

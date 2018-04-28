@@ -8,9 +8,11 @@ page8::page8(QWidget *parent) :
     ui->setupUi(this);
     smallbutton = ui->pushButton;
     bigbutton = ui->pushButton_2;
+    pictureLabel = ui->label_2;
     smallbutton->setObjectName("adjustButton");
     bigbutton->setObjectName("adjustButton");
 }
+
 
 page8::~page8()
 {

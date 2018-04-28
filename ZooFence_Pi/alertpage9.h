@@ -2,6 +2,13 @@
 #define ALERTPAGE9_H
 
 #include <QWidget>
+#include <QCamera>
+#include <QCameraViewfinder>
+#include <QCameraImageCapture>
+#include <QFileDialog>
+#include <QDateTime>
+#include <QString>
+#include <QFile>
 
 namespace Ui {
 class alertPage9;
@@ -17,6 +24,15 @@ public:
 
 private:
     Ui::alertPage9 *ui;
+    QCamera *camera;
+    QCameraViewfinder *viewfinder;
+    QCameraImageCapture *imageCaputure;
+    QString folderPath;
+
+public slots:
+    void captureImage();
+    void displayImage(int, QImage);
+    void saveImage();
 };
 
 #endif // ALERTPAGE9_H

@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -21,51 +22,57 @@ class Ui_alertPage9
 {
 public:
     QLabel *label;
-    QLabel *label_2;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
     QLabel *label_3;
     QLabel *label_4;
     QLabel *label_5;
     QLabel *label_6;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
+    QPushButton *pushButton_3;
 
     void setupUi(QWidget *alertPage9)
     {
         if (alertPage9->objectName().isEmpty())
             alertPage9->setObjectName(QStringLiteral("alertPage9"));
-        alertPage9->resize(537, 373);
+        alertPage9->resize(608, 483);
         label = new QLabel(alertPage9);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(50, 60, 151, 191));
+        label->setGeometry(QRect(20, 60, 181, 311));
         label->setStyleSheet(QLatin1String("QLabel{\n"
 "	border: 0px;\n"
 "	border-radius: 6px;\n"
 "	background-color : LightGray\n"
 "}"));
-        label_2 = new QLabel(alertPage9);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(230, 50, 270, 270));
-        pushButton = new QPushButton(alertPage9);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(60, 290, 61, 31));
-        pushButton_2 = new QPushButton(alertPage9);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(130, 290, 61, 31));
         label_3 = new QLabel(alertPage9);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(60, 80, 91, 31));
+        label_3->setGeometry(QRect(50, 90, 91, 31));
         QFont font;
-        font.setPointSize(13);
+        font.setPointSize(20);
         label_3->setFont(font);
         label_4 = new QLabel(alertPage9);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(60, 130, 60, 16));
+        label_4->setGeometry(QRect(50, 160, 41, 16));
+        QFont font1;
+        font1.setPointSize(16);
+        label_4->setFont(font1);
         label_5 = new QLabel(alertPage9);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(60, 160, 60, 16));
+        label_5->setGeometry(QRect(50, 210, 41, 16));
+        label_5->setFont(font1);
         label_6 = new QLabel(alertPage9);
         label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(60, 190, 60, 16));
+        label_6->setGeometry(QRect(50, 260, 60, 16));
+        label_6->setFont(font1);
+        verticalLayoutWidget = new QWidget(alertPage9);
+        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(220, 40, 371, 341));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        pushButton_3 = new QPushButton(alertPage9);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        pushButton_3->setGeometry(QRect(160, 410, 291, 41));
+        pushButton_3->setFont(font);
 
         retranslateUi(alertPage9);
 
@@ -76,13 +83,11 @@ public:
     {
         alertPage9->setWindowTitle(QApplication::translate("alertPage9", "Form", nullptr));
         label->setText(QApplication::translate("alertPage9", "<html><head/><body><p><br/></p></body></html>", nullptr));
-        label_2->setText(QApplication::translate("alertPage9", "\343\200\220Video Sream\343\200\221", nullptr));
-        pushButton->setText(QApplication::translate("alertPage9", "\345\275\225\345\203\217", nullptr));
-        pushButton_2->setText(QApplication::translate("alertPage9", "\346\210\252\345\233\276", nullptr));
-        label_3->setText(QApplication::translate("alertPage9", "<html><head/><body><p><span style=\" font-size:18pt;\">\346\212\245\350\255\246\344\277\241\346\201\257</span></p></body></html>", nullptr));
+        label_3->setText(QApplication::translate("alertPage9", "<html><head/><body><p>\346\212\245\350\255\246\344\277\241\346\201\257</p></body></html>", nullptr));
         label_4->setText(QApplication::translate("alertPage9", "\346\227\245\346\234\237\357\274\232", nullptr));
         label_5->setText(QApplication::translate("alertPage9", "\346\227\266\351\227\264\357\274\232", nullptr));
         label_6->setText(QApplication::translate("alertPage9", "\350\247\246\345\217\221\346\272\220\357\274\232", nullptr));
+        pushButton_3->setText(QApplication::translate("alertPage9", "\345\201\234\346\255\242\346\212\245\350\255\246", nullptr));
     } // retranslateUi
 
 };

@@ -8,6 +8,7 @@
 #include <QLabel>
 #include <QPushButton>
 
+
 namespace Ui {
 class page8;
 }
@@ -19,13 +20,13 @@ class page8 : public QWidget
 public:
     explicit page8(QWidget *parent = 0);
     ~page8();
+    QLabel *pictureLabel;
 
 private:
     Ui::page8 *ui;
     QPushButton *smallbutton;
     QPushButton *bigbutton;
     QLabel *returnbutton;
-    QLabel *pictureLabel;
 
 };
 

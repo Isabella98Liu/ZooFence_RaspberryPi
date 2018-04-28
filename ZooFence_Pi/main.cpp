@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     if(!QDir("pics").exists())
         QDir().mkdir("pics");
 
-    qDebug() << qApp->applicationDirPath();
+//    qDebug() << qApp->applicationDirPath();
 
     //load qss style sheet
     QssLoad::setStyle(":/qss/QSS/page2.qss");
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     p.init();
     p.play();
 
-//    page6 w;
+//    alertPage9 w;
 //    w.show();
 
     return a.exec();

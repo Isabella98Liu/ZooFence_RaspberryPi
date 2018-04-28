@@ -32,7 +32,7 @@ public:
     {
         if (page10->objectName().isEmpty())
             page10->setObjectName(QStringLiteral("page10"));
-        page10->resize(600, 480);
+        page10->resize(608, 483);
         pushButton = new QPushButton(page10);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(50, 400, 131, 51));

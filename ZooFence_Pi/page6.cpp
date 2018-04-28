@@ -12,7 +12,10 @@ page6::page6(QWidget *parent) :
     dateEdit->setCalendarPopup(true);
     searchButton = ui->pushButton;
     searchButton->setObjectName("searchButton");
+
+    imageList = new QListWidget;   // create a qlistwidget to show the image list
     showImageList();
+    connect(imageList, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(imageDetail(QListWidgetItem*)));
 }
 
 page6::~page6()
@@ -23,7 +26,6 @@ page6::~page6()
 
 void page6::showImageList()
 {
-    QListWidget *imageList = new QListWidget;   // create a qlistwidget to show the image list
 //------------------------------------------------------------------------------
     imageList->resize(500, 500);
     imageList->setViewMode(QListView::IconMode);
@@ -45,5 +47,13 @@ void page6::showImageList()
         imageList->addItem(imageItem);
     }
     ui->gridLayout->addWidget(imageList);
-//    imageList->show();
+}
+
+//------------------------------------SLOT---------------------------------------
+
+void page6::imageDetail(QListWidgetItem* item)
+{
+    page8 *p8 = new page8;
+    p8->show();
+    p8->pictureLabel->setPixmap(item->icon().pixmap(QSize(400, 400)));
 }
