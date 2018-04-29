@@ -40,7 +40,7 @@ void page10::displayImage(int, QImage image)
 void page10::saveImage()
 {
     QDateTime time = QDateTime::currentDateTime();
-    QString fileName = folderPath + time.toString("yyyy_MM_dd_hh_mm_ss") + "_0";  // set the trigger type as 0
+    QString fileName = folderPath + time.toString("yyyy_MM_dd_hh_mm_ss") + "_1";  // set the trigger type as NULL(1)
     const QPixmap* pixmap = ui->label_2->pixmap();
     if(pixmap)
     {

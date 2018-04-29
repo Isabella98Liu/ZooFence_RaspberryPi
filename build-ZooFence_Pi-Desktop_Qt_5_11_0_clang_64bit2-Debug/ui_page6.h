@@ -65,6 +65,7 @@ public:
         comboBox->addItem(QString());
         comboBox->setObjectName(QStringLiteral("comboBox"));
         comboBox->setGeometry(QRect(321, 50, 191, 22));
+        comboBox->setEditable(false);
         pushButton = new QPushButton(page6);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(530, 30, 30, 30));
@@ -75,6 +76,7 @@ public:
         dateEdit = new QDateEdit(page6);
         dateEdit->setObjectName(QStringLiteral("dateEdit"));
         dateEdit->setGeometry(QRect(80, 50, 181, 22));
+        dateEdit->setDateTime(QDateTime(QDate(2018, 1, 1), QTime(0, 0, 0)));
         gridLayoutWidget = new QWidget(page6);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
         gridLayoutWidget->setGeometry(QRect(30, 110, 551, 351));
@@ -83,6 +85,9 @@ public:
         gridLayout->setContentsMargins(0, 0, 0, 0);
 
         retranslateUi(page6);
+
+        comboBox->setCurrentIndex(0);
+
 
         QMetaObject::connectSlotsByName(page6);
     } // setupUi
@@ -94,11 +99,12 @@ public:
         label_3->setText(QApplication::translate("page6", "\346\227\245\346\234\237 \357\274\232", nullptr));
         label_4->setText(QApplication::translate("page6", "\350\247\246\345\217\221\346\272\220 \357\274\232", nullptr));
         comboBox->setItemText(0, QApplication::translate("page6", "\345\205\250\351\203\250", nullptr));
-        comboBox->setItemText(1, QApplication::translate("page6", "\346\211\213\345\212\250\346\210\252\345\233\276", nullptr));
+        comboBox->setItemText(1, QApplication::translate("page6", "\346\227\240", nullptr));
         comboBox->setItemText(2, QApplication::translate("page6", "\346\277\200\345\205\211\345\257\271\345\260\204", nullptr));
         comboBox->setItemText(3, QApplication::translate("page6", "\350\266\205\345\243\260\346\263\242", nullptr));
         comboBox->setItemText(4, QApplication::translate("page6", "\345\216\213\346\225\217", nullptr));
 
+        comboBox->setCurrentText(QApplication::translate("page6", "\345\205\250\351\203\250", nullptr));
         pushButton->setText(QString());
     } // retranslateUi
 

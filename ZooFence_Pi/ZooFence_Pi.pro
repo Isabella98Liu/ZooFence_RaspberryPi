@@ -54,8 +54,7 @@ HEADERS += \
     clickablelabel.h
 
 RESOURCES += \
-    resources.qrc \
-    pics.qrc
+    resources.qrc
 
 FORMS += \
     introduce.ui \

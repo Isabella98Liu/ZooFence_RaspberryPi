@@ -80,6 +80,15 @@
      <height>22</height>
     </rect>
    </property>
+   <property name="editable">
+    <bool>false</bool>
+   </property>
+   <property name="currentText">
+    <string>全部</string>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
    <item>
     <property name="text">
      <string>全部</string>
@@ -87,7 +96,7 @@
    </item>
    <item>
     <property name="text">
-     <string>手动截图</string>
+     <string>无</string>
     </property>
    </item>
    <item>
@@ -137,6 +146,16 @@
      <width>181</width>
      <height>22</height>
     </rect>
+   </property>
+   <property name="dateTime">
+    <datetime>
+     <hour>0</hour>
+     <minute>0</minute>
+     <second>0</second>
+     <year>2018</year>
+     <month>1</month>
+     <day>1</day>
+    </datetime>
    </property>
   </widget>
   <widget class="QWidget" name="gridLayoutWidget">
