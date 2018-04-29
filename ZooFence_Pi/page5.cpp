@@ -1,8 +1,7 @@
 #include "page5.h"
 #include "ui_page5.h"
-#include "page7.h"
-#include <QTimer>
-#include <qdatetime.h>
+
+#include <QDebug>
 
 page5::page5(QWidget *parent) :
     QWidget(parent),
@@ -19,6 +18,16 @@ page5::page5(QWidget *parent) :
     returnButton->setObjectName("returnButton");
     showdateLabel = ui->label_3;
     showtimeLabel = ui->label_4;
+    tmpSlider = ui->verticalSlider;
+    humSlider = ui->verticalSlider_2;
+    crowdSlider = ui->verticalSlider_3;
+    tmp = ui->label_8;
+    hum = ui->label_9;
+    crowd = ui->label_10;
+    tmp->setText("26");
+    hum->setText("60");
+    crowd->setText("60");
+    sensorDataUpdate();
     QTimer *timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(timerUpdate()));
     timer->start(1000);
@@ -85,4 +94,12 @@ void page5::on_pushButton_3_clicked()  // if the real time video button was pres
 bool page5::Check_device_status()  // check if the all device is in good status
 {
     return true;
+}
+
+void page5::sensorDataUpdate()
+{
+    qDebug() << tmp->text().toInt() << "hum :" << hum->text().toInt() << "crowd :" << crowd->text().toInt();
+    tmpSlider->setValue(tmp->text().toInt());
+    humSlider->setValue(hum->text().toInt());
+    crowdSlider->setValue(crowd->text().toInt());
 }

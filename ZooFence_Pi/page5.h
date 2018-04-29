@@ -4,7 +4,13 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QLabel>
+#include <QSlider>
+#include <QString>
 #include <Qt>
+#include <QTimer>
+
+#include "page7.h"
+#include <qdatetime.h>
 
 namespace Ui {
 class page5;
@@ -27,13 +33,14 @@ private:
     QPushButton *vedioButton;
     QLabel *showdateLabel;
     QLabel *showtimeLabel;
-    QLabel *peopleLabel;
-    QLabel *showpeopleLabel;
-    QLabel *tempLabel;
-    QLabel *showtempLabel;
-    QLabel *humLabel;
-    QLabel *showhumLabel;
+    QSlider *tmpSlider;
+    QSlider *humSlider;
+    QSlider *crowdSlider;
+    QLabel *tmp;
+    QLabel *hum;
+    QLabel *crowd;
     bool Check_device_status();
+    void sensorDataUpdate();
 
   private slots:
         void timerUpdate(void);

@@ -13,8 +13,8 @@
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -25,13 +25,14 @@ public:
     QLabel *label;
     QLabel *label_2;
     QLabel *label_3;
-    QTextEdit *textEdit;
     QLabel *label_4;
     QLabel *label_5;
-    QTextEdit *textEdit_2;
     QPushButton *pushButton;
     QLabel *return_2;
     QPushButton *returnButton;
+    QLineEdit *lineEdit;
+    QLineEdit *lineEdit_2;
+    QLabel *label_6;
 
     void setupUi(QWidget *login)
     {
@@ -48,21 +49,6 @@ public:
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setGeometry(QRect(210, 260, 91, 50));
         label_3->setScaledContents(false);
-        textEdit = new QTextEdit(login);
-        textEdit->setObjectName(QStringLiteral("textEdit"));
-        textEdit->setGeometry(QRect(300, 260, 171, 41));
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(textEdit->sizePolicy().hasHeightForWidth());
-        textEdit->setSizePolicy(sizePolicy);
-        QFont font;
-        font.setPointSize(16);
-        font.setUnderline(false);
-        textEdit->setFont(font);
-        textEdit->setFrameShape(QFrame::NoFrame);
-        textEdit->setFrameShadow(QFrame::Plain);
-        textEdit->setAutoFormatting(QTextEdit::AutoAll);
         label_4 = new QLabel(login);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(210, 340, 91, 50));
@@ -70,21 +56,12 @@ public:
         label_5 = new QLabel(login);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setGeometry(QRect(150, 340, 50, 50));
-        textEdit_2 = new QTextEdit(login);
-        textEdit_2->setObjectName(QStringLiteral("textEdit_2"));
-        textEdit_2->setGeometry(QRect(300, 340, 171, 41));
-        sizePolicy.setHeightForWidth(textEdit_2->sizePolicy().hasHeightForWidth());
-        textEdit_2->setSizePolicy(sizePolicy);
-        textEdit_2->setFont(font);
-        textEdit_2->setFrameShape(QFrame::NoFrame);
-        textEdit_2->setFrameShadow(QFrame::Plain);
-        textEdit_2->setAutoFormatting(QTextEdit::AutoAll);
         pushButton = new QPushButton(login);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(280, 430, 141, 41));
-        QFont font1;
-        font1.setPointSize(11);
-        pushButton->setFont(font1);
+        pushButton->setGeometry(QRect(270, 460, 151, 41));
+        QFont font;
+        font.setPointSize(16);
+        pushButton->setFont(font);
         return_2 = new QLabel(login);
         return_2->setObjectName(QStringLiteral("return_2"));
         return_2->setGeometry(QRect(30, 30, 50, 50));
@@ -96,6 +73,15 @@ public:
         icon.addFile(QStringLiteral(":/.001/Resources/004/return.png"), QSize(), QIcon::Normal, QIcon::On);
         returnButton->setIcon(icon);
         returnButton->setIconSize(QSize(30, 30));
+        lineEdit = new QLineEdit(login);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setGeometry(QRect(300, 270, 141, 31));
+        lineEdit_2 = new QLineEdit(login);
+        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
+        lineEdit_2->setGeometry(QRect(300, 350, 141, 31));
+        label_6 = new QLabel(login);
+        label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setGeometry(QRect(310, 390, 70, 70));
 
         retranslateUi(login);
 
@@ -113,6 +99,7 @@ public:
         pushButton->setText(QApplication::translate("login", "\347\231\273\345\275\225", nullptr));
         return_2->setText(QString());
         returnButton->setText(QString());
+        label_6->setText(QString());
     } // retranslateUi
 
 };

@@ -36,7 +36,8 @@ SOURCES += \
     page7.cpp \
     page8.cpp \
     page10.cpp \
-    clickablelabel.cpp
+    searchindex.cpp \
+    sensor.cpp
 
 HEADERS += \
     introduce.h \
@@ -51,7 +52,8 @@ HEADERS += \
     page7.h \
     page8.h \
     page10.h \
-    clickablelabel.h
+    searchindex.h \
+    sensor.h
 
 RESOURCES += \
     resources.qrc

@@ -6,7 +6,11 @@
 #include <QPixmap>
 #include <QImage>
 #include <QLabel>
+#include <QString>
 #include <QPushButton>
+#include <QListWidgetItem>
+
+#include "searchindex.h"
 
 
 namespace Ui {
@@ -21,6 +25,7 @@ public:
     explicit page8(QWidget *parent = 0);
     ~page8();
     QLabel *pictureLabel;
+    void setInfo(QListWidgetItem*);
 
 private:
     Ui::page8 *ui;

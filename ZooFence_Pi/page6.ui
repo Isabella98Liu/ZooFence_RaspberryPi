@@ -101,17 +101,17 @@
    </item>
    <item>
     <property name="text">
-     <string>激光对射</string>
+     <string>围栏翻越</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>超声波</string>
+     <string>靠近围栏</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>压敏</string>
+     <string>人流量大</string>
     </property>
    </item>
   </widget>

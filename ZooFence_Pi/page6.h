@@ -11,6 +11,7 @@
 #include <QDateEdit>
 #include <QComboBox>
 #include <QRegExp>
+#include <QDebug>
 
 #include <QFileDialog>
 #include <QPixmap>
@@ -21,19 +22,11 @@
 #include <QSize>
 
 #include "page8.h"
+#include "searchindex.h"
 
 namespace Ui {
 class page6;
 }
-
-class searchIndex
-{
-public:
-    int year;
-    int month;
-    int day;
-    int trigger_type;
-};
 
 class page6 : public QWidget
 {
@@ -46,12 +39,11 @@ public:
 private:
     Ui::page6 *ui;
     QPushButton *searchButton;
-    QDateEdit *dateEdit;
     QComboBox *trigger;
+    QDateEdit *dateEdit;
     QString folderPath;
     QListWidget *imageList;
     void showImageList();
-    searchIndex imageInfo(QString);
 
 private slots:
     void imageDetail(QListWidgetItem*);   // show data detail

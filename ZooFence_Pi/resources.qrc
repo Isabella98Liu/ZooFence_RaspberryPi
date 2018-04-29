@@ -10,13 +10,14 @@
         <file>Resources/004/return.png</file>
         <file>Resources/005/checking.png</file>
         <file>Resources/005/researching.png</file>
-        <file>Resources/005/tem.PNG</file>
         <file>Resources/005/vedio.png</file>
         <file>Resources/006/fine.png</file>
         <file>Resources/008/bigger.PNG</file>
         <file>Resources/008/smaller.PNG</file>
         <file>Resources/010/picture.PNG</file>
         <file>Resources/007/check.png</file>
+        <file>Resources/004/Spinner.gif</file>
+        <file>Resources/005/tem.png</file>
     </qresource>
     <qresource prefix="/qss">
         <file>QSS/page2.qss</file>

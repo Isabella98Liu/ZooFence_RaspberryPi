@@ -33,7 +33,7 @@ void welcomePage::loadText()
     Text = ui->label_3;
     timer1 = new QTimer(this);
     connect(timer1, SIGNAL(timeout()), this, SLOT(textUpdate()));
-    timer1->start(2000);
+    timer1->start(1500);
 }
 
 void welcomePage::loadContent()
