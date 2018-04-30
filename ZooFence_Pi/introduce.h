@@ -7,6 +7,7 @@
 #include <QIcon>
 #include <QLabel>
 #include <QPushButton>
+#include <QDesktopWidget>
 
 namespace Ui {
 class introduce;

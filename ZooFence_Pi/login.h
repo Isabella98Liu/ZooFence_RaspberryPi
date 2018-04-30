@@ -9,6 +9,7 @@
 #include <QTimer>
 #include <QMovie>
 #include <Qt>
+#include <QDesktopWidget>
 
 namespace Ui {
 class login;

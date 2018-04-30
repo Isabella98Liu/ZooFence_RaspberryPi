@@ -9,6 +9,7 @@
 #include <QString>
 #include <QPushButton>
 #include <QListWidgetItem>
+#include <QDesktopWidget>
 
 #include "searchindex.h"
 

@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include <Qt>
+#include <QDesktopWidget>
 
 namespace Ui {
 class userBook;

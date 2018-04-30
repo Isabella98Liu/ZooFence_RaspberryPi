@@ -7,6 +7,8 @@ page7::page7(QWidget *parent) :
     ui(new Ui::page7)
 {
     ui->setupUi(this);
+    QDesktopWidget* desktop = QApplication::desktop();
+    move((desktop->width() - this->width())/2, (desktop->height() - this->height())/2);
 
 }
 

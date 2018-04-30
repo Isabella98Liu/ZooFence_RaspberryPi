@@ -9,6 +9,7 @@
 #include <QDateTime>
 #include <QString>
 #include <QFile>
+#include <QDesktopWidget>
 
 namespace Ui {
 class alertPage9;

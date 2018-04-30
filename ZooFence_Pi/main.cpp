@@ -12,20 +12,17 @@
 #include <QFont>
 #include <QApplication>
 #include <QDir>
+#include <QString>
 #include <QDebug>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-//    QFont newFont("Helvetica", 8, QFont::Bold, true);
-//    a.setFont(newFont);
+    QFont newFont("STKaiti", 12, -1 , false);
+    a.setFont(newFont);
 
-    //check if the picture folder exists
-    if(!QDir("pics").exists())
-        QDir().mkdir("pics");
-
-//    qDebug() << qApp->applicationDirPath();
+    QDir(qApp->applicationDirPath()).mkdir("pics");
 
     //load qss style sheet
     QssLoad::setStyle(":/qss/QSS/page2.qss");

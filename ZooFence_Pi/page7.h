@@ -2,6 +2,7 @@
 #define PAGE7_H
 
 #include <QWidget>
+#include <QDesktopWidget>
 
 namespace Ui {
 class page7;

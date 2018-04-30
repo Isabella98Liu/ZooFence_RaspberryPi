@@ -12,6 +12,7 @@
 #include <QComboBox>
 #include <QRegExp>
 #include <QDebug>
+#include <QDesktopWidget>
 
 #include <QFileDialog>
 #include <QPixmap>

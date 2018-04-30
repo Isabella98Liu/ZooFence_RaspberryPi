@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QTimer>
 #include <QString>
+#include <QDesktopWidget>
 
 
 namespace Ui {

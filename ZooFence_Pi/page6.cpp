@@ -5,6 +5,8 @@ page6::page6(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::page6)
 {
+    QDesktopWidget* desktop = QApplication::desktop();
+    move((desktop->width() - this->width())/2, (desktop->height() - this->height())/2);
     ui->setupUi(this);
     folderPath = qApp->applicationDirPath() +  QString("/pics");
     dateEdit = ui->dateEdit;

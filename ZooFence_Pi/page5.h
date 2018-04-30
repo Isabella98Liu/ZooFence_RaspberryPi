@@ -8,6 +8,7 @@
 #include <QString>
 #include <Qt>
 #include <QTimer>
+#include <QDesktopWidget>
 
 #include "page7.h"
 #include <qdatetime.h>

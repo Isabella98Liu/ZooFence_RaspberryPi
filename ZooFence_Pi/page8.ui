@@ -37,9 +37,9 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>410</x>
      <y>10</y>
-     <width>151</width>
+     <width>161</width>
      <height>371</height>
     </rect>
    </property>
@@ -57,7 +57,7 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>430</x>
+     <x>420</x>
      <y>50</y>
      <width>81</width>
      <height>31</height>
@@ -76,16 +76,16 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>430</x>
+     <x>420</x>
      <y>90</y>
-     <width>131</width>
+     <width>141</width>
      <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>黑体</family>
-     <pointsize>16</pointsize>
+     <pointsize>14</pointsize>
     </font>
    </property>
    <property name="text">
@@ -95,7 +95,7 @@
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>430</x>
+     <x>420</x>
      <y>140</y>
      <width>81</width>
      <height>31</height>
@@ -114,16 +114,16 @@
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>430</x>
+     <x>420</x>
      <y>180</y>
-     <width>131</width>
+     <width>141</width>
      <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>黑体</family>
-     <pointsize>16</pointsize>
+     <pointsize>14</pointsize>
     </font>
    </property>
    <property name="text">

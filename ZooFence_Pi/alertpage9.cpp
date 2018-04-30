@@ -5,6 +5,8 @@ alertPage9::alertPage9(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::alertPage9)
 {
+    QDesktopWidget* desktop = QApplication::desktop();
+    move((desktop->width() - this->width())/2, (desktop->height() - this->height())/2);
     ui->setupUi(this);
     folderPath = qApp->applicationDirPath() +  QString("/pics/");
     camera = new QCamera(this);

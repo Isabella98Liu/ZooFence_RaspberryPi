@@ -6,6 +6,8 @@ page10::page10(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::page10)
 {
+    QDesktopWidget* desktop = QApplication::desktop();
+    move((desktop->width() - this->width())/2, (desktop->height() - this->height())/2);
     ui->setupUi(this);
     folderPath = qApp->applicationDirPath() +  QString("/pics/");
     camera = new QCamera(this);
@@ -49,4 +51,9 @@ void page10::saveImage()
         file.open(QIODevice::WriteOnly);
         pixmap->save(&file, "JPG");
     }
+}
+
+void page10::closeEvent(QCloseEvent *event)
+{
+    delete this;
 }

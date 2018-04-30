@@ -9,6 +9,8 @@
 #include <QDateTime>
 #include <QString>
 #include <QFile>
+#include <QCloseEvent>
+#include <QDesktopWidget>
 
 namespace Ui {
 class page10;
@@ -33,6 +35,9 @@ public slots:
     void captureImage();
     void displayImage(int, QImage);
     void saveImage();
+
+protected:
+    void closeEvent(QCloseEvent *event);
 };
 
 #endif // PAGE10_H

@@ -5,6 +5,8 @@ login::login(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::login)
 {
+    QDesktopWidget* desktop = QApplication::desktop();
+    move((desktop->width() - this->width())/2, (desktop->height() - this->height())/2);
     ui->setupUi(this);
     loginButton = ui->pushButton;
     returnButton = ui->returnButton;
