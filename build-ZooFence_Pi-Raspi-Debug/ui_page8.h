@@ -78,11 +78,11 @@ public:
         label_7->setFont(font1);
         label_8 = new QLabel(page8);
         label_8->setObjectName(QStringLiteral("label_8"));
-        label_8->setGeometry(QRect(430, 260, 91, 31));
+        label_8->setGeometry(QRect(420, 260, 91, 31));
         label_8->setFont(font);
         label_9 = new QLabel(page8);
         label_9->setObjectName(QStringLiteral("label_9"));
-        label_9->setGeometry(QRect(460, 300, 71, 31));
+        label_9->setGeometry(QRect(420, 300, 141, 31));
         label_9->setFont(font);
         pushButton = new QPushButton(page8);
         pushButton->setObjectName(QStringLiteral("pushButton"));
