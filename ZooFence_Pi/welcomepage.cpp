@@ -11,6 +11,9 @@ welcomePage::welcomePage(QWidget *parent) :
 {
     QDesktopWidget* desktop = QApplication::desktop();
     move((desktop->width() - this->width())/2, (desktop->height() - this->height())/2);
+//    QRect screenRect = desktop->screenGeometry();
+//    desktop->resize(screenRect.width(), screenRect.height());
+
     ui->setupUi(this);
     loadContent();
     loadGif();

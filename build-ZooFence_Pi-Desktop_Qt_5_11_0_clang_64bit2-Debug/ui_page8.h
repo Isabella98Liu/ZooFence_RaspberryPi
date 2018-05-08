@@ -46,7 +46,7 @@ public:
         label_2->setFrameShape(QFrame::Box);
         label_3 = new QLabel(page8);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(420, 10, 151, 371));
+        label_3->setGeometry(QRect(410, 10, 161, 371));
         label_3->setStyleSheet(QLatin1String("QLabel{\n"
 "	border: 0px;\n"
 "	border-radius: 6px;\n"
@@ -54,30 +54,33 @@ public:
 "}"));
         label_4 = new QLabel(page8);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(430, 50, 81, 31));
+        label_4->setGeometry(QRect(420, 50, 81, 31));
         QFont font;
         font.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
         font.setPointSize(16);
         label_4->setFont(font);
         label_5 = new QLabel(page8);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(430, 90, 131, 31));
-        label_5->setFont(font);
+        label_5->setGeometry(QRect(420, 90, 141, 31));
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
+        font1.setPointSize(14);
+        label_5->setFont(font1);
         label_6 = new QLabel(page8);
         label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(430, 140, 81, 31));
+        label_6->setGeometry(QRect(420, 140, 81, 31));
         label_6->setFont(font);
         label_7 = new QLabel(page8);
         label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setGeometry(QRect(430, 180, 131, 31));
-        label_7->setFont(font);
+        label_7->setGeometry(QRect(420, 180, 141, 31));
+        label_7->setFont(font1);
         label_8 = new QLabel(page8);
         label_8->setObjectName(QStringLiteral("label_8"));
-        label_8->setGeometry(QRect(430, 260, 91, 31));
+        label_8->setGeometry(QRect(420, 260, 91, 31));
         label_8->setFont(font);
         label_9 = new QLabel(page8);
         label_9->setObjectName(QStringLiteral("label_9"));
-        label_9->setGeometry(QRect(460, 300, 71, 31));
+        label_9->setGeometry(QRect(420, 300, 141, 31));
         label_9->setFont(font);
         pushButton = new QPushButton(page8);
         pushButton->setObjectName(QStringLiteral("pushButton"));

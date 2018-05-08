@@ -31,7 +31,7 @@ public:
         page7->resize(556, 407);
         label = new QLabel(page7);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(200, 320, 191, 71));
+        label->setGeometry(QRect(160, 310, 261, 71));
         QFont font;
         font.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
         font.setPointSize(28);

@@ -7,6 +7,7 @@
 #include <QTimer>
 #include <QString>
 #include <QDesktopWidget>
+#include <QRect>
 
 
 namespace Ui {
