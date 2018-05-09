@@ -9,11 +9,11 @@ welcomePage::welcomePage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::welcomePage)
 {
-    QDesktopWidget* desktop = QApplication::desktop();
-    move((desktop->width() - this->width())/2, (desktop->height() - this->height())/2);
+//    QDesktopWidget* desktop = QApplication::desktop();
+//    move((desktop->width() - this->width())/2, (desktop->height() - this->height())/2);
 //    QRect screenRect = desktop->screenGeometry();
 //    desktop->resize(screenRect.width(), screenRect.height());
-
+    this->setWindowState(Qt::WindowMaximized);
     ui->setupUi(this);
     loadContent();
     loadGif();

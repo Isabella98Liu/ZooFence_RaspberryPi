@@ -1,4 +1,7 @@
 #include "pageindex.h"
+#include <QRect>
+#include <QDesktopWidget>
+#include <QApplication>
 
 pageIndex::pageIndex()
 {
@@ -34,6 +37,10 @@ void pageIndex::init( )
 void pageIndex::play()
 {
     p1->show();    // show the welcome page while the program start;
+//    p1->showFullScreen();
+//    QDesktopWidget* desktop = QApplication::desktop();
+//    QRect screenRect = desktop->screenGeometry();
+//    p1->resize(screenRect.width(), screenRect.height());
 }
 
 

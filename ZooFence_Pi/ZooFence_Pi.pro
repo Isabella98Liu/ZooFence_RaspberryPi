@@ -37,7 +37,8 @@ SOURCES += \
     page8.cpp \
     page10.cpp \
     searchindex.cpp \
-    sensor.cpp
+    sensor.cpp \
+    dataupdate.cpp
 
 HEADERS += \
     introduce.h \
@@ -53,7 +54,8 @@ HEADERS += \
     page8.h \
     page10.h \
     searchindex.h \
-    sensor.h
+    sensor.h \
+    dataupdate.h
 
 RESOURCES += \
     resources.qrc
