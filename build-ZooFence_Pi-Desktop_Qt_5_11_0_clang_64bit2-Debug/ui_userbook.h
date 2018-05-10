@@ -28,10 +28,10 @@ public:
     {
         if (userBook->objectName().isEmpty())
             userBook->setObjectName(QStringLiteral("userBook"));
-        userBook->resize(690, 535);
+        userBook->resize(1024, 600);
         label = new QLabel(userBook);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(60, 110, 571, 371));
+        label->setGeometry(QRect(60, 60, 941, 521));
         label->setStyleSheet(QLatin1String("QLabel{\n"
 "	border: 0px;\n"
 "	border-radius: 6px;\n"

@@ -29,31 +29,31 @@ public:
     {
         if (introduce->objectName().isEmpty())
             introduce->setObjectName(QStringLiteral("introduce"));
-        introduce->resize(690, 535);
+        introduce->resize(1024, 600);
         QFont font;
         font.setPointSize(12);
         introduce->setFont(font);
         pushButton = new QPushButton(introduce);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(70, 200, 171, 81));
+        pushButton->setGeometry(QRect(160, 240, 171, 81));
         QFont font1;
         font1.setPointSize(16);
         pushButton->setFont(font1);
         pushButton->setStyleSheet(QStringLiteral(""));
         label = new QLabel(introduce);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(70, 20, 211, 171));
+        label->setGeometry(QRect(160, 60, 211, 171));
         QFont font2;
         font2.setFamily(QStringLiteral("Lato"));
         font2.setPointSize(32);
         label->setFont(font2);
         pushButton_2 = new QPushButton(introduce);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(70, 360, 171, 81));
+        pushButton_2->setGeometry(QRect(160, 400, 171, 81));
         pushButton_2->setFont(font1);
         label_2 = new QLabel(introduce);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(330, 50, 271, 421));
+        label_2->setGeometry(QRect(500, 40, 411, 521));
         label_2->setStyleSheet(QLatin1String("QLabel{\n"
 "	border: 0px;\n"
 "	border-radius: 6px;\n"

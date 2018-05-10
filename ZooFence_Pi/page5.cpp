@@ -7,8 +7,9 @@ page5::page5(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::page5)
 {
-    QDesktopWidget* desktop = QApplication::desktop();
-    move((desktop->width() - this->width())/2, (desktop->height() - this->height())/2);
+//    QDesktopWidget* desktop = QApplication::desktop();
+//    move((desktop->width() - this->width())/2, (desktop->height() - this->height())/2);
+    this->setWindowState(Qt::WindowMaximized);
     ui->setupUi(this);
     recordButton = ui->pushButton;
     checkButton = ui->pushButton_2;
