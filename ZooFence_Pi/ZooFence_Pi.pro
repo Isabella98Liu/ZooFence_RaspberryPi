@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui widgets multimedia multimediawidgets
+QT += core gui widgets multimedia multimediawidgets
+QT += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -38,7 +39,8 @@ SOURCES += \
     page10.cpp \
     searchindex.cpp \
     sensor.cpp \
-    dataupdate.cpp
+    dataupdate.cpp \
+    thread2.cpp
 
 HEADERS += \
     introduce.h \
@@ -55,7 +57,8 @@ HEADERS += \
     page10.h \
     searchindex.h \
     sensor.h \
-    dataupdate.h
+    dataupdate.h \
+    thread2.h
 
 RESOURCES += \
     resources.qrc

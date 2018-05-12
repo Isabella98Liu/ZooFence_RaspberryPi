@@ -69,22 +69,3 @@ void welcomePage::textUpdate()
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

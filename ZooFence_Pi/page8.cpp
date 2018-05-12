@@ -36,12 +36,14 @@ void page8::setInfo(QListWidgetItem* item) // show the detail of the picture
     TIME->setText(time);
     //set the trigger type label
     QLabel *TRIGGER = ui->label_9;
-    if(info.trigger_type == 1)
-        TRIGGER->setText(QString("无"));
-    else if (info.trigger_type == 2)
-        TRIGGER->setText(QString("围栏翻越"));
-    else if (info.trigger_type == 3)
-        TRIGGER->setText(QString("靠近围栏"));
-    else if (info.trigger_type == 4)
-        TRIGGER->setText(QString("人流量大"));
+    QString triggerText;
+    if(info.trigger0 == 1)
+        triggerText = QString("无");
+    if (info.trigger1 == 1)
+        triggerText = triggerText + "\n围栏翻越";
+    if (info.trigger2 < 8 )
+        triggerText = triggerText + "\n靠近栏杆：" + QString::number(info.trigger2) + "米";
+    if (info.trigger3 == 1)
+        triggerText =triggerText + "\n动物靠近";
+     TRIGGER->setText(triggerText);
 }

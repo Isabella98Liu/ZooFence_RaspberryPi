@@ -2,6 +2,12 @@
 #define PAGEINDEX_H
 
 #include <QObject>
+#include <QThread>
+#include <QRect>
+#include <QDesktopWidget>
+#include <QApplication>
+#include <QDebug>
+#include <QMediaPlayer>
 
 #include "welcomepage.h"
 #include "introduce.h"
@@ -10,6 +16,7 @@
 #include "page5.h"
 #include "page6.h"
 #include "page7.h"
+#include "alertpage9.h"
 #include "page10.h"
 
 class pageIndex: public QObject
@@ -28,9 +35,6 @@ public:
     login *p4;
     page5 *p5;
 
-signals:
-
-
 public slots:
     void switch_page_1_2();
     void switch_page_2_3();
@@ -43,6 +47,9 @@ public slots:
     void return_page_3_2();
     void return_page_4_2();
     void return_page_5_4();
+
+    void showAlertPage9();
+//    void stopAlertPage9();
 
 };
 

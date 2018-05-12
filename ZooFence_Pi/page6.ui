@@ -106,12 +106,12 @@
    </item>
    <item>
     <property name="text">
-     <string>靠近围栏</string>
+     <string>靠近栏杆</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>人流量大</string>
+     <string>动物靠近</string>
     </property>
    </item>
   </widget>

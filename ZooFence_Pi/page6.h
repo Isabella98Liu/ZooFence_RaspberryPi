@@ -45,6 +45,7 @@ private:
     QString folderPath;
     QListWidget *imageList;
     void showImageList();
+    void addImageList(QString);
 
 private slots:
     void imageDetail(QListWidgetItem*);   // show data detail

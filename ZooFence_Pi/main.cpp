@@ -10,12 +10,14 @@
 #include "page10.h"
 #include "dataupdate.h"
 #include "sensor.h"
+#include "thread2.h"
 
 #include <QFont>
 #include <QApplication>
 #include <QDir>
 #include <QString>
 #include <QDebug>
+#include <QObject>
 
 int main(int argc, char *argv[])
 {
@@ -26,8 +28,8 @@ int main(int argc, char *argv[])
     a.setFont(newFont);
 
     //Thread to update sensor data
-    QThread *sensor = new DataUpdate();
-    sensor->start();
+    Thread2 sensor;
+    sensor.start();
 
     //Create foler to save captured picture
     QDir(qApp->applicationDirPath()).mkdir("pics");
@@ -37,11 +39,10 @@ int main(int argc, char *argv[])
 
     //Load main page
     pageIndex p;
+    QObject::connect(&sensor, SIGNAL(showAlert()), &p, SLOT(showAlertPage9()));
+//    QObject::connect(&sensor, SIGNAL(stopAlert()), &p, SLOT(stopAlertPage9()));
     p.init();
     p.play();
-
-//    alertPage9 w;
-//    w.show();
 
     return a.exec();
 }

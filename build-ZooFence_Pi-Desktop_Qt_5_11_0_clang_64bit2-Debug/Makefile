@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = /Library/Developer/CommandLineTools/usr/bin/clang
 CXX           = /Library/Developer/CommandLineTools/usr/bin/clang++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_MULTIMEDIAWIDGETS_LIB -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_MULTIMEDIAWIDGETS_LIB -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_SQL_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=10.11 -Wall -W -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=10.11 -Wall -W -fPIC $(DEFINES)
-INCPATH       = -I../ZooFence_Pi -I. -I../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I../../../Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I../../../Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib
+INCPATH       = -I../ZooFence_Pi -I. -I../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I../../../Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers -I../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I../../../Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib
 QMAKE         = /Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -38,7 +38,7 @@ DISTNAME      = ZooFence_Pi1.0.0
 DISTDIR = /Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/build-ZooFence_Pi-Desktop_Qt_5_11_0_clang_64bit2-Debug/.tmp/ZooFence_Pi1.0.0
 LINK          = /Library/Developer/CommandLineTools/usr/bin/clang++
 LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -Wl,-syslibroot,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=10.11 -Wl,-rpath,@executable_path/Frameworks -Wl,-rpath,/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib
-LIBS          = $(SUBLIBS) -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib -framework QtMultimediaWidgets -framework QtMultimedia -framework QtNetwork -framework QtCore -framework DiskArbitration -framework IOKit -framework QtGui -framework QtWidgets -framework OpenGL -framework AGL 
+LIBS          = $(SUBLIBS) -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib -framework QtMultimediaWidgets -framework QtMultimedia -framework QtNetwork -framework QtCore -framework DiskArbitration -framework IOKit -framework QtGui -framework QtWidgets -framework QtSql -framework OpenGL -framework AGL 
 AR            = /Library/Developer/CommandLineTools/usr/bin/ar cq
 RANLIB        = /Library/Developer/CommandLineTools/usr/bin/ranlib -s
 SED           = sed
@@ -64,7 +64,8 @@ SOURCES       = ../ZooFence_Pi/main.cpp \
 		../ZooFence_Pi/page10.cpp \
 		../ZooFence_Pi/searchindex.cpp \
 		../ZooFence_Pi/sensor.cpp \
-		../ZooFence_Pi/dataupdate.cpp qrc_resources.cpp \
+		../ZooFence_Pi/dataupdate.cpp \
+		../ZooFence_Pi/thread2.cpp qrc_resources.cpp \
 		moc_introduce.cpp \
 		moc_welcomepage.cpp \
 		moc_pageindex.cpp \
@@ -76,7 +77,7 @@ SOURCES       = ../ZooFence_Pi/main.cpp \
 		moc_page7.cpp \
 		moc_page8.cpp \
 		moc_page10.cpp \
-		moc_dataupdate.cpp
+		moc_thread2.cpp
 OBJECTS       = main.o \
 		introduce.o \
 		welcomepage.o \
@@ -92,6 +93,7 @@ OBJECTS       = main.o \
 		searchindex.o \
 		sensor.o \
 		dataupdate.o \
+		thread2.o \
 		qrc_resources.o \
 		moc_introduce.o \
 		moc_welcomepage.o \
@@ -104,7 +106,7 @@ OBJECTS       = main.o \
 		moc_page7.o \
 		moc_page8.o \
 		moc_page10.o \
-		moc_dataupdate.o
+		moc_thread2.o
 DIST          = ../../../Qt_OpenSource/5.11.0/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt_OpenSource/5.11.0/clang_64/mkspecs/qdevice.pri \
 		../../../Qt_OpenSource/5.11.0/clang_64/mkspecs/features/device_config.prf \
@@ -309,7 +311,8 @@ DIST          = ../../../Qt_OpenSource/5.11.0/clang_64/mkspecs/features/spec_pre
 		../ZooFence_Pi/page10.h \
 		../ZooFence_Pi/searchindex.h \
 		../ZooFence_Pi/sensor.h \
-		../ZooFence_Pi/dataupdate.h ../ZooFence_Pi/main.cpp \
+		../ZooFence_Pi/dataupdate.h \
+		../ZooFence_Pi/thread2.h ../ZooFence_Pi/main.cpp \
 		../ZooFence_Pi/introduce.cpp \
 		../ZooFence_Pi/welcomepage.cpp \
 		../ZooFence_Pi/pageindex.cpp \
@@ -323,7 +326,8 @@ DIST          = ../../../Qt_OpenSource/5.11.0/clang_64/mkspecs/features/spec_pre
 		../ZooFence_Pi/page10.cpp \
 		../ZooFence_Pi/searchindex.cpp \
 		../ZooFence_Pi/sensor.cpp \
-		../ZooFence_Pi/dataupdate.cpp
+		../ZooFence_Pi/dataupdate.cpp \
+		../ZooFence_Pi/thread2.cpp
 QMAKE_TARGET  = ZooFence_Pi
 DESTDIR       = 
 TARGET        = ZooFence_Pi.app/Contents/MacOS/ZooFence_Pi
@@ -538,6 +542,7 @@ Makefile: ../ZooFence_Pi/ZooFence_Pi.pro ../../../Qt_OpenSource/5.11.0/clang_64/
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/QtMultimedia.prl \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/QtGui.prl \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/QtNetwork.prl \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/QtSql.prl \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/QtCore.prl
 	$(QMAKE) -o Makefile ../ZooFence_Pi/ZooFence_Pi.pro -spec macx-clang CONFIG+=debug CONFIG+=x86_64 CONFIG+=qml_debug
 ../../../Qt_OpenSource/5.11.0/clang_64/mkspecs/features/spec_pre.prf:
@@ -737,6 +742,7 @@ Makefile: ../ZooFence_Pi/ZooFence_Pi.pro ../../../Qt_OpenSource/5.11.0/clang_64/
 ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/QtMultimedia.prl:
 ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/QtGui.prl:
 ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/QtNetwork.prl:
+../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/QtSql.prl:
 ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/QtCore.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../ZooFence_Pi/ZooFence_Pi.pro -spec macx-clang CONFIG+=debug CONFIG+=x86_64 CONFIG+=qml_debug
@@ -769,8 +775,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../ZooFence_Pi/resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt_OpenSource/5.11.0/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../ZooFence_Pi/introduce.h ../ZooFence_Pi/welcomepage.h ../ZooFence_Pi/pageindex.h ../ZooFence_Pi/qss.h ../ZooFence_Pi/login.h ../ZooFence_Pi/userbook.h ../ZooFence_Pi/alertpage9.h ../ZooFence_Pi/page5.h ../ZooFence_Pi/page6.h ../ZooFence_Pi/page7.h ../ZooFence_Pi/page8.h ../ZooFence_Pi/page10.h ../ZooFence_Pi/searchindex.h ../ZooFence_Pi/sensor.h ../ZooFence_Pi/dataupdate.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../ZooFence_Pi/main.cpp ../ZooFence_Pi/introduce.cpp ../ZooFence_Pi/welcomepage.cpp ../ZooFence_Pi/pageindex.cpp ../ZooFence_Pi/login.cpp ../ZooFence_Pi/userbook.cpp ../ZooFence_Pi/alertpage9.cpp ../ZooFence_Pi/page5.cpp ../ZooFence_Pi/page6.cpp ../ZooFence_Pi/page7.cpp ../ZooFence_Pi/page8.cpp ../ZooFence_Pi/page10.cpp ../ZooFence_Pi/searchindex.cpp ../ZooFence_Pi/sensor.cpp ../ZooFence_Pi/dataupdate.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../ZooFence_Pi/introduce.h ../ZooFence_Pi/welcomepage.h ../ZooFence_Pi/pageindex.h ../ZooFence_Pi/qss.h ../ZooFence_Pi/login.h ../ZooFence_Pi/userbook.h ../ZooFence_Pi/alertpage9.h ../ZooFence_Pi/page5.h ../ZooFence_Pi/page6.h ../ZooFence_Pi/page7.h ../ZooFence_Pi/page8.h ../ZooFence_Pi/page10.h ../ZooFence_Pi/searchindex.h ../ZooFence_Pi/sensor.h ../ZooFence_Pi/dataupdate.h ../ZooFence_Pi/thread2.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../ZooFence_Pi/main.cpp ../ZooFence_Pi/introduce.cpp ../ZooFence_Pi/welcomepage.cpp ../ZooFence_Pi/pageindex.cpp ../ZooFence_Pi/login.cpp ../ZooFence_Pi/userbook.cpp ../ZooFence_Pi/alertpage9.cpp ../ZooFence_Pi/page5.cpp ../ZooFence_Pi/page6.cpp ../ZooFence_Pi/page7.cpp ../ZooFence_Pi/page8.cpp ../ZooFence_Pi/page10.cpp ../ZooFence_Pi/searchindex.cpp ../ZooFence_Pi/sensor.cpp ../ZooFence_Pi/dataupdate.cpp ../ZooFence_Pi/thread2.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../ZooFence_Pi/introduce.ui ../ZooFence_Pi/welcomepage.ui ../ZooFence_Pi/login.ui ../ZooFence_Pi/userbook.ui ../ZooFence_Pi/alertpage9.ui ../ZooFence_Pi/page5.ui ../ZooFence_Pi/page6.ui ../ZooFence_Pi/page7.ui ../ZooFence_Pi/page8.ui ../ZooFence_Pi/page10.ui $(DISTDIR)/
 
 
@@ -827,9 +833,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../../Qt_OpenSource/5.11.0/clang_64/mkspecs/features/data/dummy.cpp
 	/Library/Developer/CommandLineTools/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=10.11 -Wall -W -dM -E -o moc_predefs.h ../../../Qt_OpenSource/5.11.0/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_introduce.cpp moc_welcomepage.cpp moc_pageindex.cpp moc_login.cpp moc_userbook.cpp moc_alertpage9.cpp moc_page5.cpp moc_page6.cpp moc_page7.cpp moc_page8.cpp moc_page10.cpp moc_dataupdate.cpp
+compiler_moc_header_make_all: moc_introduce.cpp moc_welcomepage.cpp moc_pageindex.cpp moc_login.cpp moc_userbook.cpp moc_alertpage9.cpp moc_page5.cpp moc_page6.cpp moc_page7.cpp moc_page8.cpp moc_page10.cpp moc_thread2.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_introduce.cpp moc_welcomepage.cpp moc_pageindex.cpp moc_login.cpp moc_userbook.cpp moc_alertpage9.cpp moc_page5.cpp moc_page6.cpp moc_page7.cpp moc_page8.cpp moc_page10.cpp moc_dataupdate.cpp
+	-$(DEL_FILE) moc_introduce.cpp moc_welcomepage.cpp moc_pageindex.cpp moc_login.cpp moc_userbook.cpp moc_alertpage9.cpp moc_page5.cpp moc_page6.cpp moc_page7.cpp moc_page8.cpp moc_page10.cpp moc_thread2.cpp
 moc_introduce.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QPixmap \
@@ -847,7 +853,7 @@ moc_introduce.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framewor
 		../ZooFence_Pi/introduce.h \
 		moc_predefs.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/bin/moc
-	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/introduce.h -o moc_introduce.cpp
+	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/introduce.h -o moc_introduce.cpp
 
 moc_welcomepage.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -866,10 +872,20 @@ moc_welcomepage.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framew
 		../ZooFence_Pi/welcomepage.h \
 		moc_predefs.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/bin/moc
-	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/welcomepage.h -o moc_welcomepage.cpp
+	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/welcomepage.h -o moc_welcomepage.cpp
 
 moc_pageindex.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QThread \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qthread.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QRect \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qrect.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDesktopWidget \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../ZooFence_Pi/welcomepage.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -881,10 +897,6 @@ moc_pageindex.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/H
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDesktopWidget \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QRect \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qrect.h \
 		../ZooFence_Pi/introduce.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QPixmap \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
@@ -912,8 +924,6 @@ moc_pageindex.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/H
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qcombobox.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QRegExp \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qregexp.h \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QFileDialog \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QListWidget \
@@ -925,7 +935,7 @@ moc_pageindex.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/H
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qsize.h \
 		../ZooFence_Pi/page8.h \
 		../ZooFence_Pi/searchindex.h \
-		../ZooFence_Pi/page10.h \
+		../ZooFence_Pi/alertpage9.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/QCamera \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/qcamera.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers/QCameraViewfinder \
@@ -937,10 +947,11 @@ moc_pageindex.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/H
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QCloseEvent \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
+		../ZooFence_Pi/page10.h \
 		../ZooFence_Pi/pageindex.h \
 		moc_predefs.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/bin/moc
-	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/pageindex.h -o moc_pageindex.cpp
+	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/pageindex.h -o moc_pageindex.cpp
 
 moc_login.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -963,7 +974,7 @@ moc_login.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/He
 		../ZooFence_Pi/login.h \
 		moc_predefs.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/bin/moc
-	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/login.h -o moc_login.cpp
+	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/login.h -o moc_login.cpp
 
 moc_userbook.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -978,7 +989,7 @@ moc_userbook.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework
 		../ZooFence_Pi/userbook.h \
 		moc_predefs.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/bin/moc
-	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/userbook.h -o moc_userbook.cpp
+	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/userbook.h -o moc_userbook.cpp
 
 moc_alertpage9.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -996,12 +1007,14 @@ moc_alertpage9.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framewo
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QCloseEvent \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDesktopWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h \
 		../ZooFence_Pi/alertpage9.h \
 		moc_predefs.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/bin/moc
-	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/alertpage9.h -o moc_alertpage9.cpp
+	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/alertpage9.h -o moc_alertpage9.cpp
 
 moc_page5.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1024,7 +1037,7 @@ moc_page5.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/He
 		../ZooFence_Pi/page5.h \
 		moc_predefs.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/bin/moc
-	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/page5.h -o moc_page5.cpp
+	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/page5.h -o moc_page5.cpp
 
 moc_page6.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1066,7 +1079,7 @@ moc_page6.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/He
 		../ZooFence_Pi/page6.h \
 		moc_predefs.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/bin/moc
-	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/page6.h -o moc_page6.cpp
+	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/page6.h -o moc_page6.cpp
 
 moc_page7.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1075,7 +1088,7 @@ moc_page7.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/He
 		../ZooFence_Pi/page7.h \
 		moc_predefs.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/bin/moc
-	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/page7.h -o moc_page7.cpp
+	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/page7.h -o moc_page7.cpp
 
 moc_page8.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1101,7 +1114,7 @@ moc_page8.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/He
 		../ZooFence_Pi/page8.h \
 		moc_predefs.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/bin/moc
-	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/page8.h -o moc_page8.cpp
+	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/page8.h -o moc_page8.cpp
 
 moc_page10.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1126,16 +1139,36 @@ moc_page10.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/H
 		../ZooFence_Pi/page10.h \
 		moc_predefs.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/bin/moc
-	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/page10.h -o moc_page10.cpp
+	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/page10.h -o moc_page10.cpp
 
-moc_dataupdate.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QObject \
+moc_thread2.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QThread \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qthread.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../ZooFence_Pi/dataupdate.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QTime \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSql \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariantList \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
+		../ZooFence_Pi/sensor.h \
+		../ZooFence_Pi/thread2.h \
 		moc_predefs.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/bin/moc
-	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/dataupdate.h -o moc_dataupdate.cpp
+	/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/ZooFence_Pi -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtNetwork.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/Isabella/Qt_OpenSource/5.11.0/clang_64/lib ../ZooFence_Pi/thread2.h -o moc_thread2.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1204,6 +1237,14 @@ main.o: ../ZooFence_Pi/main.cpp ../ZooFence_Pi/qss.h \
 		../ZooFence_Pi/pageindex.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QThread \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qthread.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QRect \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qrect.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDesktopWidget \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../ZooFence_Pi/welcomepage.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1215,10 +1256,6 @@ main.o: ../ZooFence_Pi/main.cpp ../ZooFence_Pi/qss.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDesktopWidget \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QRect \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qrect.h \
 		../ZooFence_Pi/introduce.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QPixmap \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
@@ -1246,8 +1283,6 @@ main.o: ../ZooFence_Pi/main.cpp ../ZooFence_Pi/qss.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qcombobox.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QRegExp \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qregexp.h \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QFileDialog \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QListWidget \
@@ -1259,7 +1294,7 @@ main.o: ../ZooFence_Pi/main.cpp ../ZooFence_Pi/qss.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qsize.h \
 		../ZooFence_Pi/page8.h \
 		../ZooFence_Pi/searchindex.h \
-		../ZooFence_Pi/page10.h \
+		../ZooFence_Pi/alertpage9.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/QCamera \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/qcamera.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers/QCameraViewfinder \
@@ -1269,10 +1304,21 @@ main.o: ../ZooFence_Pi/main.cpp ../ZooFence_Pi/qss.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDateTime \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QCloseEvent \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
-		../ZooFence_Pi/alertpage9.h \
+		../ZooFence_Pi/page10.h \
 		../ZooFence_Pi/dataupdate.h \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QThread \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qthread.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QTime \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSql \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariantList \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
+		../ZooFence_Pi/sensor.h \
+		../ZooFence_Pi/thread2.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QFont \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qfont.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../ZooFence_Pi/main.cpp
@@ -1323,6 +1369,12 @@ welcomepage.o: ../ZooFence_Pi/welcomepage.cpp ../ZooFence_Pi/welcomepage.h \
 		../ZooFence_Pi/pageindex.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QThread \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qthread.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../ZooFence_Pi/userbook.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/Qt \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qnamespace.h \
@@ -1341,8 +1393,6 @@ welcomepage.o: ../ZooFence_Pi/welcomepage.cpp ../ZooFence_Pi/welcomepage.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qcombobox.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QRegExp \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qregexp.h \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QFileDialog \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QListWidget \
@@ -1354,7 +1404,7 @@ welcomepage.o: ../ZooFence_Pi/welcomepage.cpp ../ZooFence_Pi/welcomepage.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qsize.h \
 		../ZooFence_Pi/page8.h \
 		../ZooFence_Pi/searchindex.h \
-		../ZooFence_Pi/page10.h \
+		../ZooFence_Pi/alertpage9.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/QCamera \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/qcamera.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers/QCameraViewfinder \
@@ -1365,12 +1415,23 @@ welcomepage.o: ../ZooFence_Pi/welcomepage.cpp ../ZooFence_Pi/welcomepage.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QCloseEvent \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
+		../ZooFence_Pi/page10.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o welcomepage.o ../ZooFence_Pi/welcomepage.cpp
 
 pageindex.o: ../ZooFence_Pi/pageindex.cpp ../ZooFence_Pi/pageindex.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QThread \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qthread.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QRect \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qrect.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDesktopWidget \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../ZooFence_Pi/welcomepage.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1382,10 +1443,6 @@ pageindex.o: ../ZooFence_Pi/pageindex.cpp ../ZooFence_Pi/pageindex.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDesktopWidget \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QRect \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qrect.h \
 		../ZooFence_Pi/introduce.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QPixmap \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
@@ -1413,8 +1470,6 @@ pageindex.o: ../ZooFence_Pi/pageindex.cpp ../ZooFence_Pi/pageindex.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qcombobox.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QRegExp \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qregexp.h \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QFileDialog \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QListWidget \
@@ -1426,7 +1481,7 @@ pageindex.o: ../ZooFence_Pi/pageindex.cpp ../ZooFence_Pi/pageindex.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qsize.h \
 		../ZooFence_Pi/page8.h \
 		../ZooFence_Pi/searchindex.h \
-		../ZooFence_Pi/page10.h \
+		../ZooFence_Pi/alertpage9.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/QCamera \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/qcamera.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers/QCameraViewfinder \
@@ -1437,7 +1492,8 @@ pageindex.o: ../ZooFence_Pi/pageindex.cpp ../ZooFence_Pi/pageindex.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QCloseEvent \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
+		../ZooFence_Pi/page10.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pageindex.o ../ZooFence_Pi/pageindex.cpp
 
 login.o: ../ZooFence_Pi/login.cpp ../ZooFence_Pi/login.h \
@@ -1493,6 +1549,8 @@ alertpage9.o: ../ZooFence_Pi/alertpage9.cpp ../ZooFence_Pi/alertpage9.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QCloseEvent \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDesktopWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h \
 		ui_alertpage9.h
@@ -1635,13 +1693,53 @@ sensor.o: ../ZooFence_Pi/sensor.cpp ../ZooFence_Pi/sensor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sensor.o ../ZooFence_Pi/sensor.cpp
 
 dataupdate.o: ../ZooFence_Pi/dataupdate.cpp ../ZooFence_Pi/dataupdate.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QTime \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSql \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariantList \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
+		../ZooFence_Pi/sensor.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dataupdate.o ../ZooFence_Pi/dataupdate.cpp
+
+thread2.o: ../ZooFence_Pi/thread2.cpp ../ZooFence_Pi/thread2.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QThread \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qthread.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
-		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dataupdate.o ../ZooFence_Pi/dataupdate.cpp
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../ZooFence_Pi/dataupdate.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QTime \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSql \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariantList \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
+		../ZooFence_Pi/sensor.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o thread2.o ../ZooFence_Pi/thread2.cpp
 
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
@@ -1679,8 +1777,8 @@ moc_page8.o: moc_page8.cpp
 moc_page10.o: moc_page10.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_page10.o moc_page10.cpp
 
-moc_dataupdate.o: moc_dataupdate.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dataupdate.o moc_dataupdate.cpp
+moc_thread2.o: moc_thread2.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_thread2.o moc_thread2.cpp
 
 ####### Install
 

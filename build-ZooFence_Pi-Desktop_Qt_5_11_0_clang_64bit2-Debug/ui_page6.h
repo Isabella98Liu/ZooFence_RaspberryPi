@@ -101,8 +101,8 @@ public:
         comboBox->setItemText(0, QApplication::translate("page6", "\345\205\250\351\203\250", nullptr));
         comboBox->setItemText(1, QApplication::translate("page6", "\346\227\240", nullptr));
         comboBox->setItemText(2, QApplication::translate("page6", "\345\233\264\346\240\217\347\277\273\350\266\212", nullptr));
-        comboBox->setItemText(3, QApplication::translate("page6", "\351\235\240\350\277\221\345\233\264\346\240\217", nullptr));
-        comboBox->setItemText(4, QApplication::translate("page6", "\344\272\272\346\265\201\351\207\217\345\244\247", nullptr));
+        comboBox->setItemText(3, QApplication::translate("page6", "\351\235\240\350\277\221\346\240\217\346\235\206", nullptr));
+        comboBox->setItemText(4, QApplication::translate("page6", "\345\212\250\347\211\251\351\235\240\350\277\221", nullptr));
 
         comboBox->setCurrentText(QApplication::translate("page6", "\345\205\250\351\203\250", nullptr));
         pushButton->setText(QString());

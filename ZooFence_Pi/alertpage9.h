@@ -9,7 +9,12 @@
 #include <QDateTime>
 #include <QString>
 #include <QFile>
+#include <QCloseEvent>
 #include <QDesktopWidget>
+#include <QTimer>
+#include <QLabel>
+
+#include "dataupdate.h"
 
 namespace Ui {
 class alertPage9;
@@ -29,11 +34,21 @@ private:
     QCameraViewfinder *viewfinder;
     QCameraImageCapture *imageCaputure;
     QString folderPath;
+    QString fileName;
+    QTimer *timer1;
+    int captureCount;
+    int captureIndex;
+    QString alertType(QString);
 
 public slots:
     void captureImage();
-    void displayImage(int, QImage);
-    void saveImage();
+    void saveImage(int, QImage);
+    void showInfo();
+
+protected:
+    void closeEvent(QCloseEvent *event);
+private slots:
+    void on_pushButton_3_clicked();
 };
 
 #endif // ALERTPAGE9_H

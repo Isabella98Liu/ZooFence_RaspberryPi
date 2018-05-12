@@ -78,7 +78,14 @@ void page6::on_pushButton_clicked()
     search.month  = dateEdit->date().month();
     search.day = dateEdit->date().day();
     //get the selected trigger type from comobox
-    search.trigger_type = trigger->currentIndex();
+    if(trigger->currentIndex() == 1)
+        search.trigger0 = 1;
+    else if (trigger->currentIndex() == 2)
+        search.trigger1 = 1;
+    else if (trigger->currentIndex() == 3)
+        search.trigger2 = 8;
+    else  if (trigger->currentIndex() == 4)
+        search.trigger3 = 1;
     // filter
     QDir dir(folderPath);
     QStringList images = dir.entryList(QStringList() , QDir::Files);
@@ -87,18 +94,33 @@ void page6::on_pushButton_clicked()
         searchIndex info;
         foreach(QString tmp, images)
         {
-            info = info.imageInfo(tmp);
+            info = info.imageInfo(tmp);                
             // if the item match search info, then add it from list widget
-            if(info.year == search.year && info.month == search.month && info.day == search.day && (info.trigger_type == search.trigger_type || search.trigger_type == 0) )
-              {
-                QString img = (folderPath + "/") + tmp;  // get the file path of the picture
-                QListWidgetItem *imageItem = new QListWidgetItem;
-                imageItem->setIcon(QIcon(img));
-                imageItem->setSizeHint(QSize(120, 120));
-                imageItem->setText(tmp);
-                imageList->addItem(imageItem);
+            if(info.year == search.year && info.month == search.month && info.day == search.day)
+             {
+                if(trigger->currentIndex() == 0)
+                    addImageList(tmp);
+                else if (trigger->currentIndex() == 1 && info.trigger0 == search.trigger0)
+                    addImageList(tmp);
+                else if (trigger->currentIndex() == 2 && info.trigger1 == search.trigger1)
+                    addImageList(tmp);
+                else if (trigger->currentIndex() == 3 && info.trigger2 < search.trigger2)
+                    addImageList(tmp);
+                else if (trigger->currentIndex() == 4 && info.trigger3 == search.trigger3)
+                    addImageList(tmp);
+
             }
         }
     }
+}
+
+void page6::addImageList(QString tmp)
+{
+    QString img = (folderPath + "/") + tmp;  // get the file path of the picture
+    QListWidgetItem *imageItem = new QListWidgetItem;
+    imageItem->setIcon(QIcon(img));
+    imageItem->setSizeHint(QSize(120, 120));
+    imageItem->setText(tmp);
+    imageList->addItem(imageItem);
 }
 

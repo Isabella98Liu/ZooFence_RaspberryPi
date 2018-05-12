@@ -1,7 +1,4 @@
 #include "pageindex.h"
-#include <QRect>
-#include <QDesktopWidget>
-#include <QApplication>
 
 pageIndex::pageIndex()
 {
@@ -37,10 +34,10 @@ void pageIndex::init( )
 void pageIndex::play()
 {
     p1->show();    // show the welcome page while the program start;
-//    p1->showFullScreen();
-//    QDesktopWidget* desktop = QApplication::desktop();
-//    QRect screenRect = desktop->screenGeometry();
-//    p1->resize(screenRect.width(), screenRect.height());
+    QMediaPlayer *p1_song = new QMediaPlayer;
+    p1_song->setMedia(QUrl::fromLocalFile("/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/build-ZooFence_Pi-Desktop_Qt_5_11_0_clang_64bit2-Debug/ZooFence_Pi.app/Contents/MacOS/voices/welcome.mp3"));
+    p1_song->setVolume(30);
+    p1_song->play();
 }
 
 
@@ -104,6 +101,22 @@ void pageIndex::return_page_5_4()
     p5->setVisible(false);
     p4->setVisible(true);
 }
+
+//------------------------------SLOTS FOR ALERT PAGE------------------------------
+void pageIndex::showAlertPage9()
+{
+    qDebug() << "show alert page!!";
+    alertPage9 *p9 = new alertPage9;
+    p9->show();
+    p9->captureImage();
+}
+
+//void pageIndex::stopAlertPage9()
+//{
+//    qDebug() << "stop alert page!!";
+//    p9->hide();
+//}
+
 
 
 
