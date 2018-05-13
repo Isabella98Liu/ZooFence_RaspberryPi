@@ -39,10 +39,10 @@ public:
     {
         if (page6->objectName().isEmpty())
             page6->setObjectName(QStringLiteral("page6"));
-        page6->resize(608, 483);
+        page6->resize(850, 520);
         label_2 = new QLabel(page6);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(30, 10, 551, 71));
+        label_2->setGeometry(QRect(150, 20, 551, 71));
         label_2->setStyleSheet(QLatin1String("QLabel{\n"
 "	border: 0px;\n"
 "	border-radius: 6px;\n"
@@ -50,33 +50,33 @@ public:
 "}"));
         label_3 = new QLabel(page6);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(80, 20, 71, 21));
+        label_3->setGeometry(QRect(200, 30, 71, 21));
         QFont font;
         font.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
         font.setPointSize(14);
         label_3->setFont(font);
         label_4 = new QLabel(page6);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(320, 20, 81, 21));
+        label_4->setGeometry(QRect(440, 30, 81, 21));
         label_4->setFont(font);
         comboBox = new QComboBox(page6);
         comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setGeometry(QRect(321, 50, 191, 22));
+        comboBox->setGeometry(QRect(441, 60, 191, 22));
         comboBox->setEditable(false);
         pushButton = new QPushButton(page6);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(530, 30, 30, 30));
+        pushButton->setGeometry(QRect(650, 40, 30, 30));
         QIcon icon;
         icon.addFile(QStringLiteral(":/.001/Resources/006/fine.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton->setIcon(icon);
         pushButton->setIconSize(QSize(25, 25));
         dateEdit = new QDateEdit(page6);
         dateEdit->setObjectName(QStringLiteral("dateEdit"));
-        dateEdit->setGeometry(QRect(80, 50, 181, 22));
+        dateEdit->setGeometry(QRect(200, 60, 181, 22));
         dateEdit->setDateTime(QDateTime(QDate(2018, 1, 1), QTime(0, 0, 0)));
         gridLayoutWidget = new QWidget(page6);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(30, 110, 551, 351));
+        gridLayoutWidget->setGeometry(QRect(30, 110, 791, 381));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
@@ -100,8 +100,8 @@ public:
          << QApplication::translate("page6", "\345\205\250\351\203\250", Q_NULLPTR)
          << QApplication::translate("page6", "\346\227\240", Q_NULLPTR)
          << QApplication::translate("page6", "\345\233\264\346\240\217\347\277\273\350\266\212", Q_NULLPTR)
-         << QApplication::translate("page6", "\351\235\240\350\277\221\345\233\264\346\240\217", Q_NULLPTR)
-         << QApplication::translate("page6", "\344\272\272\346\265\201\351\207\217\345\244\247", Q_NULLPTR)
+         << QApplication::translate("page6", "\351\235\240\350\277\221\346\240\217\346\235\206", Q_NULLPTR)
+         << QApplication::translate("page6", "\345\212\250\347\211\251\351\235\240\350\277\221", Q_NULLPTR)
         );
         comboBox->setCurrentText(QApplication::translate("page6", "\345\205\250\351\203\250", Q_NULLPTR));
         pushButton->setText(QString());

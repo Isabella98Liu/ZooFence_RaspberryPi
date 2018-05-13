@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_MULTIMEDIAWIDGETS_LIB -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_MULTIMEDIAWIDGETS_LIB -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_SQL_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../ZooFence_Pi -I. -isystem /usr/include/arm-linux-gnueabihf/qt5 -isystem /usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -isystem /usr/include/arm-linux-gnueabihf/qt5/QtWidgets -isystem /usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -isystem /usr/include/arm-linux-gnueabihf/qt5/QtGui -isystem /usr/include/arm-linux-gnueabihf/qt5/QtNetwork -isystem /usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I. -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++
+INCPATH       = -I../ZooFence_Pi -I. -isystem /usr/include/arm-linux-gnueabihf/qt5 -isystem /usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -isystem /usr/include/arm-linux-gnueabihf/qt5/QtWidgets -isystem /usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -isystem /usr/include/arm-linux-gnueabihf/qt5/QtGui -isystem /usr/include/arm-linux-gnueabihf/qt5/QtNetwork -isystem /usr/include/arm-linux-gnueabihf/qt5/QtSql -isystem /usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I. -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++
 QMAKE         = /usr/lib/arm-linux-gnueabihf/qt5/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -36,7 +36,7 @@ DISTNAME      = ZooFence_Pi1.0.0
 DISTDIR = /home/pi/Qt/ZooFence/ZooFence_RaspberryPi/build-ZooFence_Pi-Raspi-Debug/.tmp/ZooFence_Pi1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath-link,/usr/lib/arm-linux-gnueabihf
-LIBS          = $(SUBLIBS) -lQt5MultimediaWidgets -lQt5Widgets -lQt5Multimedia -lQt5Gui -lQt5Network -lQt5Core -lGLESv2 -lpthread 
+LIBS          = $(SUBLIBS) -lQt5MultimediaWidgets -lQt5Widgets -lQt5Multimedia -lQt5Gui -lQt5Network -lQt5Sql -lQt5Core -lGLESv2 -lpthread 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -62,7 +62,8 @@ SOURCES       = ../ZooFence_Pi/main.cpp \
 		../ZooFence_Pi/page10.cpp \
 		../ZooFence_Pi/searchindex.cpp \
 		../ZooFence_Pi/sensor.cpp \
-		../ZooFence_Pi/dataupdate.cpp qrc_resources.cpp \
+		../ZooFence_Pi/dataupdate.cpp \
+		../ZooFence_Pi/thread2.cpp qrc_resources.cpp \
 		moc_introduce.cpp \
 		moc_welcomepage.cpp \
 		moc_pageindex.cpp \
@@ -74,7 +75,7 @@ SOURCES       = ../ZooFence_Pi/main.cpp \
 		moc_page7.cpp \
 		moc_page8.cpp \
 		moc_page10.cpp \
-		moc_dataupdate.cpp
+		moc_thread2.cpp
 OBJECTS       = main.o \
 		introduce.o \
 		welcomepage.o \
@@ -90,6 +91,7 @@ OBJECTS       = main.o \
 		searchindex.o \
 		sensor.o \
 		dataupdate.o \
+		thread2.o \
 		qrc_resources.o \
 		moc_introduce.o \
 		moc_welcomepage.o \
@@ -102,7 +104,7 @@ OBJECTS       = main.o \
 		moc_page7.o \
 		moc_page8.o \
 		moc_page10.o \
-		moc_dataupdate.o
+		moc_thread2.o
 DIST          = /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/common/unix.conf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/common/linux.conf \
@@ -147,6 +149,7 @@ DIST          = /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/spec_post.prf \
+		../ZooFence_Pi/.qmake.stash \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/default_pre.prf \
@@ -179,7 +182,8 @@ DIST          = /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/spec_pre.prf \
 		../ZooFence_Pi/page10.h \
 		../ZooFence_Pi/searchindex.h \
 		../ZooFence_Pi/sensor.h \
-		../ZooFence_Pi/dataupdate.h ../ZooFence_Pi/main.cpp \
+		../ZooFence_Pi/dataupdate.h \
+		../ZooFence_Pi/thread2.h ../ZooFence_Pi/main.cpp \
 		../ZooFence_Pi/introduce.cpp \
 		../ZooFence_Pi/welcomepage.cpp \
 		../ZooFence_Pi/pageindex.cpp \
@@ -193,7 +197,8 @@ DIST          = /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/spec_pre.prf \
 		../ZooFence_Pi/page10.cpp \
 		../ZooFence_Pi/searchindex.cpp \
 		../ZooFence_Pi/sensor.cpp \
-		../ZooFence_Pi/dataupdate.cpp
+		../ZooFence_Pi/dataupdate.cpp \
+		../ZooFence_Pi/thread2.cpp
 QMAKE_TARGET  = ZooFence_Pi
 DESTDIR       = 
 TARGET        = ZooFence_Pi
@@ -249,6 +254,7 @@ Makefile: ../ZooFence_Pi/ZooFence_Pi.pro /usr/lib/arm-linux-gnueabihf/qt5/mkspec
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/default_pre.prf \
@@ -274,6 +280,7 @@ Makefile: ../ZooFence_Pi/ZooFence_Pi.pro /usr/lib/arm-linux-gnueabihf/qt5/mkspec
 		/usr/lib/arm-linux-gnueabihf/libQt5Multimedia.prl \
 		/usr/lib/arm-linux-gnueabihf/libQt5Gui.prl \
 		/usr/lib/arm-linux-gnueabihf/libQt5Network.prl \
+		/usr/lib/arm-linux-gnueabihf/libQt5Sql.prl \
 		/usr/lib/arm-linux-gnueabihf/libQt5Core.prl
 	$(QMAKE) -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug -o Makefile ../ZooFence_Pi/ZooFence_Pi.pro
 /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/spec_pre.prf:
@@ -320,6 +327,7 @@ Makefile: ../ZooFence_Pi/ZooFence_Pi.pro /usr/lib/arm-linux-gnueabihf/qt5/mkspec
 /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/default_pre.prf:
@@ -345,6 +353,7 @@ Makefile: ../ZooFence_Pi/ZooFence_Pi.pro /usr/lib/arm-linux-gnueabihf/qt5/mkspec
 /usr/lib/arm-linux-gnueabihf/libQt5Multimedia.prl:
 /usr/lib/arm-linux-gnueabihf/libQt5Gui.prl:
 /usr/lib/arm-linux-gnueabihf/libQt5Network.prl:
+/usr/lib/arm-linux-gnueabihf/libQt5Sql.prl:
 /usr/lib/arm-linux-gnueabihf/libQt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug -o Makefile ../ZooFence_Pi/ZooFence_Pi.pro
@@ -361,8 +370,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../ZooFence_Pi/resources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../ZooFence_Pi/introduce.h ../ZooFence_Pi/welcomepage.h ../ZooFence_Pi/pageindex.h ../ZooFence_Pi/qss.h ../ZooFence_Pi/login.h ../ZooFence_Pi/userbook.h ../ZooFence_Pi/alertpage9.h ../ZooFence_Pi/page5.h ../ZooFence_Pi/page6.h ../ZooFence_Pi/page7.h ../ZooFence_Pi/page8.h ../ZooFence_Pi/page10.h ../ZooFence_Pi/searchindex.h ../ZooFence_Pi/sensor.h ../ZooFence_Pi/dataupdate.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../ZooFence_Pi/main.cpp ../ZooFence_Pi/introduce.cpp ../ZooFence_Pi/welcomepage.cpp ../ZooFence_Pi/pageindex.cpp ../ZooFence_Pi/login.cpp ../ZooFence_Pi/userbook.cpp ../ZooFence_Pi/alertpage9.cpp ../ZooFence_Pi/page5.cpp ../ZooFence_Pi/page6.cpp ../ZooFence_Pi/page7.cpp ../ZooFence_Pi/page8.cpp ../ZooFence_Pi/page10.cpp ../ZooFence_Pi/searchindex.cpp ../ZooFence_Pi/sensor.cpp ../ZooFence_Pi/dataupdate.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../ZooFence_Pi/introduce.h ../ZooFence_Pi/welcomepage.h ../ZooFence_Pi/pageindex.h ../ZooFence_Pi/qss.h ../ZooFence_Pi/login.h ../ZooFence_Pi/userbook.h ../ZooFence_Pi/alertpage9.h ../ZooFence_Pi/page5.h ../ZooFence_Pi/page6.h ../ZooFence_Pi/page7.h ../ZooFence_Pi/page8.h ../ZooFence_Pi/page10.h ../ZooFence_Pi/searchindex.h ../ZooFence_Pi/sensor.h ../ZooFence_Pi/dataupdate.h ../ZooFence_Pi/thread2.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../ZooFence_Pi/main.cpp ../ZooFence_Pi/introduce.cpp ../ZooFence_Pi/welcomepage.cpp ../ZooFence_Pi/pageindex.cpp ../ZooFence_Pi/login.cpp ../ZooFence_Pi/userbook.cpp ../ZooFence_Pi/alertpage9.cpp ../ZooFence_Pi/page5.cpp ../ZooFence_Pi/page6.cpp ../ZooFence_Pi/page7.cpp ../ZooFence_Pi/page8.cpp ../ZooFence_Pi/page10.cpp ../ZooFence_Pi/searchindex.cpp ../ZooFence_Pi/sensor.cpp ../ZooFence_Pi/dataupdate.cpp ../ZooFence_Pi/thread2.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../ZooFence_Pi/introduce.ui ../ZooFence_Pi/welcomepage.ui ../ZooFence_Pi/login.ui ../ZooFence_Pi/userbook.ui ../ZooFence_Pi/alertpage9.ui ../ZooFence_Pi/page5.ui ../ZooFence_Pi/page6.ui ../ZooFence_Pi/page7.ui ../ZooFence_Pi/page8.ui ../ZooFence_Pi/page10.ui $(DISTDIR)/
 
 
@@ -413,16 +422,16 @@ qrc_resources.cpp: ../ZooFence_Pi/resources.qrc \
 		../ZooFence_Pi/QSS/page2.qss
 	/usr/lib/arm-linux-gnueabihf/qt5/bin/rcc -name resources ../ZooFence_Pi/resources.qrc -o qrc_resources.cpp
 
-compiler_moc_header_make_all: moc_introduce.cpp moc_welcomepage.cpp moc_pageindex.cpp moc_login.cpp moc_userbook.cpp moc_alertpage9.cpp moc_page5.cpp moc_page6.cpp moc_page7.cpp moc_page8.cpp moc_page10.cpp moc_dataupdate.cpp
+compiler_moc_header_make_all: moc_introduce.cpp moc_welcomepage.cpp moc_pageindex.cpp moc_login.cpp moc_userbook.cpp moc_alertpage9.cpp moc_page5.cpp moc_page6.cpp moc_page7.cpp moc_page8.cpp moc_page10.cpp moc_thread2.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_introduce.cpp moc_welcomepage.cpp moc_pageindex.cpp moc_login.cpp moc_userbook.cpp moc_alertpage9.cpp moc_page5.cpp moc_page6.cpp moc_page7.cpp moc_page8.cpp moc_page10.cpp moc_dataupdate.cpp
+	-$(DEL_FILE) moc_introduce.cpp moc_welcomepage.cpp moc_pageindex.cpp moc_login.cpp moc_userbook.cpp moc_alertpage9.cpp moc_page5.cpp moc_page6.cpp moc_page7.cpp moc_page8.cpp moc_page10.cpp moc_thread2.cpp
 moc_introduce.cpp: ../ZooFence_Pi/introduce.h \
 		/usr/lib/arm-linux-gnueabihf/qt5/bin/moc
-	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/introduce.h -o moc_introduce.cpp
+	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtSql -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/introduce.h -o moc_introduce.cpp
 
 moc_welcomepage.cpp: ../ZooFence_Pi/welcomepage.h \
 		/usr/lib/arm-linux-gnueabihf/qt5/bin/moc
-	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/welcomepage.h -o moc_welcomepage.cpp
+	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtSql -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/welcomepage.h -o moc_welcomepage.cpp
 
 moc_pageindex.cpp: ../ZooFence_Pi/welcomepage.h \
 		../ZooFence_Pi/introduce.h \
@@ -433,50 +442,57 @@ moc_pageindex.cpp: ../ZooFence_Pi/welcomepage.h \
 		../ZooFence_Pi/page6.h \
 		../ZooFence_Pi/page8.h \
 		../ZooFence_Pi/searchindex.h \
+		../ZooFence_Pi/alertpage9.h \
+		../ZooFence_Pi/dataupdate.h \
+		../ZooFence_Pi/sensor.h \
 		../ZooFence_Pi/page10.h \
 		../ZooFence_Pi/pageindex.h \
 		/usr/lib/arm-linux-gnueabihf/qt5/bin/moc
-	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/pageindex.h -o moc_pageindex.cpp
+	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtSql -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/pageindex.h -o moc_pageindex.cpp
 
 moc_login.cpp: ../ZooFence_Pi/login.h \
 		/usr/lib/arm-linux-gnueabihf/qt5/bin/moc
-	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/login.h -o moc_login.cpp
+	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtSql -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/login.h -o moc_login.cpp
 
 moc_userbook.cpp: ../ZooFence_Pi/userbook.h \
 		/usr/lib/arm-linux-gnueabihf/qt5/bin/moc
-	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/userbook.h -o moc_userbook.cpp
+	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtSql -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/userbook.h -o moc_userbook.cpp
 
-moc_alertpage9.cpp: ../ZooFence_Pi/alertpage9.h \
+moc_alertpage9.cpp: ../ZooFence_Pi/dataupdate.h \
+		../ZooFence_Pi/sensor.h \
+		../ZooFence_Pi/alertpage9.h \
 		/usr/lib/arm-linux-gnueabihf/qt5/bin/moc
-	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/alertpage9.h -o moc_alertpage9.cpp
+	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtSql -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/alertpage9.h -o moc_alertpage9.cpp
 
 moc_page5.cpp: ../ZooFence_Pi/page7.h \
 		../ZooFence_Pi/page5.h \
 		/usr/lib/arm-linux-gnueabihf/qt5/bin/moc
-	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/page5.h -o moc_page5.cpp
+	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtSql -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/page5.h -o moc_page5.cpp
 
 moc_page6.cpp: ../ZooFence_Pi/page8.h \
 		../ZooFence_Pi/searchindex.h \
 		../ZooFence_Pi/page6.h \
 		/usr/lib/arm-linux-gnueabihf/qt5/bin/moc
-	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/page6.h -o moc_page6.cpp
+	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtSql -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/page6.h -o moc_page6.cpp
 
 moc_page7.cpp: ../ZooFence_Pi/page7.h \
 		/usr/lib/arm-linux-gnueabihf/qt5/bin/moc
-	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/page7.h -o moc_page7.cpp
+	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtSql -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/page7.h -o moc_page7.cpp
 
 moc_page8.cpp: ../ZooFence_Pi/searchindex.h \
 		../ZooFence_Pi/page8.h \
 		/usr/lib/arm-linux-gnueabihf/qt5/bin/moc
-	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/page8.h -o moc_page8.cpp
+	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtSql -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/page8.h -o moc_page8.cpp
 
 moc_page10.cpp: ../ZooFence_Pi/page10.h \
 		/usr/lib/arm-linux-gnueabihf/qt5/bin/moc
-	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/page10.h -o moc_page10.cpp
+	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtSql -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/page10.h -o moc_page10.cpp
 
-moc_dataupdate.cpp: ../ZooFence_Pi/dataupdate.h \
+moc_thread2.cpp: ../ZooFence_Pi/dataupdate.h \
+		../ZooFence_Pi/sensor.h \
+		../ZooFence_Pi/thread2.h \
 		/usr/lib/arm-linux-gnueabihf/qt5/bin/moc
-	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/dataupdate.h -o moc_dataupdate.cpp
+	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtSql -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/thread2.h -o moc_thread2.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -544,10 +560,11 @@ main.o: ../ZooFence_Pi/main.cpp ../ZooFence_Pi/qss.h \
 		../ZooFence_Pi/page6.h \
 		../ZooFence_Pi/page8.h \
 		../ZooFence_Pi/searchindex.h \
-		../ZooFence_Pi/page10.h \
 		../ZooFence_Pi/alertpage9.h \
 		../ZooFence_Pi/dataupdate.h \
-		../ZooFence_Pi/sensor.h
+		../ZooFence_Pi/sensor.h \
+		../ZooFence_Pi/page10.h \
+		../ZooFence_Pi/thread2.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../ZooFence_Pi/main.cpp
 
 introduce.o: ../ZooFence_Pi/introduce.cpp ../ZooFence_Pi/introduce.h \
@@ -565,6 +582,9 @@ welcomepage.o: ../ZooFence_Pi/welcomepage.cpp ../ZooFence_Pi/welcomepage.h \
 		../ZooFence_Pi/page6.h \
 		../ZooFence_Pi/page8.h \
 		../ZooFence_Pi/searchindex.h \
+		../ZooFence_Pi/alertpage9.h \
+		../ZooFence_Pi/dataupdate.h \
+		../ZooFence_Pi/sensor.h \
 		../ZooFence_Pi/page10.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o welcomepage.o ../ZooFence_Pi/welcomepage.cpp
 
@@ -578,6 +598,9 @@ pageindex.o: ../ZooFence_Pi/pageindex.cpp ../ZooFence_Pi/pageindex.h \
 		../ZooFence_Pi/page6.h \
 		../ZooFence_Pi/page8.h \
 		../ZooFence_Pi/searchindex.h \
+		../ZooFence_Pi/alertpage9.h \
+		../ZooFence_Pi/dataupdate.h \
+		../ZooFence_Pi/sensor.h \
 		../ZooFence_Pi/page10.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pageindex.o ../ZooFence_Pi/pageindex.cpp
 
@@ -590,6 +613,8 @@ userbook.o: ../ZooFence_Pi/userbook.cpp ../ZooFence_Pi/userbook.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o userbook.o ../ZooFence_Pi/userbook.cpp
 
 alertpage9.o: ../ZooFence_Pi/alertpage9.cpp ../ZooFence_Pi/alertpage9.h \
+		../ZooFence_Pi/dataupdate.h \
+		../ZooFence_Pi/sensor.h \
 		ui_alertpage9.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o alertpage9.o ../ZooFence_Pi/alertpage9.cpp
 
@@ -623,8 +648,14 @@ searchindex.o: ../ZooFence_Pi/searchindex.cpp ../ZooFence_Pi/searchindex.h
 sensor.o: ../ZooFence_Pi/sensor.cpp ../ZooFence_Pi/sensor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sensor.o ../ZooFence_Pi/sensor.cpp
 
-dataupdate.o: ../ZooFence_Pi/dataupdate.cpp ../ZooFence_Pi/dataupdate.h
+dataupdate.o: ../ZooFence_Pi/dataupdate.cpp ../ZooFence_Pi/dataupdate.h \
+		../ZooFence_Pi/sensor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dataupdate.o ../ZooFence_Pi/dataupdate.cpp
+
+thread2.o: ../ZooFence_Pi/thread2.cpp ../ZooFence_Pi/thread2.h \
+		../ZooFence_Pi/dataupdate.h \
+		../ZooFence_Pi/sensor.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o thread2.o ../ZooFence_Pi/thread2.cpp
 
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
@@ -662,8 +693,8 @@ moc_page8.o: moc_page8.cpp
 moc_page10.o: moc_page10.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_page10.o moc_page10.cpp
 
-moc_dataupdate.o: moc_dataupdate.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dataupdate.o moc_dataupdate.cpp
+moc_thread2.o: moc_thread2.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_thread2.o moc_thread2.cpp
 
 ####### Install
 

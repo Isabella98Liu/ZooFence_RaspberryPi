@@ -8,6 +8,8 @@
 #include <QApplication>
 #include <QDebug>
 #include <QMediaPlayer>
+#include <QSoundEffect>
+#include <QProcess>
 
 #include "welcomepage.h"
 #include "introduce.h"
