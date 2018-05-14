@@ -11,6 +11,7 @@
 #include <QDesktopWidget>
 
 #include "page7.h"
+#include "dataupdate.h"
 #include <qdatetime.h>
 
 namespace Ui {
@@ -36,15 +37,13 @@ private:
     QLabel *showtimeLabel;
     QSlider *tmpSlider;
     QSlider *humSlider;
-    QSlider *crowdSlider;
     QLabel *tmp;
     QLabel *hum;
-    QLabel *crowd;
     bool Check_device_status();
-    void sensorDataUpdate();
 
   private slots:
         void timerUpdate(void);
+        void sensorDataUpdate();
         void on_pushButton_4_clicked();
         void on_pushButton_clicked();
         void on_pushButton_2_clicked();

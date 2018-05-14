@@ -41,7 +41,8 @@ SOURCES += \
     searchindex.cpp \
     sensor.cpp \
     dataupdate.cpp \
-    thread2.cpp
+    thread2.cpp \
+    voicealert.cpp
 
 HEADERS += \
     introduce.h \
@@ -59,7 +60,8 @@ HEADERS += \
     searchindex.h \
     sensor.h \
     dataupdate.h \
-    thread2.h
+    thread2.h \
+    voicealert.h
 
 RESOURCES += \
     resources.qrc

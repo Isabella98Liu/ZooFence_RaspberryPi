@@ -8,8 +8,6 @@
 #include <QApplication>
 #include <QDebug>
 
-#include <QMediaPlayer>
-#include <QSoundEffect>
 #include <QProcess>
 #include <QUrl>
 
@@ -30,6 +28,7 @@
 #include "page7.h"
 #include "alertpage9.h"
 #include "page10.h"
+#include "voicealert.h"
 
 class pageIndex: public QObject
 {
@@ -45,8 +44,10 @@ public:
     introduce *p2;
     userBook *p3;
     login *p4;
-    page5 *p5;
-    QMediaPlayer *p1_song;
+    page5 *p5;   
+
+private:
+    void AlertVoicePlay(QString);
 
 public slots:
     void switch_page_1_2();
@@ -62,8 +63,7 @@ public slots:
     void return_page_5_4();
 
     void showAlertPage9();
-//    void stopAlertPage9();
-    void loading();
+    void stopAlertPage9();
 
 };
 

@@ -23,16 +23,14 @@ page5::page5(QWidget *parent) :
     showtimeLabel = ui->label_4;
     tmpSlider = ui->verticalSlider;
     humSlider = ui->verticalSlider_2;
-    crowdSlider = ui->verticalSlider_3;
     tmp = ui->label_8;
     hum = ui->label_9;
-    crowd = ui->label_10;
     tmp->setText("26");
     hum->setText("60");
-    crowd->setText("60");
     sensorDataUpdate();
     QTimer *timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(timerUpdate()));
+    connect(timer,SIGNAL(timeout()),this,SLOT(sensorDataUpdate()));
     timer->start(1000);
     raiseLabel();
 }
@@ -59,16 +57,12 @@ void page5::raiseLabel()
     ui->label_4->raise();
     ui->label_5->raise();
     ui->label_6->raise();
-    ui->label_7->raise();
     ui->label_8->raise();
     ui->label_9->raise();
-    ui->label_10->raise();
     ui->label_13->raise();
     ui->label_14->raise();
-    ui->label_15->raise();
     ui->verticalSlider->raise();
     ui->verticalSlider_2->raise();
-    ui->verticalSlider_3->raise();
 }
 
 void page5::on_pushButton_4_clicked()  // if the return button was pressed
@@ -101,8 +95,9 @@ bool page5::Check_device_status()  // check if the all device is in good status
 
 void page5::sensorDataUpdate()
 {
-    qDebug() << tmp->text().toInt() << "hum :" << hum->text().toInt() << "crowd :" << crowd->text().toInt();
+    tmp->setText(QString::number(RealTimeSensor.tmp));
+    hum->setText(QString::number(RealTimeSensor.hum));
+    qDebug() << tmp->text().toInt() << "hum :" << hum->text().toInt();
     tmpSlider->setValue(tmp->text().toInt());
     humSlider->setValue(hum->text().toInt());
-    crowdSlider->setValue(crowd->text().toInt());
 }

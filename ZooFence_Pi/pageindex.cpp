@@ -1,5 +1,4 @@
 #include "pageindex.h"
-#include <QTimer>
 
 pageIndex::pageIndex()
 {
@@ -32,70 +31,29 @@ void pageIndex::init( )
     connect(p5, SIGNAL(return_index_5_4()), this, SLOT(return_page_5_4()));
 }
 
+void pageIndex::AlertVoicePlay(QString file)
+{
+
+}
+
 void pageIndex::play()
 {
     p1->show();    // show the welcome page while the program start;
-<<<<<<< HEAD
-    QMediaPlayer *p1_song = new QMediaPlayer;
-    p1_song->setMedia(QUrl::fromLocalFile("/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/build-ZooFence_Pi-Desktop_Qt_5_11_0_clang_64bit2-Debug/ZooFence_Pi.app/Contents/MacOS/voices/welcome.mp3"));
-    p1_song->setVolume(60);
-    p1_song->play();
-=======
+    VoiceAlert alert;
+    alert.Play(QString("welcome.mp3"));  // the voice file should be put under AppAppication's foler/voices/xxx.mp3
 
+//    QMediaPlayer *p1_song = new QMediaPlayer;
+//    p1_song->setMedia(QUrl::fromLocalFile("/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/build-ZooFence_Pi-Desktop_Qt_5_11_0_clang_64bit2-Debug/ZooFence_Pi.app/Contents/MacOS/voices/welcome.mp3"));
+//    p1_song->setVolume(60);
+//    p1_song->play();
+
+//    //play the alert voice when welcome page generated
 //    QProcess *process = new QProcess;
 //    QString s;
 //    s = QString("mplayer %1").arg("welcome.mp3");
 //    process->start(s);
 
-//    const QUrl url = QUrl(QLatin1String("/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/build-ZooFence_Pi-Raspi-Debug/voices/welcome.mp3"));
-//    MediaSource src(url);
-//    MediaObject obj;
-//    obj.setCurrentSource(src);
-//    VideoWidget video;
-//    video.show();
-//    AudioOutput audio(VideoCategory);
-//    Phonon::createPath(&obj, &video);
-//    Phonon::createPath(&obj, &audio);
-//    obj.play();
-
-//    QProcess::QProcess("mplayer welcome.mp3");
-
-//    p1_song = new QMediaPlayer;
-//    p1_song->setMedia(QUrl::fromLocalFile("/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/build-ZooFence_Pi-Raspi-Debug/voices/welcome.mp3"));
-//    p1_song->setVolume(60);
-//    p1_song->play();
-//    qDebug() << p1_song->mediaStatus();
-
-//    QTimer *timer1 = new QTimer(this);
-//    connect(timer1, SIGNAL(timeout()), this, SLOT(loading()));
-//    timer1->start(1000);
-
-//    QSoundEffect effect;
-//    effect.setSource(QUrl::fromLocalFile("/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/build-ZooFence_Pi-Raspi-Debug/voices/welcome.mp3"));
-//    effect.setVolume(2.0f);
-//    effect.play();
-
-//    QProcess::execute("ls");
-//    QProcess voice;
-//    voice.start("mplayer",QStringList() <<"/home/pi/welcome.mp3");
-//    QProcess::execute("mplayer /home/pi/welcome.mp3");
-//    QProcess::execute("ls");
-
-//    voice->start("cd " + qApp->applicationDirPath() + "/voices");
-//    voice->start("mplayer welcome.mp3");
-
-//    QProcess::execute(QString("cd " + qApp->applicationDirPath() + "/voices"));
-//    QProcess::execute("ls");
-//    QProcess::execute("mplayer welcome.mp3");
-
 }
-
-void pageIndex::loading()
-{
-    qDebug() << p1_song->mediaStatus();
->>>>>>> 44a6d85dda123b2c93a21ae9fbe92d8ec02ae222
-}
-
 
 //--------------------------------SLOTS-------------------------------------------
 
@@ -112,6 +70,8 @@ void pageIndex::switch_page_2_3()
 void pageIndex::switch_page_2_4()
 {
     p4->show();
+    VoiceAlert alert;
+    alert.Play(QString("login.mp3"));
 }
 
 void pageIndex::switch_page_4_5()
@@ -124,18 +84,24 @@ void pageIndex::switch_page_5_6()
 {
     page6 *p6 = new page6;
     p6->show();
+    VoiceAlert alert;
+    alert.Play(QString("search.mp3"));
 }
 
 void pageIndex::switch_page_5_7()
 {
     page7 *p7 = new page7;
     p7->show();
+    VoiceAlert alert;
+    alert.Play(QString("status.mp3"));
 }
 
 void pageIndex::switch_page_5_10()
 {
     page10 *p10 = new page10;
     p10->show();
+    VoiceAlert alert;
+    alert.Play(QString("Camera.mp3"));
 }
 
 //----------------------------------------------
@@ -156,6 +122,8 @@ void pageIndex::return_page_5_4()
 {
     p5->setVisible(false);
     p4->setVisible(true);
+    VoiceAlert alert;
+    alert.Play(QString("login.mp3"));
 }
 
 //------------------------------SLOTS FOR ALERT PAGE------------------------------
@@ -165,13 +133,20 @@ void pageIndex::showAlertPage9()
     alertPage9 *p9 = new alertPage9;
     p9->show();
     p9->captureImage();
+    VoiceAlert alert;
+    if(RealTimeSensor.ray == 1)  // if the ray sensor was triggered
+        alert.Play(QString("Across.mp3"));
+    else if(RealTimeSensor.distance < 8)  // if the distance sensor was tirggered
+        alert.Play(QString("Approach.mp3"));
+    else if(RealTimeSensor.animal == 1)  // if the animal sensor was triggered
+        alert.Play(QString("Animal.mp3"));
 }
 
-//void pageIndex::stopAlertPage9()
-//{
-//    qDebug() << "stop alert page!!";
-//    p9->hide();
-//}
+void pageIndex::stopAlertPage9()
+{
+    qDebug() << "stop alert page!!";
+    //p9->hide();
+}
 
 
 

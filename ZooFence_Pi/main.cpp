@@ -18,9 +18,6 @@
 #include <QString>
 #include <QDebug>
 #include <QObject>
-#include <QMediaPlayer>
-#include <QUrl>
-#include <QProcess>
 
 int main(int argc, char *argv[])
 {
@@ -43,14 +40,9 @@ int main(int argc, char *argv[])
     //Load main page
     pageIndex p;
     QObject::connect(&sensor, SIGNAL(showAlert()), &p, SLOT(showAlertPage9()));
-//    QObject::connect(&sensor, SIGNAL(stopAlert()), &p, SLOT(stopAlertPage9()));
+    QObject::connect(&sensor, SIGNAL(stopAlert()), &p, SLOT(stopAlertPage9()));
     p.init();
     p.play();
-
-    QProcess *process = new QProcess;
-    QString s;
-    s = QString("mplayer %1").arg("welcome.mp3");
-    process->start(s);
 
     return a.exec();
 }
