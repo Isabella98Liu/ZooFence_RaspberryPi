@@ -30,6 +30,8 @@
 #include "page10.h"
 #include "voicealert.h"
 
+extern bool isLogin;
+
 class pageIndex: public QObject
 {
     Q_OBJECT

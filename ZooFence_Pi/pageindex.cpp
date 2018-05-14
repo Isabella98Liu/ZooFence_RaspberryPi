@@ -1,8 +1,10 @@
 #include "pageindex.h"
 
+bool isLogin;
+
 pageIndex::pageIndex()
 {
-
+    isLogin = false;
 }
 
 pageIndex::~pageIndex()
@@ -78,6 +80,7 @@ void pageIndex::switch_page_4_5()
 {
     p4->setVisible(false);
     p5->show();
+    isLogin = true;
 }
 
 void pageIndex::switch_page_5_6()

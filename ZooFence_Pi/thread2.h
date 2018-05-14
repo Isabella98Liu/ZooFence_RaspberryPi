@@ -9,6 +9,7 @@
 
 #include "dataupdate.h"
 #include "sensor.h"
+#include "pageindex.h"
 
 extern bool isAlert;
 

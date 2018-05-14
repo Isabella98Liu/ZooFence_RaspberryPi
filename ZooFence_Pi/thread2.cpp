@@ -16,7 +16,7 @@ void Thread2::run()
         dataUpdate.DatabaseOperate();
         if(RealTimeSensor.ray | RealTimeSensor.animal | (RealTimeSensor.distance < distance_value))
         {
-            if(!isAlert)
+            if((!isAlert) && isLogin)  // if alert was triggered and user logined
             {
                 emit showAlert();
                 qDebug() << "alert!!!!";
