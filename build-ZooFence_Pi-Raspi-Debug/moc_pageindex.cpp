@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_pageIndex_t {
     QByteArrayData data[14];
-    char stringdata0[195];
+    char stringdata0[202];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -42,7 +42,7 @@ QT_MOC_LITERAL(9, 124, 15), // "return_page_3_2"
 QT_MOC_LITERAL(10, 140, 15), // "return_page_4_2"
 QT_MOC_LITERAL(11, 156, 15), // "return_page_5_4"
 QT_MOC_LITERAL(12, 172, 14), // "showAlertPage9"
-QT_MOC_LITERAL(13, 187, 7) // "loading"
+QT_MOC_LITERAL(13, 187, 14) // "stopAlertPage9"
 
     },
     "pageIndex\0switch_page_1_2\0\0switch_page_2_3\0"
@@ -50,7 +50,7 @@ QT_MOC_LITERAL(13, 187, 7) // "loading"
     "switch_page_5_6\0switch_page_5_7\0"
     "switch_page_5_10\0return_page_3_2\0"
     "return_page_4_2\0return_page_5_4\0"
-    "showAlertPage9\0loading"
+    "showAlertPage9\0stopAlertPage9"
 };
 #undef QT_MOC_LITERAL
 
@@ -115,7 +115,7 @@ void pageIndex::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 8: _t->return_page_4_2(); break;
         case 9: _t->return_page_5_4(); break;
         case 10: _t->showAlertPage9(); break;
-        case 11: _t->loading(); break;
+        case 11: _t->stopAlertPage9(); break;
         default: ;
         }
     }

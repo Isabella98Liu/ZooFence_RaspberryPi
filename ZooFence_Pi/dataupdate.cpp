@@ -7,17 +7,29 @@ DataUpdate::DataUpdate()
     database = QSqlDatabase::addDatabase("QSQLITE");  // create a database
     folderPath = qApp->applicationDirPath();  //get the directory path of the picture folder
     database.setDatabaseName(QString(folderPath + "/SensorData.db"));  //rename the database, if the database does not exists, then create, else if it exists, then use
+    RealTimeSensor.ray = 0;
+    RealTimeSensor.distance = 1000;
+    RealTimeSensor.animal = 0;
 }
 
 void DataUpdate::DatabaseOperate()  // insert data into the database
 {
-    if(database.open())
+    qDebug() << "Last Record: " << RealTimeSensor.tmp << "  " <<RealTimeSensor.hum;
+    if(database.isOpen() == false)
     {
+        database.open();
+//        if(database.open())
+//        {
 //        qDebug() << "database opened!";
-        QSqlQuery sql_query;
-        SensorDataUpdate(sql_query);  // get the last record of the sensor and store it into the program class
+//            QSqlQuery sql_query1;
+//            SensorDataUpdate(sql_query1);  // get the last record of the sensor and store it into the program class
+//         }
+     }
+    else
+    {
+        QSqlQuery sql_query2;
+        SensorDataUpdate(sql_query2);  // get the last record of the sensor and store it into the program class
     }
-    database.close();
 }
 
 void DataUpdate::DatabaseCreate(QSqlQuery sql_query)  // create table

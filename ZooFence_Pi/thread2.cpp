@@ -14,7 +14,6 @@ void Thread2::run()
     while(1)
     {
         dataUpdate.DatabaseOperate();
-
         if(RealTimeSensor.ray | RealTimeSensor.animal | (RealTimeSensor.distance < distance_value))
         {
             if(!isAlert)

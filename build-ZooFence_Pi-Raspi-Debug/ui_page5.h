@@ -33,22 +33,17 @@ public:
     QLabel *label_4;
     QLabel *label_5;
     QLabel *label_6;
-    QLabel *label_7;
     QLabel *label_8;
     QLabel *label_9;
-    QLabel *label_10;
     QLabel *label_13;
     QSlider *verticalSlider;
     QSlider *verticalSlider_2;
-    QSlider *verticalSlider_3;
     QLabel *label_11;
     QLabel *label_12;
     QPushButton *pushButton_4;
     QLabel *label_14;
-    QLabel *label_15;
     QLabel *label_16;
     QLabel *label_17;
-    QLabel *label_18;
 
     void setupUi(QWidget *page5)
     {
@@ -109,10 +104,6 @@ public:
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setGeometry(QRect(670, 490, 41, 31));
         label_6->setFont(font);
-        label_7 = new QLabel(page5);
-        label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setGeometry(QRect(790, 490, 71, 31));
-        label_7->setFont(font);
         label_8 = new QLabel(page5);
         label_8->setObjectName(QStringLiteral("label_8"));
         label_8->setGeometry(QRect(530, 260, 51, 31));
@@ -124,10 +115,6 @@ public:
         label_9->setObjectName(QStringLiteral("label_9"));
         label_9->setGeometry(QRect(660, 260, 51, 31));
         label_9->setFont(font2);
-        label_10 = new QLabel(page5);
-        label_10->setObjectName(QStringLiteral("label_10"));
-        label_10->setGeometry(QRect(790, 260, 51, 31));
-        label_10->setFont(font2);
         label_13 = new QLabel(page5);
         label_13->setObjectName(QStringLiteral("label_13"));
         label_13->setGeometry(QRect(540, 320, 41, 141));
@@ -145,11 +132,6 @@ public:
         verticalSlider_2->setGeometry(QRect(680, 330, 22, 111));
         verticalSlider_2->setMaximum(100);
         verticalSlider_2->setOrientation(Qt::Vertical);
-        verticalSlider_3 = new QSlider(page5);
-        verticalSlider_3->setObjectName(QStringLiteral("verticalSlider_3"));
-        verticalSlider_3->setGeometry(QRect(810, 330, 22, 111));
-        verticalSlider_3->setMaximum(100);
-        verticalSlider_3->setOrientation(Qt::Vertical);
         label_11 = new QLabel(page5);
         label_11->setObjectName(QStringLiteral("label_11"));
         label_11->setGeometry(QRect(480, 50, 421, 160));
@@ -179,12 +161,6 @@ public:
         label_14->setTextFormat(Qt::PlainText);
         label_14->setPixmap(QPixmap(QString::fromUtf8(":/.001/Resources/005/tem.png")));
         label_14->setScaledContents(true);
-        label_15 = new QLabel(page5);
-        label_15->setObjectName(QStringLiteral("label_15"));
-        label_15->setGeometry(QRect(800, 320, 41, 141));
-        label_15->setTextFormat(Qt::PlainText);
-        label_15->setPixmap(QPixmap(QString::fromUtf8(":/.001/Resources/005/tem.png")));
-        label_15->setScaledContents(true);
         label_16 = new QLabel(page5);
         label_16->setObjectName(QStringLiteral("label_16"));
         label_16->setGeometry(QRect(580, 260, 41, 31));
@@ -193,10 +169,6 @@ public:
         label_17->setObjectName(QStringLiteral("label_17"));
         label_17->setGeometry(QRect(710, 260, 31, 31));
         label_17->setFont(font2);
-        label_18 = new QLabel(page5);
-        label_18->setObjectName(QStringLiteral("label_18"));
-        label_18->setGeometry(QRect(840, 260, 31, 31));
-        label_18->setFont(font2);
 
         retranslateUi(page5);
 
@@ -215,19 +187,15 @@ public:
         label_4->setText(QApplication::translate("page5", "TextLabel", Q_NULLPTR));
         label_5->setText(QApplication::translate("page5", "<html><head/><body><p>\346\270\251\345\272\246</p></body></html>", Q_NULLPTR));
         label_6->setText(QApplication::translate("page5", "<html><head/><body><p>\346\271\277\345\272\246</p></body></html>", Q_NULLPTR));
-        label_7->setText(QApplication::translate("page5", "<html><head/><body><p>\346\213\245\346\214\244\345\272\246</p></body></html>", Q_NULLPTR));
         label_8->setText(QApplication::translate("page5", "<html><head/><body><p><br/></p></body></html>", Q_NULLPTR));
         label_9->setText(QApplication::translate("page5", "<html><head/><body><p><br/></p></body></html>", Q_NULLPTR));
-        label_10->setText(QApplication::translate("page5", "<html><head/><body><p><br/></p></body></html>", Q_NULLPTR));
         label_13->setText(QString());
         label_11->setText(QString());
         label_12->setText(QString());
         pushButton_4->setText(QString());
         label_14->setText(QString());
-        label_15->setText(QString());
         label_16->setText(QApplication::translate("page5", "<html><head/><body><p>\302\260C</p></body></html>", Q_NULLPTR));
         label_17->setText(QApplication::translate("page5", "<html><head/><body><p>%</p></body></html>", Q_NULLPTR));
-        label_18->setText(QApplication::translate("page5", "<html><head/><body><p>%</p></body></html>", Q_NULLPTR));
     } // retranslateUi
 
 };
