@@ -6,6 +6,7 @@
 
 QT += core gui widgets multimedia multimediawidgets
 QT += sql
+#QT += phonon
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

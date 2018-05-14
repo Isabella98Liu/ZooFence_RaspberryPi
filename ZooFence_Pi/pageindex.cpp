@@ -1,4 +1,5 @@
 #include "pageindex.h"
+#include <QTimer>
 
 pageIndex::pageIndex()
 {
@@ -34,10 +35,34 @@ void pageIndex::init( )
 void pageIndex::play()
 {
     p1->show();    // show the welcome page while the program start;
-//    QMediaPlayer *p1_song = new QMediaPlayer;
+
+//    QProcess *process = new QProcess;
+//    QString s;
+//    s = QString("mplayer %1").arg("welcome.mp3");
+//    process->start(s);
+
+//    const QUrl url = QUrl(QLatin1String("/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/build-ZooFence_Pi-Raspi-Debug/voices/welcome.mp3"));
+//    MediaSource src(url);
+//    MediaObject obj;
+//    obj.setCurrentSource(src);
+//    VideoWidget video;
+//    video.show();
+//    AudioOutput audio(VideoCategory);
+//    Phonon::createPath(&obj, &video);
+//    Phonon::createPath(&obj, &audio);
+//    obj.play();
+
+//    QProcess::QProcess("mplayer welcome.mp3");
+
+//    p1_song = new QMediaPlayer;
 //    p1_song->setMedia(QUrl::fromLocalFile("/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/build-ZooFence_Pi-Raspi-Debug/voices/welcome.mp3"));
 //    p1_song->setVolume(60);
 //    p1_song->play();
+//    qDebug() << p1_song->mediaStatus();
+
+//    QTimer *timer1 = new QTimer(this);
+//    connect(timer1, SIGNAL(timeout()), this, SLOT(loading()));
+//    timer1->start(1000);
 
 //    QSoundEffect effect;
 //    effect.setSource(QUrl::fromLocalFile("/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/build-ZooFence_Pi-Raspi-Debug/voices/welcome.mp3"));
@@ -57,6 +82,11 @@ void pageIndex::play()
 //    QProcess::execute("ls");
 //    QProcess::execute("mplayer welcome.mp3");
 
+}
+
+void pageIndex::loading()
+{
+    qDebug() << p1_song->mediaStatus();
 }
 
 

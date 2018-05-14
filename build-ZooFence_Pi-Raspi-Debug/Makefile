@@ -445,6 +445,7 @@ moc_pageindex.cpp: ../ZooFence_Pi/welcomepage.h \
 		../ZooFence_Pi/alertpage9.h \
 		../ZooFence_Pi/dataupdate.h \
 		../ZooFence_Pi/sensor.h \
+		../ZooFence_Pi/thread2.h \
 		../ZooFence_Pi/page10.h \
 		../ZooFence_Pi/pageindex.h \
 		/usr/lib/arm-linux-gnueabihf/qt5/bin/moc
@@ -460,6 +461,7 @@ moc_userbook.cpp: ../ZooFence_Pi/userbook.h \
 
 moc_alertpage9.cpp: ../ZooFence_Pi/dataupdate.h \
 		../ZooFence_Pi/sensor.h \
+		../ZooFence_Pi/thread2.h \
 		../ZooFence_Pi/alertpage9.h \
 		/usr/lib/arm-linux-gnueabihf/qt5/bin/moc
 	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/ZooFence_Pi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimediaWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtMultimedia -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtSql -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../ZooFence_Pi/alertpage9.h -o moc_alertpage9.cpp
@@ -563,8 +565,8 @@ main.o: ../ZooFence_Pi/main.cpp ../ZooFence_Pi/qss.h \
 		../ZooFence_Pi/alertpage9.h \
 		../ZooFence_Pi/dataupdate.h \
 		../ZooFence_Pi/sensor.h \
-		../ZooFence_Pi/page10.h \
-		../ZooFence_Pi/thread2.h
+		../ZooFence_Pi/thread2.h \
+		../ZooFence_Pi/page10.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../ZooFence_Pi/main.cpp
 
 introduce.o: ../ZooFence_Pi/introduce.cpp ../ZooFence_Pi/introduce.h \
@@ -585,6 +587,7 @@ welcomepage.o: ../ZooFence_Pi/welcomepage.cpp ../ZooFence_Pi/welcomepage.h \
 		../ZooFence_Pi/alertpage9.h \
 		../ZooFence_Pi/dataupdate.h \
 		../ZooFence_Pi/sensor.h \
+		../ZooFence_Pi/thread2.h \
 		../ZooFence_Pi/page10.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o welcomepage.o ../ZooFence_Pi/welcomepage.cpp
 
@@ -601,6 +604,7 @@ pageindex.o: ../ZooFence_Pi/pageindex.cpp ../ZooFence_Pi/pageindex.h \
 		../ZooFence_Pi/alertpage9.h \
 		../ZooFence_Pi/dataupdate.h \
 		../ZooFence_Pi/sensor.h \
+		../ZooFence_Pi/thread2.h \
 		../ZooFence_Pi/page10.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pageindex.o ../ZooFence_Pi/pageindex.cpp
 
@@ -615,6 +619,7 @@ userbook.o: ../ZooFence_Pi/userbook.cpp ../ZooFence_Pi/userbook.h \
 alertpage9.o: ../ZooFence_Pi/alertpage9.cpp ../ZooFence_Pi/alertpage9.h \
 		../ZooFence_Pi/dataupdate.h \
 		../ZooFence_Pi/sensor.h \
+		../ZooFence_Pi/thread2.h \
 		ui_alertpage9.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o alertpage9.o ../ZooFence_Pi/alertpage9.cpp
 
