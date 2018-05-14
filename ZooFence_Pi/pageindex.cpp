@@ -1,4 +1,5 @@
 #include "pageindex.h"
+#include <QTimer>
 
 pageIndex::pageIndex()
 {
@@ -34,10 +35,65 @@ void pageIndex::init( )
 void pageIndex::play()
 {
     p1->show();    // show the welcome page while the program start;
+<<<<<<< HEAD
     QMediaPlayer *p1_song = new QMediaPlayer;
     p1_song->setMedia(QUrl::fromLocalFile("/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/build-ZooFence_Pi-Desktop_Qt_5_11_0_clang_64bit2-Debug/ZooFence_Pi.app/Contents/MacOS/voices/welcome.mp3"));
     p1_song->setVolume(60);
     p1_song->play();
+=======
+
+//    QProcess *process = new QProcess;
+//    QString s;
+//    s = QString("mplayer %1").arg("welcome.mp3");
+//    process->start(s);
+
+//    const QUrl url = QUrl(QLatin1String("/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/build-ZooFence_Pi-Raspi-Debug/voices/welcome.mp3"));
+//    MediaSource src(url);
+//    MediaObject obj;
+//    obj.setCurrentSource(src);
+//    VideoWidget video;
+//    video.show();
+//    AudioOutput audio(VideoCategory);
+//    Phonon::createPath(&obj, &video);
+//    Phonon::createPath(&obj, &audio);
+//    obj.play();
+
+//    QProcess::QProcess("mplayer welcome.mp3");
+
+//    p1_song = new QMediaPlayer;
+//    p1_song->setMedia(QUrl::fromLocalFile("/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/build-ZooFence_Pi-Raspi-Debug/voices/welcome.mp3"));
+//    p1_song->setVolume(60);
+//    p1_song->play();
+//    qDebug() << p1_song->mediaStatus();
+
+//    QTimer *timer1 = new QTimer(this);
+//    connect(timer1, SIGNAL(timeout()), this, SLOT(loading()));
+//    timer1->start(1000);
+
+//    QSoundEffect effect;
+//    effect.setSource(QUrl::fromLocalFile("/home/pi/Qt/ZooFence/ZooFence_RaspberryPi/build-ZooFence_Pi-Raspi-Debug/voices/welcome.mp3"));
+//    effect.setVolume(2.0f);
+//    effect.play();
+
+//    QProcess::execute("ls");
+//    QProcess voice;
+//    voice.start("mplayer",QStringList() <<"/home/pi/welcome.mp3");
+//    QProcess::execute("mplayer /home/pi/welcome.mp3");
+//    QProcess::execute("ls");
+
+//    voice->start("cd " + qApp->applicationDirPath() + "/voices");
+//    voice->start("mplayer welcome.mp3");
+
+//    QProcess::execute(QString("cd " + qApp->applicationDirPath() + "/voices"));
+//    QProcess::execute("ls");
+//    QProcess::execute("mplayer welcome.mp3");
+
+}
+
+void pageIndex::loading()
+{
+    qDebug() << p1_song->mediaStatus();
+>>>>>>> 44a6d85dda123b2c93a21ae9fbe92d8ec02ae222
 }
 
 

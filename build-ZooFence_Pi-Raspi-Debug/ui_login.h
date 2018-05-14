@@ -40,27 +40,27 @@ public:
     {
         if (login->objectName().isEmpty())
             login->setObjectName(QStringLiteral("login"));
-        login->resize(690, 535);
+        login->resize(1024, 600);
         label = new QLabel(login);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(270, 50, 150, 150));
+        label->setGeometry(QRect(470, 80, 150, 150));
         label_2 = new QLabel(login);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(150, 260, 50, 50));
+        label_2->setGeometry(QRect(350, 290, 50, 50));
         label_3 = new QLabel(login);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(210, 260, 91, 50));
+        label_3->setGeometry(QRect(410, 290, 91, 50));
         label_3->setScaledContents(false);
         label_4 = new QLabel(login);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(210, 340, 91, 50));
+        label_4->setGeometry(QRect(410, 370, 91, 50));
         label_4->setScaledContents(false);
         label_5 = new QLabel(login);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(150, 340, 50, 50));
+        label_5->setGeometry(QRect(350, 370, 50, 50));
         pushButton = new QPushButton(login);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(270, 460, 151, 41));
+        pushButton->setGeometry(QRect(470, 490, 151, 41));
         QFont font;
         font.setPointSize(16);
         pushButton->setFont(font);
@@ -77,13 +77,13 @@ public:
         returnButton->setIconSize(QSize(30, 30));
         lineEdit = new QLineEdit(login);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(300, 270, 141, 31));
+        lineEdit->setGeometry(QRect(500, 300, 141, 31));
         lineEdit_2 = new QLineEdit(login);
         lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setGeometry(QRect(300, 350, 141, 31));
+        lineEdit_2->setGeometry(QRect(500, 380, 141, 31));
         label_6 = new QLabel(login);
         label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(310, 390, 70, 70));
+        label_6->setGeometry(QRect(510, 420, 70, 70));
 
         retranslateUi(login);
 

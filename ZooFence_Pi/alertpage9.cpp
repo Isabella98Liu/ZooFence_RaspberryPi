@@ -112,5 +112,6 @@ void alertPage9::saveImage(int i, QImage img)
 
 void alertPage9::on_pushButton_3_clicked()  // if the stop button was clicked
 {
+    isAlert = false;
     close();
 }

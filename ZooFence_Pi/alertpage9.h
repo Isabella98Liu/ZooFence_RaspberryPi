@@ -15,6 +15,7 @@
 #include <QLabel>
 
 #include "dataupdate.h"
+#include "thread2.h"
 
 namespace Ui {
 class alertPage9;

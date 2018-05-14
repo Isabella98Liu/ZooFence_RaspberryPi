@@ -7,7 +7,19 @@
 #include <QDesktopWidget>
 #include <QApplication>
 #include <QDebug>
+
 #include <QMediaPlayer>
+#include <QSoundEffect>
+#include <QProcess>
+#include <QUrl>
+
+//#include <phonon/audiooutput.h>
+//#include <phonon/mediaobject.h>
+//#include <phonon/mediasource.h>
+//#include <phonon/videowidget.h>
+
+//using namespace Phonon;
+
 
 #include "welcomepage.h"
 #include "introduce.h"
@@ -34,6 +46,7 @@ public:
     userBook *p3;
     login *p4;
     page5 *p5;
+    QMediaPlayer *p1_song;
 
 public slots:
     void switch_page_1_2();
@@ -50,6 +63,7 @@ public slots:
 
     void showAlertPage9();
 //    void stopAlertPage9();
+    void loading();
 
 };
 

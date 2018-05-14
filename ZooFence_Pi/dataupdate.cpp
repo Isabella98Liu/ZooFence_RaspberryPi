@@ -5,8 +5,8 @@ Sensor RealTimeSensor;
 DataUpdate::DataUpdate()
 {
     database = QSqlDatabase::addDatabase("QSQLITE");  // create a database
-    database.setDatabaseName("SensorData.db");  //rename the database, if the database does not exists, then create, else if it exists, then use it
-    folderPath = qApp->applicationDirPath();  //get the directory path of the icture folder
+    folderPath = qApp->applicationDirPath();  //get the directory path of the picture folder
+    database.setDatabaseName(QString(folderPath + "/SensorData.db"));  //rename the database, if the database does not exists, then create, else if it exists, then use
 }
 
 void DataUpdate::DatabaseOperate()  // insert data into the database
@@ -22,52 +22,60 @@ void DataUpdate::DatabaseOperate()  // insert data into the database
 
 void DataUpdate::DatabaseCreate(QSqlQuery sql_query)  // create table
 {
-    QString create_sql = "CREATE TABLE SENSOR (id INT PRIMARY KEY, tmp INT, hum INT, ray BOOL, distance INT, animal BOOL)";
-    sql_query.prepare(create_sql);
-    if(!sql_query.exec())
+    if(database.open())
     {
-        qDebug() << "Table Create Failed!";
-        qDebug() << sql_query.lastError();
+        QString create_sql = "CREATE TABLE SENSOR (id INT PRIMARY KEY, tmp INT, hum INT, ray BOOL, distance INT, animal BOOL)";
+        sql_query.prepare(create_sql);
+        if(!sql_query.exec())
+        {
+            qDebug() << "Table Create Failed!";
+            qDebug() << sql_query.lastError();
+        }
+        else
+        {
+            qDebug() << "Table Created Successfully!";
+        }
     }
-    else
-    {
-        qDebug() << "Table Created Successfully!";
-    }
+    database.close();
 }
 
 void DataUpdate::DatabaseInsert(QSqlQuery sql_query)  // insert data into table
 {
-    QString insert_sql = "INSERT INTO SENSOR VALUES (?,?,?,?,?,?)";  // insert value into table
-    sql_query.prepare(insert_sql);
-    QVariantList GroupIDs;
-    QVariantList GroupTMPs;
-    QVariantList GroupHUMs;
-    QVariantList GroupRAYs;
-    QVariantList GroupDISTANCEs;
-    QVariantList GroupANIMALs;
-
-    GroupIDs.append(0);
-    GroupTMPs.append(25);
-    GroupHUMs.append(79);
-    GroupRAYs.append(false);
-    GroupDISTANCEs.append(0);
-    GroupANIMALs.append(false);
-
-    sql_query.addBindValue(GroupIDs);
-    sql_query.addBindValue(GroupTMPs);
-    sql_query.addBindValue(GroupHUMs);
-    sql_query.addBindValue(GroupRAYs);
-    sql_query.addBindValue(GroupDISTANCEs);
-    sql_query.addBindValue(GroupANIMALs);
-
-    if(!sql_query.execBatch())
+    if(database.open())
     {
-        qDebug() << sql_query.lastError();
+        QString insert_sql = "INSERT INTO SENSOR VALUES (?,?,?,?,?,?)";  // insert value into table
+        sql_query.prepare(insert_sql);
+        QVariantList GroupIDs;
+        QVariantList GroupTMPs;
+        QVariantList GroupHUMs;
+        QVariantList GroupRAYs;
+        QVariantList GroupDISTANCEs;
+        QVariantList GroupANIMALs;
+
+        GroupIDs.append(0);
+        GroupTMPs.append(25);
+        GroupHUMs.append(79);
+        GroupRAYs.append(false);
+        GroupDISTANCEs.append(0);
+        GroupANIMALs.append(false);
+
+        sql_query.addBindValue(GroupIDs);
+        sql_query.addBindValue(GroupTMPs);
+        sql_query.addBindValue(GroupHUMs);
+        sql_query.addBindValue(GroupRAYs);
+        sql_query.addBindValue(GroupDISTANCEs);
+        sql_query.addBindValue(GroupANIMALs);
+
+        if(!sql_query.execBatch())
+        {
+            qDebug() << sql_query.lastError();
+        }
+        else
+        {
+            qDebug() << "Insert Success!!!";
+        }
     }
-    else
-    {
-        qDebug() << "Insert Success!!!";
-    }
+    database.close();
 }
 
 void DataUpdate::DatavbaseSelect(QSqlQuery sql_query)  // select all factor from the table in database
