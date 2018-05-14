@@ -36,7 +36,7 @@ void pageIndex::play()
     p1->show();    // show the welcome page while the program start;
     QMediaPlayer *p1_song = new QMediaPlayer;
     p1_song->setMedia(QUrl::fromLocalFile("/Users/Isabella/Qt_Softwares/ZooFence_RaspberryPi/build-ZooFence_Pi-Desktop_Qt_5_11_0_clang_64bit2-Debug/ZooFence_Pi.app/Contents/MacOS/voices/welcome.mp3"));
-    p1_song->setVolume(30);
+    p1_song->setVolume(60);
     p1_song->play();
 }
 

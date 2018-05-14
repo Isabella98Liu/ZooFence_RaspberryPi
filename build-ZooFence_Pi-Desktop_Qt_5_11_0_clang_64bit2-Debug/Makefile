@@ -886,6 +886,8 @@ moc_pageindex.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/H
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/QMediaPlayer \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/qmediaplayer.h \
 		../ZooFence_Pi/welcomepage.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -947,6 +949,19 @@ moc_pageindex.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/H
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QCloseEvent \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
+		../ZooFence_Pi/dataupdate.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QTime \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSql \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariantList \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
+		../ZooFence_Pi/sensor.h \
 		../ZooFence_Pi/page10.h \
 		../ZooFence_Pi/pageindex.h \
 		moc_predefs.h \
@@ -1011,6 +1026,27 @@ moc_alertpage9.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framewo
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDesktopWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QTimer \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QLabel \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \
+		../ZooFence_Pi/dataupdate.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QTime \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSql \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariantList \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
+		../ZooFence_Pi/sensor.h \
 		../ZooFence_Pi/alertpage9.h \
 		moc_predefs.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/bin/moc
@@ -1245,6 +1281,8 @@ main.o: ../ZooFence_Pi/main.cpp ../ZooFence_Pi/qss.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/QMediaPlayer \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/qmediaplayer.h \
 		../ZooFence_Pi/welcomepage.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1304,7 +1342,6 @@ main.o: ../ZooFence_Pi/main.cpp ../ZooFence_Pi/qss.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDateTime \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QCloseEvent \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
-		../ZooFence_Pi/page10.h \
 		../ZooFence_Pi/dataupdate.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QTime \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSql \
@@ -1318,6 +1355,7 @@ main.o: ../ZooFence_Pi/main.cpp ../ZooFence_Pi/qss.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariantList \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
 		../ZooFence_Pi/sensor.h \
+		../ZooFence_Pi/page10.h \
 		../ZooFence_Pi/thread2.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QFont \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qfont.h
@@ -1375,6 +1413,8 @@ welcomepage.o: ../ZooFence_Pi/welcomepage.cpp ../ZooFence_Pi/welcomepage.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/QMediaPlayer \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/qmediaplayer.h \
 		../ZooFence_Pi/userbook.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/Qt \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qnamespace.h \
@@ -1416,6 +1456,19 @@ welcomepage.o: ../ZooFence_Pi/welcomepage.cpp ../ZooFence_Pi/welcomepage.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QCloseEvent \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
+		../ZooFence_Pi/dataupdate.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QTime \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSql \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariantList \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
+		../ZooFence_Pi/sensor.h \
 		../ZooFence_Pi/page10.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o welcomepage.o ../ZooFence_Pi/welcomepage.cpp
 
@@ -1432,6 +1485,8 @@ pageindex.o: ../ZooFence_Pi/pageindex.cpp ../ZooFence_Pi/pageindex.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/QMediaPlayer \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/qmediaplayer.h \
 		../ZooFence_Pi/welcomepage.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1493,6 +1548,19 @@ pageindex.o: ../ZooFence_Pi/pageindex.cpp ../ZooFence_Pi/pageindex.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QCloseEvent \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
+		../ZooFence_Pi/dataupdate.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QTime \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSql \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariantList \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
+		../ZooFence_Pi/sensor.h \
 		../ZooFence_Pi/page10.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pageindex.o ../ZooFence_Pi/pageindex.cpp
 
@@ -1553,6 +1621,27 @@ alertpage9.o: ../ZooFence_Pi/alertpage9.cpp ../ZooFence_Pi/alertpage9.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDesktopWidget \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QTimer \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QLabel \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \
+		../ZooFence_Pi/dataupdate.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QTime \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSql \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariantList \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
+		../ZooFence_Pi/sensor.h \
 		ui_alertpage9.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o alertpage9.o ../ZooFence_Pi/alertpage9.cpp
 
