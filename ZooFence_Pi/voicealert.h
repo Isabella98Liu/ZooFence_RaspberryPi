@@ -11,6 +11,7 @@ class VoiceAlert
 public:
     VoiceAlert();
     void Play(QString);
+//    void LightSoundAlert();
 
 };
 

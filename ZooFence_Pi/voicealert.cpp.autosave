@@ -14,10 +14,10 @@ void VoiceAlert::Play(QString file)  // using mplayer to play the specific mp3 f
     voice->start(command);  //start the voice play command
 }
 
-void VoiceAlert::LightSoundAlert()  // enable light & sound alert module when alert generated
-{
-    QString folderPath = qApp->applicationDirPath();
-    folderPath = folderPath + "Light_And_Sound_GPIO.py";
-    QProcess *LightAlert = QString("python %1").arg(folderPath);
-    LightAlert->start(LightAlert);
-}
+//void VoiceAlert::LightSoundAlert()  // enable light & sound alert module when alert generated
+//{
+//    QString folderPath = qApp->applicationDirPath();
+//    folderPath = folderPath + "Light_And_Sound_GPIO.py";
+//    QProcess *LightAlert = QString("python %1").arg(folderPath);
+//    LightAlert->start(LightAlert);  // enable the light and voice alert module using python file 
+//}
