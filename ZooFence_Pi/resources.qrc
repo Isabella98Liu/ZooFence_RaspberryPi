@@ -18,6 +18,8 @@
         <file>Resources/007/check.png</file>
         <file>Resources/004/Spinner.gif</file>
         <file>Resources/005/tem.png</file>
+        <file>Resources/005/red_bulb.png</file>
+        <file>Resources/005/white_bulb.png</file>
     </qresource>
     <qresource prefix="/qss">
         <file>QSS/page2.qss</file>

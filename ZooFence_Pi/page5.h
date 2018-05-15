@@ -39,6 +39,9 @@ private:
     QSlider *humSlider;
     QLabel *tmp;
     QLabel *hum;
+    QLabel *red_bulb_1;
+    QLabel *red_bulb_2;
+    QLabel *distance;
     bool Check_device_status();
 
   private slots:

@@ -820,6 +820,8 @@ qrc_resources.cpp: ../ZooFence_Pi/resources.qrc \
 		../ZooFence_Pi/Resources/007/check.png \
 		../ZooFence_Pi/Resources/006/fine.png \
 		../ZooFence_Pi/Resources/005/vedio.png \
+		../ZooFence_Pi/Resources/005/red_bulb.png \
+		../ZooFence_Pi/Resources/005/white_bulb.png \
 		../ZooFence_Pi/Resources/005/tem.png \
 		../ZooFence_Pi/Resources/005/checking.png \
 		../ZooFence_Pi/Resources/005/researching.png \
@@ -969,6 +971,7 @@ moc_pageindex.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/H
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QCloseEvent \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		../ZooFence_Pi/thread2.h \
+		../ZooFence_Pi/pageindex.h \
 		../ZooFence_Pi/page10.h \
 		../ZooFence_Pi/voicealert.h \
 		../ZooFence_Pi/pageindex.h \
@@ -1060,6 +1063,54 @@ moc_alertpage9.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framewo
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QThread \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qthread.h \
+		../ZooFence_Pi/pageindex.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QRect \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qrect.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QProcess \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qprocess.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QUrl \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qurl.h \
+		../ZooFence_Pi/welcomepage.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QMovie \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qmovie.h \
+		../ZooFence_Pi/introduce.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QImage \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QIcon \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qicon.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../ZooFence_Pi/userbook.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/Qt \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qnamespace.h \
+		../ZooFence_Pi/login.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QLineEdit \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlineedit.h \
+		../ZooFence_Pi/page5.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QSlider \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qslider.h \
+		../ZooFence_Pi/page7.h \
+		../ZooFence_Pi/page6.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDateEdit \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdatetimeedit.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QComboBox \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qcombobox.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QRegExp \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qregexp.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QListWidget \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDir \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdir.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QSize \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qsize.h \
+		../ZooFence_Pi/page8.h \
+		../ZooFence_Pi/searchindex.h \
+		../ZooFence_Pi/alertpage9.h \
+		../ZooFence_Pi/page10.h \
+		../ZooFence_Pi/voicealert.h \
 		../ZooFence_Pi/alertpage9.h \
 		moc_predefs.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/bin/moc
@@ -1231,6 +1282,76 @@ moc_thread2.cpp: ../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Hea
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariantList \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
 		../ZooFence_Pi/sensor.h \
+		../ZooFence_Pi/pageindex.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QRect \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qrect.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDesktopWidget \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QProcess \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qprocess.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QUrl \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qurl.h \
+		../ZooFence_Pi/welcomepage.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QMovie \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qmovie.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QLabel \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QTimer \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		../ZooFence_Pi/introduce.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QImage \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QIcon \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qicon.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../ZooFence_Pi/userbook.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/Qt \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qnamespace.h \
+		../ZooFence_Pi/login.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QLineEdit \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlineedit.h \
+		../ZooFence_Pi/page5.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QSlider \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qslider.h \
+		../ZooFence_Pi/page7.h \
+		../ZooFence_Pi/page6.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDateEdit \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdatetimeedit.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QComboBox \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qcombobox.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QRegExp \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qregexp.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QFileDialog \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QListWidget \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDir \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdir.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QSize \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qsize.h \
+		../ZooFence_Pi/page8.h \
+		../ZooFence_Pi/searchindex.h \
+		../ZooFence_Pi/alertpage9.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/QCamera \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/qcamera.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers/QCameraViewfinder \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers/qcameraviewfinder.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/QCameraImageCapture \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/qcameraimagecapture.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDateTime \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QCloseEvent \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
+		../ZooFence_Pi/thread2.h \
+		../ZooFence_Pi/page10.h \
+		../ZooFence_Pi/voicealert.h \
 		../ZooFence_Pi/thread2.h \
 		moc_predefs.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/bin/moc
@@ -1688,6 +1809,53 @@ alertpage9.o: ../ZooFence_Pi/alertpage9.cpp ../ZooFence_Pi/alertpage9.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QThread \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qthread.h \
+		../ZooFence_Pi/pageindex.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QRect \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qrect.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QProcess \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qprocess.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QUrl \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qurl.h \
+		../ZooFence_Pi/welcomepage.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QMovie \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qmovie.h \
+		../ZooFence_Pi/introduce.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QImage \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QIcon \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qicon.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../ZooFence_Pi/userbook.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/Qt \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qnamespace.h \
+		../ZooFence_Pi/login.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QLineEdit \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlineedit.h \
+		../ZooFence_Pi/page5.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QSlider \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qslider.h \
+		../ZooFence_Pi/page7.h \
+		../ZooFence_Pi/page6.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDateEdit \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdatetimeedit.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QComboBox \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qcombobox.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QRegExp \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qregexp.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QListWidget \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDir \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdir.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QSize \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qsize.h \
+		../ZooFence_Pi/page8.h \
+		../ZooFence_Pi/searchindex.h \
+		../ZooFence_Pi/page10.h \
+		../ZooFence_Pi/voicealert.h \
 		ui_alertpage9.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o alertpage9.o ../ZooFence_Pi/alertpage9.cpp
 
@@ -1888,7 +2056,76 @@ thread2.o: ../ZooFence_Pi/thread2.cpp ../ZooFence_Pi/thread2.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariantList \
 		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
-		../ZooFence_Pi/sensor.h
+		../ZooFence_Pi/sensor.h \
+		../ZooFence_Pi/pageindex.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QRect \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qrect.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDesktopWidget \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QProcess \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qprocess.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QUrl \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qurl.h \
+		../ZooFence_Pi/welcomepage.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QMovie \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qmovie.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QLabel \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QTimer \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		../ZooFence_Pi/introduce.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QImage \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QIcon \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qicon.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../ZooFence_Pi/userbook.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/Qt \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qnamespace.h \
+		../ZooFence_Pi/login.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QLineEdit \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlineedit.h \
+		../ZooFence_Pi/page5.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QSlider \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qslider.h \
+		../ZooFence_Pi/page7.h \
+		../ZooFence_Pi/page6.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDateEdit \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdatetimeedit.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QComboBox \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qcombobox.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QRegExp \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qregexp.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QFileDialog \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QListWidget \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDir \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qdir.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QSize \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qsize.h \
+		../ZooFence_Pi/page8.h \
+		../ZooFence_Pi/searchindex.h \
+		../ZooFence_Pi/alertpage9.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/QCamera \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/qcamera.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers/QCameraViewfinder \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimediaWidgets.framework/Headers/qcameraviewfinder.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/QCameraImageCapture \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtMultimedia.framework/Headers/qcameraimagecapture.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QDateTime \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/QCloseEvent \
+		../../../Qt_OpenSource/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
+		../ZooFence_Pi/page10.h \
+		../ZooFence_Pi/voicealert.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o thread2.o ../ZooFence_Pi/thread2.cpp
 
 voicealert.o: ../ZooFence_Pi/voicealert.cpp ../ZooFence_Pi/voicealert.h \

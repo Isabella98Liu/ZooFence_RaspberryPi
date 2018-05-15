@@ -23,6 +23,11 @@ page5::page5(QWidget *parent) :
     showtimeLabel = ui->label_4;
     tmpSlider = ui->verticalSlider;
     humSlider = ui->verticalSlider_2;
+    red_bulb_1 = ui->redbulb_1;
+    red_bulb_2 = ui->redbulb_2;
+    distance = ui->distance;
+    red_bulb_1->setVisible(false);
+    red_bulb_2->setVisible(false);
     tmp = ui->label_8;
     hum = ui->label_9;
     tmp->setText("26");
@@ -100,4 +105,13 @@ void page5::sensorDataUpdate()
     qDebug() << tmp->text().toInt() << "hum :" << hum->text().toInt();
     tmpSlider->setValue(tmp->text().toInt());
     humSlider->setValue(hum->text().toInt());
+    if(RealTimeSensor.ray == 1)
+        red_bulb_1->setVisible(true);
+    else
+        red_bulb_1->setVisible(false);
+    if(RealTimeSensor.animal == 1)
+        red_bulb_2->setVisible(true);
+    else
+        red_bulb_2->setVisible(false);
+    distance->setText(QString::number(RealTimeSensor.distance));
 }
